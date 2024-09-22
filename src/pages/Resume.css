@@ -7,20 +7,30 @@
   line-height: 1.2;
 }
 
-/* Header styles */
 .resume-header {
   text-align: center;
   margin-bottom: 20px;
 }
 
 .resume-header h1 {
-  font-size: 24px;
+  font-size: clamp(18px, 5vw, 24px);
   margin-bottom: 5px;
 }
 
-.resume-header p {
-  font-size: 14px;
-  margin: 0;
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(10px, 3vw, 14px);
+}
+
+.contact-info > * {
+  margin: 0 5px;
+}
+
+.separator {
+  display: inline-block;
 }
 
 .resume-header a {
@@ -28,6 +38,15 @@
   text-decoration: none;
 }
 
+@media (max-width: 600px) {
+  .separator {
+    display: none;
+  }
+  
+  .contact-info > * {
+    margin: 2px 5px;
+  }
+}
 /* Section styles */
 .resume-section {
   margin-bottom: 20px;

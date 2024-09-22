@@ -5,9 +5,12 @@ const Resume: React.FC = () => (
   <div className="resume-container">
     <header className="resume-header">
       <h1>Current Resume</h1>
-      <p>
-        <a href="mailto:jackpearson@pitt.edu">jackpearson@pitt.edu</a> | (267) -
-        218 - 8860 | LinkedIn:{" "}
+      <div className="contact-info">
+        <a href="mailto:jackpearson@pitt.edu">jackpearson@pitt.edu</a>
+        <span className="separator">|</span>
+        <span>(267) - 218 - 8860</span>
+        <span className="separator">|</span>
+        <span>LinkedIn: </span>
         <a
           href="https://www.linkedin.com/in/jackbpearson/"
           target="_blank"
@@ -15,7 +18,7 @@ const Resume: React.FC = () => (
         >
           jackbpearson
         </a>
-      </p>
+      </div>
     </header>
 
     <section className="resume-section education-section">
