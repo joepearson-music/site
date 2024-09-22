@@ -4,7 +4,7 @@ import "./Resume.css";
 const Resume: React.FC = () => (
   <div className="resume-container">
     <header className="resume-header">
-      <h1>Jack Pearson</h1>
+      <h1>Current Resume</h1>
       <p>
         <a href="mailto:jackpearson@pitt.edu">jackpearson@pitt.edu</a> | (267) -
         218 - 8860 | LinkedIn:{" "}
@@ -18,22 +18,22 @@ const Resume: React.FC = () => (
       </p>
     </header>
 
-    <section className="resume-section">
+    <section className="resume-section education-section">
       <h2>EDUCATION</h2>
       <div className="education-content">
         <div className="education-main">
-          <p>
-            <strong>University of Pittsburgh</strong>, Fredrick Honors College,
-            College of Business Administration
+          <p className="university">University of Pittsburgh</p>
+          <p className="college">
+            Fredrick Honors College, College of Business Administration
           </p>
-          <p>
+          <p className="degree">
             Bachelors of Philosophy in Business Administration, Major in
             Finance, Minor in Spanish
           </p>
         </div>
-        <div className="education-date">
-          August 2021 - December 2024
-          <p>GPA: 3.6/4</p>
+        <div className="education-details">
+          <p className="date">August 2021-December 2024</p>
+          <p className="gpa">GPA: 3.6/4</p>
         </div>
       </div>
       <p className="relevant-coursework">
@@ -160,49 +160,32 @@ const Resume: React.FC = () => (
 
     <section className="resume-section">
       <h2>LEADERSHIP AND ACTIVITIES</h2>
-      <div className="leadership-content">
-        <div className="leadership-main">
-          <p>
-            <strong>Pitt Men’s Water Polo Club</strong>
-          </p>
-          <p>
-            <em>Vice President</em>
-          </p>
-        </div>
-        <div className="leadership-location">
-          <p>Pittsburgh, PA</p>
-          <p>August 2023 - December 2023</p>
-        </div>
+      <div className="experience-item">
+        <h3>Pitt Men's Water Polo Club</h3>
+        <p className="experience-location">Pittsburgh, PA</p>
+        <p className="experience-position">
+          Vice President | August 2023-December 2023
+        </p>
       </div>
-
-      <div className="leadership-content">
-        <div className="leadership-main">
-          <p>
-            <strong>Center For Organ Recovery & Education</strong>,{" "}
-            <em>Consulting Field Project</em>
-          </p>
-          <p>
-            <em>Graduate Consultant</em>
-          </p>
-        </div>
-        <div className="leadership-location">
-          <p>Pittsburgh, PA</p>
-          <p>August 2023 - December 2023</p>
-        </div>
+      <div className="experience-item">
+        <h3>Center For Organ Recovery & Education, Consulting Field Project</h3>
+        <p className="experience-location">Pittsburgh, PA</p>
+        <p className="experience-position">
+          Graduate Consultant | August 2023-December 2023
+        </p>
+        <ul>
+          <li>
+            Built an Excel model to address staffing concerns based on the
+            expected donation rate of organs. (Offered a job by CORE)
+          </li>
+        </ul>
       </div>
-
-      <ul className="leadership-details">
-        <li>
-          Built an Excel model to address staffing concerns based on the
-          expected donation rate of organs. (Offered a job by CORE)
-        </li>
-      </ul>
     </section>
 
     <section className="resume-section">
       <h2>CERTIFICATIONS</h2>
       <div className="certifications-content">
-        <p>Bloomberg Terminal</p>
+        <p>Bloomberg Market Concepts</p>
         <p>Google Analytics Certification</p>
         <p>Replit 100 Days of Code (Python)</p>
       </div>
