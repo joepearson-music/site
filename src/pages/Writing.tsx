@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import ElieWieselEssay from "./writing/elie-wiesel-essay";
 import HonorsSustainabilityEssay from "./writing/honors-sustainability-essay";
 
 interface WritingItemProps {
@@ -30,15 +31,15 @@ const WritingList: React.FC = () => (
     <h2 style={{ marginBottom: "40px" }}>My Writing</h2>
     <WritingItem
       title="Sustainability Consumers as a Catalyst for Global Progress: A Study of Value in Consumers, Businesses, and the World."
-      type="Academic Paper"
+      type="BPhil Thesis"
       description="An in-depth analysis of how sustainable business practices can drive long-term growth and profitability in modern corporations."
       slug="thesis-sustainable-practices"
     />
     <WritingItem
       title="How Sustainable Business Can Build a Better Future"
-      type="Essay"
+      type="Essay Contest"
       description="Exploring the role of sustainable business practices in shaping a more environmentally conscious and socially responsible future."
-      slug="sustainable-business-essay"
+      slug="elie-wiesel-essay"
     />
     <WritingItem
       title="Quantifying the Climatic Impact of Anthropogenic Actions and the Imperative for Carbon Pricing Mechanisms"
@@ -74,15 +75,7 @@ const Writing: React.FC = () => (
         />
       }
     />
-    <Route
-      path="/sustainable-business-essay"
-      element={
-        <WritingPiece
-          title="How Sustainable Business Can Build a Better Future"
-          content="This is the content of the essay..."
-        />
-      }
-    />
+    <Route path="/elie-wiesel-essay" element={<ElieWieselEssay />} />
     <Route
       path="/honors-sustainability-essay"
       element={<HonorsSustainabilityEssay />}
