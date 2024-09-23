@@ -29,7 +29,7 @@ const WritingList: React.FC = () => (
   <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
     <h2 style={{ marginBottom: "40px" }}>My Writing</h2>
     <WritingItem
-      title="Thesis: The Impact of Sustainable Practices on Business Growth"
+      title="Sustainability Consumers as a Catalyst for Global Progress: A Study of Value in Consumers, Businesses, and the World."
       type="Academic Paper"
       description="An in-depth analysis of how sustainable business practices can drive long-term growth and profitability in modern corporations."
       slug="thesis-sustainable-practices"
@@ -41,7 +41,7 @@ const WritingList: React.FC = () => (
       slug="sustainable-business-essay"
     />
     <WritingItem
-      title="Honors Sustainability Essay"
+      title="Quantifying the Climatic Impact of Anthropogenic Actions and the Imperative for Carbon Pricing Mechanisms"
       type="Academic Essay"
       description="A comprehensive examination of current sustainability challenges and potential solutions across various industries and sectors."
       slug="honors-sustainability-essay"
