@@ -3,14 +3,15 @@ import { Link, Route, Routes } from "react-router-dom";
 import ElieWieselEssay from "./writing/elie-wiesel-essay";
 import HonorsSustainabilityEssay from "./writing/honors-sustainability-essay";
 
-interface WritingItemProps {
+export interface WritingItemProps {
   title: string;
   type: string;
   description: string;
   slug: string;
 }
 
-const WritingItem: React.FC<WritingItemProps> = ({
+// Define the WritingItem component
+export const WritingItem: React.FC<WritingItemProps> = ({
   title,
   type,
   description,
@@ -26,6 +27,7 @@ const WritingItem: React.FC<WritingItemProps> = ({
   </div>
 );
 
+// Define the WritingList component
 const WritingList: React.FC = () => (
   <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
     <h2 style={{ marginBottom: "40px" }}>My Writing</h2>
@@ -50,6 +52,7 @@ const WritingList: React.FC = () => (
   </div>
 );
 
+// Define the WritingPiece component
 const WritingPiece: React.FC<{ title: string; content: string }> = ({
   title,
   content,
@@ -63,6 +66,7 @@ const WritingPiece: React.FC<{ title: string; content: string }> = ({
   </div>
 );
 
+// Define the main Writing component with routes
 const Writing: React.FC = () => (
   <Routes>
     <Route path="/" element={<WritingList />} />
@@ -85,7 +89,7 @@ const Writing: React.FC = () => (
 
 const linkStyle: React.CSSProperties = {
   fontSize: "16px",
-  color: "#000",
+  color: "blue",
   textDecoration: "underline",
 };
 

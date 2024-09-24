@@ -4,6 +4,7 @@ import About from "./pages/About";
 import Blogs from "./pages/Blog";
 import Home from "./pages/Home";
 import Resume from "./pages/Resume";
+import Video from "./pages/Video";
 import Writing from "./pages/Writing";
 
 const App: React.FC = () => {
@@ -54,6 +55,9 @@ const App: React.FC = () => {
             <Link to="/writing" style={linkStyle}>
               Writing
             </Link>
+            <Link to="/video" style={linkStyle}>
+              Video
+            </Link>
           </nav>
         </header>
         <main
@@ -72,7 +76,9 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/writing" element={<Writing />} />
+            <Route path="/video" element={<Video />} />
             <Route path="/writing/*" element={<Writing />} />
+            <Route path="/blog/*" element={<Blogs />} />
           </Routes>
         </main>
       </div>
