@@ -26,8 +26,8 @@ const NewSite: React.FC = () => {
       <hr style={styles.horizontalLine} />
 
       <hr style={styles.horizontalLine} />
-      <Link to="/writing" style={styles.backLink}>
-        Back to Writing
+      <Link to="/blogs" style={styles.backLink}>
+        Back to Blogs
       </Link>
     </div>
   );

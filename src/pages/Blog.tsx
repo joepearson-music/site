@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import NewSite from "./blog/new-site";
 import PreJackPearsonBlogs from "./blog/pre-jack-pearson-blogs";
 
 export interface BlogPostProps {
@@ -51,7 +50,6 @@ const Blog: React.FC = () => (
   <Routes>
     <Route path="/" element={<BlogList />} />
     <Route path="/pre-jack-pearson-blogs" element={<PreJackPearsonBlogs />} />
-    <Route path="/new-site" element={<NewSite />} />
   </Routes>
 );
 
