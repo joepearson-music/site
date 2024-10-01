@@ -29,10 +29,7 @@ const BlogPost2: React.FC = () => {
       </p>
       <p style={styles.paragraph}>This was a few days at our new office.</p>
       <div style={styles.twitterEmbed}>
-        <TwitterTweetEmbed
-          tweetId={"1739121047213945089"}
-          options={{ theme: "dark" }}
-        />
+        <TwitterTweetEmbed tweetId="1739121047213945089" />
       </div>
       <p style={styles.paragraph}>
         So we all have been learning to code and working at the offices.

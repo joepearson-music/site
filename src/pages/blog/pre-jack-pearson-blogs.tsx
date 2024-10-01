@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BlogPost1 from "./components/blog1";
+import BlogPost1 from "./components/blog1/blog1";
 import BlogPost2 from "./components/blog2";
 import BlogPost3 from "./components/blog3";
 import BlogPost4 from "./components/blog4";
@@ -17,15 +17,10 @@ const NewSite: React.FC = () => {
         reminder of how far I grew in my technical journey.
       </div>
       <BlogPost4 />
-      <hr style={styles.horizontalLine} />
       <BlogPost3 />
-      <hr style={styles.horizontalLine} />
       <BlogPost2 />
-      <hr style={styles.horizontalLine} />
       <BlogPost1 />
-      <hr style={styles.horizontalLine} />
 
-      <hr style={styles.horizontalLine} />
       <Link to="/blogs" style={styles.backLink}>
         Back to Blogs
       </Link>

@@ -1,5 +1,7 @@
 import React from "react";
 import { TwitterTweetEmbed } from "react-twitter-embed";
+import Figure from "../../components/figure";
+import S9Message from "./Wix_Velo_Dev_Message_S9.png";
 
 const BlogPost3: React.FC = () => {
   return (
@@ -21,6 +23,15 @@ const BlogPost3: React.FC = () => {
         guidance and help to build our first version of the calculator. Below is
         a picture of the message I sent out to our developers.
       </p>
+
+      <Figure
+        imageSrc={S9Message}
+        altText="Message to S9 Consulting Developers"
+        caption="Actual Message I sent to S9 Consulting Developers"
+        size="small"
+        title="Message Sent to S9 Consulting Developers"
+      />
+
       <p style={styles.paragraph}>
         After I sent this I got a response very quickly from the S9 Consulting
         Developers and we hopped on a call on Dec 26th. I was impressed with
@@ -42,19 +53,7 @@ const BlogPost3: React.FC = () => {
         published these on our test site as well as the Forevergreen site. Below
         are the links to each blog if you want to check them out.
       </p>
-      <p style={styles.paragraph}>
-        We look to sustainable business strategy to guide our decision-making.
-        Operating an ethical business requires minimizing impacts on the planet,
-        future generations, and society. Many investors now will use ESG metrics
-        to evaluate companies as these considerations are valuable to understand
-        a company's longevity. In this paper, I will review three different
-        examples that have inspired me through their ethical and sustainable
-        business practices. We explore environmental impact and ethical sourcing
-        at Diamond Tropical Hardwoods, social impact and diversity initiatives
-        at BNP Paribas, and corporate social responsibility at Dicks Sporting
-        Goods and how their strategy does a fantastic job at creating shared
-        value and impacting their communities while producing profits.
-      </p>
+
       <p style={styles.paragraph}>
         I am interested to see if these proved to be helpful for the team.
       </p>
@@ -72,10 +71,7 @@ const BlogPost3: React.FC = () => {
       </p>
 
       <div style={styles.twitterEmbed}>
-        <TwitterTweetEmbed
-          tweetId={"1744228822436679908"}
-          options={{ theme: "dark" }}
-        />
+        <TwitterTweetEmbed tweetId={"1744228822436679908"} />
       </div>
 
       <p style={styles.paragraph}>
