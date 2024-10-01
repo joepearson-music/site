@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Figure from "../components/figure";
 import figure2_1 from "./images/honors-sustainability-essay/figure2-1.png";
 import figure2_2 from "./images/honors-sustainability-essay/figure2-2.png";
 import figure2_3 from "./images/honors-sustainability-essay/figure2-3.png";
@@ -116,7 +117,11 @@ const HonorsSustainabilityEssay: React.FC = () => {
         in the 20th century, the Keeling Curve. This shows the monthly average
         CO2 concentration in ppm.
       </p>
-      <img src={figure2_1} alt="Figure 2-1" style={styles.image} />
+      <Figure
+        imageSrc={figure2_1}
+        altText="Monthly Average Carbon Dioxide Concentration"
+        caption="Monthly Average Carbon Dioxide Concentration from 1960 to 2020"
+      />
 
       <h3 style={styles.subSectionTitle}>2.2 Impact of Global temperature</h3>
       <p style={styles.paragraph}>
@@ -135,8 +140,16 @@ const HonorsSustainabilityEssay: React.FC = () => {
         is directly from human activity.
       </p>
 
-      <img src={figure2_2} alt="Figure 2-2" style={styles.image} />
-      <img src={figure2_3} alt="Figure 2-3" style={styles.image} />
+      <Figure
+        imageSrc={figure2_2}
+        altText="Monthly Average Carbon Dioxide Concentration"
+        caption="Monthly Average Carbon Dioxide Concentration from 1960 to 2020"
+      />
+      <Figure
+        imageSrc={figure2_3}
+        altText="Monthly Average Carbon Dioxide Concentration"
+        caption="Monthly Average Carbon Dioxide Concentration from 1960 to 2020"
+      />
 
       <p style={styles.paragraph}>
         The concentration of carbon dioxide in the atmosphere rose from 275
@@ -152,7 +165,11 @@ const HonorsSustainabilityEssay: React.FC = () => {
         and provide electricity. Without fossil fuels many of our supply chains
         and manufacturing processes would not have sufficient power to operate.
       </p>
-      <img src={figure2_4} alt="Figure 2-4" style={styles.image} />
+      <Figure
+        imageSrc={figure2_4}
+        altText="Monthly Average Carbon Dioxide Concentration"
+        caption="Monthly Average Carbon Dioxide Concentration from 1960 to 2020"
+      />
 
       <h2 style={styles.sectionTitle}>
         3. Past and current attempts to mitigate or solve the problem
@@ -181,8 +198,11 @@ const HonorsSustainabilityEssay: React.FC = () => {
         policy would generate a price equivalent to the cost of pollution and
         force firms to internalize these social/external costs.
       </p>
-
-      <img src={figure3_1} alt="Figure 3-1" style={styles.image} />
+      <Figure
+        imageSrc={figure3_1}
+        altText="Monthly Average Carbon Dioxide Concentration"
+        caption="Monthly Average Carbon Dioxide Concentration from 1960 to 2020"
+      />
 
       <p style={styles.paragraph}>
         In the 1960s Robert Coase developed his theory of Coasian Trading and
