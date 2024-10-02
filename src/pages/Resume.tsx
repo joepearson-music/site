@@ -186,6 +186,15 @@ const Resume: React.FC = () => (
     </section>
 
     <section className="resume-section">
+      <h2>HONORS AND AWARDS</h2>
+      <div className="certifications-content">
+        <p>Van Fossen Family Research Fellow Award</p>
+        <p>Laura LaFave and Peter Hallett Endowment Award</p>
+        <p>Howard W. Hanna, Jr. Scholarship</p>
+      </div>
+    </section>
+
+    <section className="resume-section">
       <h2>CERTIFICATIONS</h2>
       <div className="certifications-content">
         <p>Bloomberg Market Concepts</p>
