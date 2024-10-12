@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Hard from "./pages/75hard";
 import About from "./pages/About";
 import Blogs from "./pages/Blog";
 import Home from "./pages/Home";
@@ -79,6 +80,7 @@ const App: React.FC = () => {
             <Route path="/video" element={<Video />} />
             <Route path="/writing/*" element={<Writing />} />
             <Route path="/blog/*" element={<Blogs />} />
+            <Route path="/75hard" element={<Hard />} />
           </Routes>
         </main>
       </div>
