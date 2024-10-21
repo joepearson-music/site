@@ -1,12 +1,50 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 
 const SHEET_ID = "1yj1oGvm7JOjNskcnmgFxwVWFZ4O1mvH_SrFNXwxa-Ok";
 const SHEET_NAME = "Sheet1";
-const API_KEY = "AIzaSyAC511tUxujeEh1TkYVejr3HozvJkiaZ-8"; // Replace with your actual API key, preferably from an environment variable
+const API_KEY = "AIzaSyAC511tUxujeEh1TkYVejr3HozvJkiaZ-8";
+
+const styles: { [key: string]: CSSProperties } = {
+  container: {
+    padding: "20px",
+    maxWidth: "1200px",
+    margin: "0 auto",
+  },
+  title: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "10px",
+  },
+  description: {
+    marginBottom: "20px",
+  },
+  error: {
+    color: "red",
+  },
+  gridContainer: {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+    gap: "20px",
+  },
+  card: {
+    border: "1px solid #ddd",
+    borderRadius: "4px",
+    padding: "15px",
+    boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
+  },
+  cardHeader: {
+    fontWeight: "bold",
+    fontSize: "18px",
+    marginBottom: "10px",
+  },
+  cardItem: {
+    marginBottom: "5px",
+  },
+};
 
 const Hard: React.FC = () => {
-  const [data, setData] = useState<any[][]>([]);
+  const [data, setData] = useState<string[][]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -37,54 +75,41 @@ const Hard: React.FC = () => {
     fetchData();
   }, []);
 
+  const headers = [
+    "User",
+    "Day #",
+    "Date",
+    "Rating?",
+    "Exercise",
+    "Protein?",
+    "Water?",
+    "Daily Reflection",
+  ];
+
   return (
-    <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
-      <h2>75 Hard</h2>
-      <p>
+    <div style={styles.container}>
+      <h2 style={styles.title}>75 Hard</h2>
+      <p style={styles.description}>
         This is a challenge that I am doing to improve my mental toughness and
         discipline.
       </p>
       {error ? (
-        <p style={{ color: "red" }}>{error}</p>
+        <p style={styles.error}>{error}</p>
       ) : data.length > 0 ? (
-        <table
-          style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            marginTop: "20px",
-          }}
-        >
-          <thead>
-            <tr>
-              {data[0].map((header, index) => (
-                <th
-                  key={index}
-                  style={{
-                    border: "1px solid #ddd",
-                    padding: "8px",
-                    textAlign: "left",
-                  }}
-                >
-                  {header}
-                </th>
+        <div style={styles.gridContainer}>
+          {data.slice(1).map((row, rowIndex) => (
+            <div key={rowIndex} style={styles.card}>
+              <div style={styles.cardHeader}>
+                {row[0]} - Day {row[1]}
+              </div>
+              {headers.slice(2).map((header, index) => (
+                <p key={index} style={styles.cardItem}>
+                  <strong>{header}:</strong> {row[index + 2]}
+                </p>
               ))}
-            </tr>
-          </thead>
-          <tbody>
-            {data.slice(1).map((row, rowIndex) => (
-              <tr key={rowIndex}>
-                {row.map((cell, cellIndex) => (
-                  <td
-                    key={cellIndex}
-                    style={{ border: "1px solid #ddd", padding: "8px" }}
-                  >
-                    {cell}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+            </div>
+          ))}
+        </div>
       ) : (
         <p>Loading data...</p>
       )}
