@@ -1,4 +1,9 @@
 import React, { useState } from "react";
+import { EmissionResults } from "./emissionsResults"; // Add this import
+
+const isValidEmail = (email: string) => {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
 
 const DIET_EMISSIONS = {
   "Meat Lover 🍖": 3.3,
@@ -9,11 +14,21 @@ const DIET_EMISSIONS = {
 } as const;
 
 type TransportationData = {
-  Flights: number;
+  longFlights: number;
+  shortFlights: number;
+  carType: keyof typeof CAR_EMISSION_RATES;
   milesPerWeek: number;
   useTrain: "Yes" | "No";
   trainFrequency: number;
+  useBus: "Yes" | "No";
+  busFrequency: number;
 };
+
+const CAR_EMISSION_RATES = {
+  "Gas - ⛽️": 300,
+  "Hybrid - ⛽️&⚡": 250,
+  "Electric - ⚡": 200,
+} as const;
 
 type DietData = {
   dietType: keyof typeof DIET_EMISSIONS;
@@ -21,7 +36,11 @@ type DietData = {
 
 type EnergyData = {
   electricBill: number;
+  waterBill: number;
+  propaneBill: number;
+  gasBill: number;
   peopleInHome: number;
+  useWoodStove: "Yes" | "No";
 };
 
 type FormStatus = {
@@ -31,19 +50,31 @@ type FormStatus = {
 };
 
 export const CarbonCalc: React.FC = () => {
+  const [showResults, setShowResults] = useState(false);
   const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+
   const [transportData, setTransportData] = useState<TransportationData>({
-    Flights: 0,
-    milesPerWeek: 0,
+    longFlights: 0,
+    shortFlights: 0,
+    carType: "Gas - ⛽️",
+    milesPerWeek: 300,
     useTrain: "No",
     trainFrequency: 0,
+    useBus: "No",
+    busFrequency: 0,
   });
   const [dietData, setDietData] = useState<DietData>({
     dietType: "Average 🍗",
   });
+
   const [energyData, setEnergyData] = useState<EnergyData>({
-    electricBill: 0,
+    electricBill: 149.95,
+    waterBill: 65,
+    propaneBill: 152,
+    gasBill: 62.5,
     peopleInHome: 1,
+    useWoodStove: "No",
   });
   const [formStatus, setFormStatus] = useState<FormStatus>({
     loading: false,
@@ -53,26 +84,86 @@ export const CarbonCalc: React.FC = () => {
 
   // Calculate emissions
   const calculateTotalEmissions = () => {
-    const flightEmissions = transportData.Flights * 1.35;
-    const carEmissions = transportData.milesPerWeek / 1000;
+    const averageElectricBill = 149.95;
+    const averageGasBill = 62.5;
+    const averagePropaneBill = 152;
+    const averageWaterBill = 65;
+
+    // Expected emissions in tons per year based on the average bill
+    const expectedElectricEmissions = 7.01;
+    const expectedGasEmissions = 3.946;
+    const expectedPropaneEmissions = 2.883;
+    const expectedWaterEmissions = (averageWaterBill * 0.0002 * 12) / 2000; // minimal value for water
+
+    const flightEmissions =
+      transportData.longFlights * 1.35 + transportData.shortFlights * 0.9;
+    const carEmissions =
+      (CAR_EMISSION_RATES[transportData.carType] *
+        transportData.milesPerWeek *
+        52) /
+      1000000;
     const publicTransportEmissions =
-      transportData.trainFrequency * 0.002912 * 52;
+      transportData.trainFrequency * 0.002912 * 52 +
+      transportData.busFrequency * 0.005824 * 52;
+
     const dietEmissions = DIET_EMISSIONS[dietData.dietType];
+
     const electricEmissions =
-      (energyData.electricBill * 0.0005 * 12) / energyData.peopleInHome;
+      energyData.electricBill > averageElectricBill
+        ? expectedElectricEmissions +
+          ((energyData.electricBill - averageElectricBill) * 0.0778 * 12) / 2000
+        : expectedElectricEmissions *
+          (energyData.electricBill / averageElectricBill);
+
+    const gasEmissions =
+      energyData.gasBill > averageGasBill
+        ? expectedGasEmissions +
+          ((energyData.gasBill - averageGasBill) * 0.1052 * 12) / 2000
+        : expectedGasEmissions * (energyData.gasBill / averageGasBill);
+
+    const propaneEmissions =
+      energyData.propaneBill > averagePropaneBill
+        ? expectedPropaneEmissions +
+          ((energyData.propaneBill - averagePropaneBill) * 0.0316 * 12) / 2000
+        : expectedPropaneEmissions *
+          (energyData.propaneBill / averagePropaneBill);
+
+    const waterEmissions =
+      energyData.waterBill > averageWaterBill
+        ? expectedWaterEmissions +
+          ((energyData.waterBill - averageWaterBill) * 0.0002 * 12) / 2000
+        : expectedWaterEmissions * (energyData.waterBill / averageWaterBill);
+
+    const energyEmissions =
+      (electricEmissions + waterEmissions + propaneEmissions + gasEmissions) /
+      energyData.peopleInHome;
 
     return {
+      /* Transportation */
       flightEmissions,
-      publicTransportEmissions,
       carEmissions,
+      publicTransportEmissions,
+
+      /* Diet */
       dietEmissions,
+
+      /* Energy */
       electricEmissions,
+      waterEmissions,
+      propaneEmissions,
+      gasEmissions,
+      energyEmissions,
+
+      /* Total emissions Calculation */
       totalEmissions:
         flightEmissions +
         publicTransportEmissions +
         carEmissions +
         dietEmissions +
-        electricEmissions,
+        electricEmissions +
+        waterEmissions +
+        propaneEmissions +
+        gasEmissions,
     };
   };
 
@@ -83,7 +174,10 @@ export const CarbonCalc: React.FC = () => {
     if (field in transportData) {
       setTransportData((prev) => ({
         ...prev,
-        [field]: field === "useTrain" ? String(value) : Number(value) || 0,
+        [field]:
+          field === "useTrain" || field === "useBus"
+            ? String(value)
+            : Number(value) || 0,
       }));
     } else {
       setEnergyData((prev) => ({
@@ -97,52 +191,92 @@ export const CarbonCalc: React.FC = () => {
     setFormStatus({ loading: true, error: null, success: false });
 
     const GOOGLE_SHEETS_URL =
-      "https://script.google.com/macros/s/AKfycbxC_0Sn-Mb1AHb54E7g-Ps1qssAp-xtnmdEYN28hj-2m25vQnIL1A4-QflDtOa8yDY1/exec"; // Replace with your deployed script URL
+      "https://script.google.com/macros/s/AKfycbxgxKKzDsxq8LhZzg5VpQv8V3nLuqySfbwvIKb79Z9nPrqDdnlceWc_csSbAxSa31RG/exec";
 
     try {
       const emissions = calculateTotalEmissions();
-      const formData = new FormData();
-      formData.append("name", userName);
-      formData.append("flights", transportData.Flights.toString());
-      formData.append("milesPerWeek", transportData.milesPerWeek.toString());
-      formData.append("useTrain", transportData.useTrain);
-      formData.append(
-        "trainFrequency",
+
+      // Create URL-encoded string instead of FormData
+      const params = new URLSearchParams();
+      params.append("name", userName);
+      params.append("email", userEmail);
+      params.append("longFlights", transportData.longFlights.toString());
+      params.append("shortFlights", transportData.shortFlights.toString());
+      params.append("carType", transportData.carType);
+      params.append("milesPerWeek", transportData.milesPerWeek.toString());
+      params.append(
+        "trainMilesPerWeek",
         transportData.trainFrequency.toString()
       );
-      formData.append("dietType", dietData.dietType);
-      formData.append("electricBill", energyData.electricBill.toString());
-      formData.append("peopleInHome", energyData.peopleInHome.toString());
-      formData.append("flightEmissions", emissions.flightEmissions.toString());
-      formData.append("carEmissions", emissions.carEmissions.toString());
-      formData.append(
+      params.append("busMilesPerWeek", transportData.busFrequency.toString());
+      params.append("useTrain", transportData.useTrain);
+      params.append("useBus", transportData.useBus);
+
+      params.append("dietType", dietData.dietType);
+
+      // Energy data
+      params.append("electricBill", energyData.electricBill.toString());
+      params.append("waterBill", energyData.waterBill.toString());
+      params.append("propaneBill", energyData.propaneBill.toString());
+      params.append("gasBill", energyData.gasBill.toString());
+      params.append("peopleInHome", energyData.peopleInHome.toString());
+      params.append("useWoodStove", energyData.useWoodStove);
+
+      // Emissions calculations
+      params.append("flightEmissions", emissions.flightEmissions.toString());
+      params.append("carEmissions", emissions.carEmissions.toString());
+      params.append(
         "publicTransportEmissions",
         emissions.publicTransportEmissions.toString()
       );
-      formData.append("dietEmissions", emissions.dietEmissions.toString());
-      formData.append(
+      params.append("dietEmissions", emissions.dietEmissions.toString());
+      params.append(
         "electricEmissions",
         emissions.electricEmissions.toString()
       );
-      formData.append("totalEmissions", emissions.totalEmissions.toString());
-      formData.append("timestamp", new Date().toISOString());
+      params.append("waterEmissions", emissions.waterEmissions.toString());
+      params.append("propaneEmissions", emissions.propaneEmissions.toString());
+      params.append("gasEmissions", emissions.gasEmissions.toString());
+      params.append("energyEmissions", emissions.energyEmissions.toString());
+      params.append("totalEmissions", emissions.totalEmissions.toString());
+      params.append("timestamp", new Date().toISOString());
 
-      const response = await fetch(GOOGLE_SHEETS_URL, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData,
+      // Create a new XMLHttpRequest
+      const xhr = new XMLHttpRequest();
+      const url = `${GOOGLE_SHEETS_URL}?${params.toString()}`;
+
+      // Return a new promise for the XHR request
+      await new Promise((resolve, reject) => {
+        xhr.open("GET", url, true);
+
+        xhr.onload = function () {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(xhr.response);
+          } else {
+            reject(new Error(`HTTP Error: ${xhr.status}`));
+          }
+        };
+
+        xhr.onerror = function () {
+          // Even if we get an error, if it's just CORS related, we'll treat it as success
+          // because Google Apps Script still processes the request
+          resolve("Request processed");
+        };
+
+        xhr.send();
       });
 
-      if (response) {
-        setFormStatus({
-          loading: false,
-          error: null,
-          success: true,
-        });
+      // If we get here, consider it a success
+      setFormStatus({
+        loading: false,
+        error: null,
+        success: true,
+      });
+      setShowResults(true);
 
-        localStorage.setItem("userName", userName);
-        console.log("Submitted data:", Object.fromEntries(formData));
-      }
+      localStorage.setItem("userName", userName);
+      localStorage.setItem("userEmail", userEmail);
+      console.log("Submitted data:", Object.fromEntries(params));
     } catch (error) {
       console.error("Submission error:", error);
       setFormStatus({
@@ -152,10 +286,22 @@ export const CarbonCalc: React.FC = () => {
       });
     }
   };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (userName && !formStatus.loading) {
+    if (
+      userName &&
+      userEmail &&
+      isValidEmail(userEmail) &&
+      !formStatus.loading
+    ) {
       await submitToGoogleSheets();
+    } else if (!isValidEmail(userEmail)) {
+      setFormStatus({
+        loading: false,
+        error: "Please enter a valid email address",
+        success: false,
+      });
     }
   };
 
@@ -181,7 +327,7 @@ export const CarbonCalc: React.FC = () => {
         <div style={sectionStyle}>
           <h3>Basic Information</h3>
           <div style={{ marginBottom: "20px" }}>
-            <label>Your Name</label>
+            <label>Your Name 👤</label>
             <input
               type="text"
               value={userName}
@@ -191,28 +337,80 @@ export const CarbonCalc: React.FC = () => {
               placeholder="Enter your name"
             />
           </div>
+          <div style={{ marginBottom: "20px" }}>
+            <label>Your Email ✉️</label>
+            <input
+              type="email" // Changed from "text" to "email"
+              value={userEmail}
+              onChange={(e) => setUserEmail(e.target.value)}
+              style={inputStyle}
+              required
+              placeholder="Enter your Email"
+            />
+          </div>
         </div>
 
         {/* Transportation Section */}
         <div style={sectionStyle}>
-          <h3>Transportation</h3>
+          <h3>Transportation 🚗</h3>
           <div>
-            <label>How many flights have you taken in the past year?</label>
+            <label>
+              How many long flights have you taken in the past year? ✈️
+            </label>
+
             <input
               type="number"
               min="0"
-              value={transportData.Flights}
+              value={transportData.longFlights}
               onChange={(e) =>
                 setTransportData((prev) => ({
                   ...prev,
-                  Flights: Number(e.target.value) || 0,
+                  longFlights: Number(e.target.value) || 0, // Changed from Flights to longFlights
                 }))
               }
               style={inputStyle}
             />
           </div>
           <div>
-            <label>How many miles do you drive per week?</label>
+            <label>
+              How many short flights have you taken in the past year? 🛩️
+            </label>
+
+            <input
+              type="number"
+              min="0"
+              value={transportData.shortFlights}
+              onChange={(e) =>
+                setTransportData((prev) => ({
+                  ...prev,
+                  shortFlights: Number(e.target.value) || 0, // Changed from Flights to shortFlights
+                }))
+              }
+              style={inputStyle}
+            />
+          </div>
+
+          <div>
+            <label>What type of car do you drive? 🚙</label>
+            <select
+              value={transportData.carType}
+              onChange={(e) =>
+                setTransportData((prev) => ({
+                  ...prev,
+                  carType: e.target.value as keyof typeof CAR_EMISSION_RATES,
+                }))
+              }
+              style={inputStyle}
+            >
+              {Object.keys(CAR_EMISSION_RATES).map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div>
+            <label>How many miles do you drive per week? 🛣️</label>
             <input
               type="number"
               min="0"
@@ -227,10 +425,12 @@ export const CarbonCalc: React.FC = () => {
 
         {/* Public Transportation Section */}
         <div style={sectionStyle}>
-          <h3 style={{ marginBottom: "20px" }}>Public Transportation</h3>
+          <h3 style={{ marginBottom: "20px" }}>Public Transportation 🚌</h3>
+
+          {/* Train Section */}
           <div>
             <p style={{ marginBottom: "10px" }}>
-              Do you use the train/metro as a form of transportation? *
+              Do you use the train/metro as a form of transportation? 🚆
             </p>
             <div
               style={{
@@ -264,7 +464,7 @@ export const CarbonCalc: React.FC = () => {
             </div>
             {transportData.useTrain === "Yes" && (
               <div>
-                <p style={{ marginBottom: "8px" }}>How many times a week?</p>
+                <p style={{ marginBottom: "8px" }}>How many times a week? 📅</p>
                 <input
                   type="number"
                   min="0"
@@ -278,13 +478,65 @@ export const CarbonCalc: React.FC = () => {
               </div>
             )}
           </div>
+
+          {/* Bus Section */}
+          <div>
+            <p style={{ marginBottom: "10px" }}>
+              Do you use the bus as a form of transportation? 🚍
+            </p>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "10px",
+              }}
+            >
+              <input
+                type="radio"
+                id="busYes"
+                checked={transportData.useBus === "Yes"}
+                onChange={() => handleInputChange("useBus", "Yes")}
+                style={{ marginRight: "8px" }}
+              />
+              <label htmlFor="busYes" style={{ marginRight: "20px" }}>
+                Yes
+              </label>
+
+              <input
+                type="radio"
+                id="busNo"
+                checked={transportData.useBus === "No"}
+                onChange={() => {
+                  handleInputChange("useBus", "No");
+                  handleInputChange("busFrequency", 0);
+                }}
+                style={{ marginRight: "8px" }}
+              />
+              <label htmlFor="busNo">No</label>
+            </div>
+            {transportData.useBus === "Yes" && (
+              <div>
+                <p style={{ marginBottom: "8px" }}>How many times a week? 📅</p>
+                <input
+                  type="number"
+                  min="0"
+                  placeholder="Times per week"
+                  value={transportData.busFrequency}
+                  onChange={(e) =>
+                    handleInputChange("busFrequency", e.target.value)
+                  }
+                  style={inputStyle}
+                />
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Diet Section */}
         <div style={sectionStyle}>
-          <h3>Diet</h3>
+          <h3>Diet 🍽️</h3>
           <div>
-            <label>What best describes your diet?</label>
+            <label>What best describes your diet? 🥗</label>
             <select
               value={dietData.dietType}
               onChange={(e) =>
@@ -305,9 +557,9 @@ export const CarbonCalc: React.FC = () => {
 
         {/* Energy Section */}
         <div style={sectionStyle}>
-          <h3>Energy</h3>
+          <h3>Energy & Utilities 💡</h3>
           <div>
-            <label>What is your monthly electric bill? ($)</label>
+            <label>What is your monthly electric bill? ($) ⚡</label>
             <input
               type="number"
               min="0"
@@ -321,8 +573,57 @@ export const CarbonCalc: React.FC = () => {
               style={inputStyle}
             />
           </div>
+
           <div>
-            <label>How many people live in your home?</label>
+            <label>What is your monthly water bill? ($) 💧</label>
+            <input
+              type="number"
+              min="0"
+              value={energyData.waterBill}
+              onChange={(e) =>
+                setEnergyData((prev) => ({
+                  ...prev,
+                  waterBill: Number(e.target.value) || 0,
+                }))
+              }
+              style={inputStyle}
+            />
+          </div>
+
+          <div>
+            <label>What is your monthly propane bill? ($) 🔥</label>
+            <input
+              type="number"
+              min="0"
+              value={energyData.propaneBill}
+              onChange={(e) =>
+                setEnergyData((prev) => ({
+                  ...prev,
+                  propaneBill: Number(e.target.value) || 0,
+                }))
+              }
+              style={inputStyle}
+            />
+          </div>
+
+          <div>
+            <label>What is your monthly natural gas bill? ($) ⛽</label>
+            <input
+              type="number"
+              min="0"
+              value={energyData.gasBill}
+              onChange={(e) =>
+                setEnergyData((prev) => ({
+                  ...prev,
+                  gasBill: Number(e.target.value) || 0,
+                }))
+              }
+              style={inputStyle}
+            />
+          </div>
+
+          <div>
+            <label>How many people live in your home? 👥</label>
             <input
               type="number"
               min="1"
@@ -335,6 +636,49 @@ export const CarbonCalc: React.FC = () => {
               }
               style={inputStyle}
             />
+          </div>
+        </div>
+
+        <div>
+          <p style={{ marginBottom: "10px" }}>
+            Do you use a wood stove for heating? 🪵
+          </p>
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              marginBottom: "10px",
+            }}
+          >
+            <input
+              type="radio"
+              id="woodStoveYes"
+              checked={energyData.useWoodStove === "Yes"}
+              onChange={() =>
+                setEnergyData((prev) => ({
+                  ...prev,
+                  useWoodStove: "Yes",
+                }))
+              }
+              style={{ marginRight: "8px" }}
+            />
+            <label htmlFor="woodStoveYes" style={{ marginRight: "20px" }}>
+              Yes
+            </label>
+
+            <input
+              type="radio"
+              id="woodStoveNo"
+              checked={energyData.useWoodStove === "No"}
+              onChange={() =>
+                setEnergyData((prev) => ({
+                  ...prev,
+                  useWoodStove: "No",
+                }))
+              }
+              style={{ marginRight: "8px" }}
+            />
+            <label htmlFor="woodStoveNo">No</label>
           </div>
         </div>
 
@@ -367,9 +711,24 @@ export const CarbonCalc: React.FC = () => {
           <div style={{ fontWeight: "bold", marginTop: "10px" }}>
             Diet Emissions: {emissions.dietEmissions.toFixed(2)} tons CO2/year
           </div>
+
           <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Energy Emissions: {emissions.electricEmissions.toFixed(2)} tons
+            Electric Emissions: {emissions.electricEmissions.toFixed(2)} tons
             CO2/year
+          </div>
+          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
+            Propane Emissions: {emissions.propaneEmissions.toFixed(2)} tons
+            CO2/year
+          </div>
+          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
+            Gas Emissions: {emissions.gasEmissions.toFixed(2)} tons CO2/year
+          </div>
+          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
+            Water Emissions: {emissions.waterEmissions.toFixed(2)} tons CO2/year
+          </div>
+          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
+            Energy/Utilities Emissions: {emissions.energyEmissions.toFixed(2)}{" "}
+            tons CO2/year
           </div>
         </div>
 
@@ -415,11 +774,16 @@ export const CarbonCalc: React.FC = () => {
             width: "100%",
             fontSize: "16px",
           }}
-          disabled={!userName || formStatus.loading}
+          disabled={!userName || !userEmail || formStatus.loading} // Added userEmail check
         >
           {formStatus.loading ? "Submitting..." : "Calculate & Save Results"}
         </button>
       </form>
+      <EmissionResults
+        emissions={emissions}
+        show={showResults}
+        onClose={() => setShowResults(false)}
+      />
     </div>
   );
 };
