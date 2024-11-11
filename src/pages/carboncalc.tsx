@@ -1,5 +1,185 @@
-import React, { useState } from "react";
-import { EmissionResults } from "./emissionsResults"; // Add this import
+import React, { useEffect, useState } from "react";
+import { Cell, Legend, Pie, PieChart, Tooltip } from "recharts";
+
+const US_AVERAGE_EMISSIONS = 16; // tons CO2/year per person
+
+const FloatingCounter = ({ emissions }: { emissions: number }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const style = {
+    position: "fixed" as const,
+    top: isMobile ? "10px" : "150px", // Align with "Basic Information"
+    right: isMobile ? "10px" : "calc(50% - 430px)", // Added 30px more space from the container edge
+    backgroundColor: "#217e38",
+    color: "white",
+    padding: "15px",
+    borderRadius: "8px",
+    boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
+    zIndex: 1000,
+    fontSize: isMobile ? "14px" : "16px",
+    textAlign: "center" as const,
+    minWidth: "120px",
+    transition: "all 0.3s ease",
+    marginRight: isMobile ? "0" : "-20px",
+  };
+
+  return (
+    <div style={style}>
+      <div style={{ fontWeight: "bold", marginBottom: "5px" }}>
+        Total Emissions
+      </div>
+      <div>{emissions.toFixed(2)}</div>
+      <div style={{ fontSize: "0.8em" }}>tons CO₂/year</div>
+    </div>
+  );
+};
+
+const styles = {
+  container: {
+    maxWidth: "800px",
+    margin: "0 auto",
+    padding: "20px",
+  },
+  form: {
+    marginBottom: "40px",
+  },
+  resultsSection: {
+    marginTop: "40px",
+    backgroundColor: "white",
+    borderRadius: "8px",
+    padding: "24px",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+  },
+  header: {
+    fontSize: "24px",
+    fontWeight: "bold",
+    marginBottom: "16px",
+  },
+  summaryText: {
+    marginBottom: "16px",
+    lineHeight: "1.5",
+  },
+  gridContainer: {
+    display: "flex",
+    flexDirection: "column" as const,
+    gap: "24px",
+    marginBottom: "32px",
+    width: "100%",
+  },
+  pieChartWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+    overflow: "auto",
+  },
+  comparisonContainer: {
+    backgroundColor: "#f9f9f9",
+    padding: "24px",
+    borderRadius: "8px",
+    width: "100%",
+    maxWidth: "600px",
+    margin: "0 auto",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+  },
+  comparisonBar: {
+    marginBottom: "16px",
+    padding: "24px",
+  },
+  barLabel: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "8px",
+    fontSize: "14px",
+  },
+  barContainer: {
+    width: "100%",
+    height: "16px",
+    justifyContent: "center",
+    backgroundColor: "#e0e0e0",
+    borderRadius: "4px",
+    overflow: "hidden",
+  },
+  bar: (width: number, isUser: boolean) => ({
+    width: `${width}%`,
+    height: "100%",
+    backgroundColor: isUser ? "#000" : "#666",
+    transition: "width 0.3s ease",
+  }),
+  // Table styles
+  table: {
+    width: "100%",
+    borderCollapse: "collapse" as const,
+  },
+  tableHeader: {
+    textAlign: "left" as const,
+    padding: "8px",
+    borderBottom: "1px solid #ddd",
+  },
+  tableHeaderRight: {
+    textAlign: "right" as const,
+    padding: "8px",
+    borderBottom: "1px solid #ddd",
+  },
+  categoryRow: {
+    fontWeight: "bold",
+    borderBottom: "1px solid #ddd",
+  },
+  tableCell: {
+    padding: "8px",
+    borderBottom: "1px solid #ddd",
+  },
+  tableCellRight: {
+    padding: "8px",
+    borderBottom: "1px solid #ddd",
+    textAlign: "right" as const,
+  },
+  indentedCell: {
+    paddingLeft: "24px",
+    padding: "8px",
+    borderBottom: "1px solid #ddd",
+  },
+  totalRow: {
+    borderTop: "2px solid #000",
+    fontWeight: "bold",
+  },
+  buttonContainer: {
+    marginTop: "24px",
+    display: "flex",
+    justifyContent: "center",
+    gap: "16px",
+  },
+  button: {
+    padding: "8px 24px",
+    border: "1px solid #000",
+    borderRadius: "4px",
+    backgroundColor: "white",
+    cursor: "pointer",
+    fontSize: "16px",
+    transition: "background-color 0.2s",
+  },
+  chartContainer: {
+    backgroundColor: "#f9f9f9",
+    borderRadius: "8px",
+    width: "100%",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+  },
+  chartTitle: {
+    fontWeight: "600",
+    marginBottom: "16px",
+    textAlign: "center" as const,
+  },
+};
 
 const isValidEmail = (email: string) => {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -53,6 +233,22 @@ export const CarbonCalc: React.FC = () => {
   const [showResults, setShowResults] = useState(false);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const [transportData, setTransportData] = useState<TransportationData>({
     longFlights: 0,
@@ -69,10 +265,10 @@ export const CarbonCalc: React.FC = () => {
   });
 
   const [energyData, setEnergyData] = useState<EnergyData>({
-    electricBill: 149.95,
+    electricBill: 149,
     waterBill: 65,
     propaneBill: 152,
-    gasBill: 62.5,
+    gasBill: 62,
     peopleInHome: 1,
     useWoodStove: "No",
   });
@@ -84,8 +280,8 @@ export const CarbonCalc: React.FC = () => {
 
   // Calculate emissions
   const calculateTotalEmissions = () => {
-    const averageElectricBill = 149.95;
-    const averageGasBill = 62.5;
+    const averageElectricBill = 149;
+    const averageGasBill = 62;
     const averagePropaneBill = 152;
     const averageWaterBill = 65;
 
@@ -295,15 +491,52 @@ export const CarbonCalc: React.FC = () => {
       isValidEmail(userEmail) &&
       !formStatus.loading
     ) {
-      await submitToGoogleSheets();
-    } else if (!isValidEmail(userEmail)) {
-      setFormStatus({
-        loading: false,
-        error: "Please enter a valid email address",
-        success: false,
-      });
+      setFormStatus({ loading: true, error: null, success: false });
+      try {
+        await submitToGoogleSheets();
+        setFormStatus({ loading: false, error: null, success: true });
+        setShowResults(true);
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: "smooth",
+        });
+      } catch (error) {
+        setFormStatus({
+          loading: false,
+          error:
+            error instanceof Error ? error.message : "Failed to submit data",
+          success: false,
+        });
+      }
     }
   };
+
+  const emissions = calculateTotalEmissions();
+
+  const transportationEmissions =
+    emissions.flightEmissions +
+    emissions.carEmissions +
+    emissions.publicTransportEmissions;
+  const dietEmissions = emissions.dietEmissions;
+  const energyEmissions =
+    emissions.electricEmissions +
+    emissions.waterEmissions +
+    emissions.propaneEmissions +
+    emissions.gasEmissions;
+
+  const pieData = [
+    {
+      name: "Transportation",
+      value: Number(transportationEmissions.toFixed(2)),
+      color: "#000000",
+    },
+    { name: "Diet", value: Number(dietEmissions.toFixed(2)), color: "#333333" },
+    {
+      name: "Energy",
+      value: Number(energyEmissions.toFixed(2)),
+      color: "#666666",
+    },
+  ].sort((a, b) => b.value - a.value);
 
   const inputStyle = {
     width: "100%",
@@ -317,120 +550,335 @@ export const CarbonCalc: React.FC = () => {
     marginBottom: "30px",
   };
 
-  const emissions = calculateTotalEmissions();
-
   return (
-    <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
-      <h2 style={{ marginBottom: "40px" }}>Carbon Footprint Calculator</h2>
+    <div style={styles.container}>
+      <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+        <FloatingCounter emissions={emissions.totalEmissions} />
+        <h2 style={{ marginBottom: "40px" }}>Carbon Footprint Calculator</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div style={sectionStyle}>
-          <h3>Basic Information</h3>
-          <div style={{ marginBottom: "20px" }}>
-            <label>Your Name 👤</label>
-            <input
-              type="text"
-              value={userName}
-              onChange={(e) => setUserName(e.target.value)}
-              style={inputStyle}
-              required
-              placeholder="Enter your name"
-            />
-          </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label>Your Email ✉️</label>
-            <input
-              type="email" // Changed from "text" to "email"
-              value={userEmail}
-              onChange={(e) => setUserEmail(e.target.value)}
-              style={inputStyle}
-              required
-              placeholder="Enter your Email"
-            />
-          </div>
-        </div>
-
-        {/* Transportation Section */}
-        <div style={sectionStyle}>
-          <h3>Transportation 🚗</h3>
-          <div>
-            <label>
-              How many long flights have you taken in the past year? ✈️
-            </label>
-
-            <input
-              type="number"
-              min="0"
-              value={transportData.longFlights}
-              onChange={(e) =>
-                setTransportData((prev) => ({
-                  ...prev,
-                  longFlights: Number(e.target.value) || 0, // Changed from Flights to longFlights
-                }))
-              }
-              style={inputStyle}
-            />
-          </div>
-          <div>
-            <label>
-              How many short flights have you taken in the past year? 🛩️
-            </label>
-
-            <input
-              type="number"
-              min="0"
-              value={transportData.shortFlights}
-              onChange={(e) =>
-                setTransportData((prev) => ({
-                  ...prev,
-                  shortFlights: Number(e.target.value) || 0, // Changed from Flights to shortFlights
-                }))
-              }
-              style={inputStyle}
-            />
+        <form onSubmit={handleSubmit}>
+          <div style={sectionStyle}>
+            <h3>Basic Information</h3>
+            <div style={{ marginBottom: "20px" }}>
+              <label>Your Name 👤</label>
+              <input
+                type="text"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+                style={inputStyle}
+                required
+                placeholder="Enter your name"
+              />
+            </div>
+            <div style={{ marginBottom: "20px" }}>
+              <label>Your Email ✉️</label>
+              <input
+                type="email" // Changed from "text" to "email"
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
+                style={inputStyle}
+                required
+                placeholder="Enter your Email"
+              />
+            </div>
           </div>
 
-          <div>
-            <label>What type of car do you drive? 🚙</label>
-            <select
-              value={transportData.carType}
-              onChange={(e) =>
-                setTransportData((prev) => ({
-                  ...prev,
-                  carType: e.target.value as keyof typeof CAR_EMISSION_RATES,
-                }))
-              }
-              style={inputStyle}
-            >
-              {Object.keys(CAR_EMISSION_RATES).map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <label>How many miles do you drive per week? 🛣️</label>
-            <input
-              type="number"
-              min="0"
-              value={transportData.milesPerWeek}
-              onChange={(e) =>
-                handleInputChange("milesPerWeek", e.target.value)
-              }
-              style={inputStyle}
-            />
-          </div>
-        </div>
+          {/* Transportation Section */}
+          <div style={sectionStyle}>
+            <h3>Transportation 🚗</h3>
+            <div>
+              <label>
+                How many long flights have you taken in the past year? ✈️
+              </label>
 
-        {/* Public Transportation Section */}
-        <div style={sectionStyle}>
-          <h3 style={{ marginBottom: "20px" }}>Public Transportation 🚌</h3>
+              <input
+                type="number"
+                min="0"
+                value={transportData.longFlights}
+                onChange={(e) =>
+                  setTransportData((prev) => ({
+                    ...prev,
+                    longFlights: Number(e.target.value) || 0, // Changed from Flights to longFlights
+                  }))
+                }
+                style={inputStyle}
+              />
+            </div>
+            <div>
+              <label>
+                How many short flights have you taken in the past year? 🛩️
+              </label>
 
-          {/* Train Section */}
+              <input
+                type="number"
+                min="0"
+                value={transportData.shortFlights}
+                onChange={(e) =>
+                  setTransportData((prev) => ({
+                    ...prev,
+                    shortFlights: Number(e.target.value) || 0, // Changed from Flights to shortFlights
+                  }))
+                }
+                style={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label>What type of car do you drive? 🚙</label>
+              <select
+                value={transportData.carType}
+                onChange={(e) =>
+                  setTransportData((prev) => ({
+                    ...prev,
+                    carType: e.target.value as keyof typeof CAR_EMISSION_RATES,
+                  }))
+                }
+                style={inputStyle}
+              >
+                {Object.keys(CAR_EMISSION_RATES).map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label>How many miles do you drive per week? 🛣️</label>
+              <input
+                type="number"
+                min="0"
+                value={transportData.milesPerWeek}
+                onChange={(e) =>
+                  handleInputChange("milesPerWeek", e.target.value)
+                }
+                style={inputStyle}
+              />
+            </div>
+          </div>
+
+          {/* Public Transportation Section */}
+          <div style={sectionStyle}>
+            <h3 style={{ marginBottom: "20px" }}>Public Transportation 🚌</h3>
+
+            {/* Train Section */}
+            <div>
+              <p style={{ marginBottom: "10px" }}>
+                Do you use the train/metro as a form of transportation? 🚆
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                <input
+                  type="radio"
+                  id="trainYes"
+                  checked={transportData.useTrain === "Yes"}
+                  onChange={() => handleInputChange("useTrain", "Yes")}
+                  style={{ marginRight: "8px" }}
+                />
+                <label htmlFor="trainYes" style={{ marginRight: "20px" }}>
+                  Yes
+                </label>
+
+                <input
+                  type="radio"
+                  id="trainNo"
+                  checked={transportData.useTrain === "No"}
+                  onChange={() => {
+                    handleInputChange("useTrain", "No");
+                    handleInputChange("trainFrequency", 0);
+                  }}
+                  style={{ marginRight: "8px" }}
+                />
+                <label htmlFor="trainNo">No</label>
+              </div>
+              {transportData.useTrain === "Yes" && (
+                <div>
+                  <p style={{ marginBottom: "8px" }}>
+                    How many times a week? 📅
+                  </p>
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="Times per week"
+                    value={transportData.trainFrequency}
+                    onChange={(e) =>
+                      handleInputChange("trainFrequency", e.target.value)
+                    }
+                    style={inputStyle}
+                  />
+                </div>
+              )}
+            </div>
+
+            {/* Bus Section */}
+            <div>
+              <p style={{ marginBottom: "10px" }}>
+                Do you use the bus as a form of transportation? 🚍
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "10px",
+                }}
+              >
+                <input
+                  type="radio"
+                  id="busYes"
+                  checked={transportData.useBus === "Yes"}
+                  onChange={() => handleInputChange("useBus", "Yes")}
+                  style={{ marginRight: "8px" }}
+                />
+                <label htmlFor="busYes" style={{ marginRight: "20px" }}>
+                  Yes
+                </label>
+
+                <input
+                  type="radio"
+                  id="busNo"
+                  checked={transportData.useBus === "No"}
+                  onChange={() => {
+                    handleInputChange("useBus", "No");
+                    handleInputChange("busFrequency", 0);
+                  }}
+                  style={{ marginRight: "8px" }}
+                />
+                <label htmlFor="busNo">No</label>
+              </div>
+              {transportData.useBus === "Yes" && (
+                <div>
+                  <p style={{ marginBottom: "8px" }}>
+                    How many times a week? 📅
+                  </p>
+                  <input
+                    type="number"
+                    min="0"
+                    placeholder="Times per week"
+                    value={transportData.busFrequency}
+                    onChange={(e) =>
+                      handleInputChange("busFrequency", e.target.value)
+                    }
+                    style={inputStyle}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
+          {/* Diet Section */}
+          <div style={sectionStyle}>
+            <h3>Diet 🍽️</h3>
+            <div>
+              <label>What best describes your diet? 🥗</label>
+              <select
+                value={dietData.dietType}
+                onChange={(e) =>
+                  setDietData({
+                    dietType: e.target.value as keyof typeof DIET_EMISSIONS,
+                  })
+                }
+                style={inputStyle}
+              >
+                {Object.keys(DIET_EMISSIONS).map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Energy Section */}
+          <div style={sectionStyle}>
+            <h3>Energy & Utilities 💡</h3>
+            <div>
+              <label>What is your monthly electric bill? ($) ⚡</label>
+              <input
+                type="number"
+                min="0"
+                value={energyData.electricBill}
+                onChange={(e) =>
+                  setEnergyData((prev) => ({
+                    ...prev,
+                    electricBill: Number(e.target.value) || 0,
+                  }))
+                }
+                style={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label>What is your monthly water bill? ($) 💧</label>
+              <input
+                type="number"
+                min="0"
+                value={energyData.waterBill}
+                onChange={(e) =>
+                  setEnergyData((prev) => ({
+                    ...prev,
+                    waterBill: Number(e.target.value) || 0,
+                  }))
+                }
+                style={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label>What is your monthly propane bill? ($) 🔥</label>
+              <input
+                type="number"
+                min="0"
+                value={energyData.propaneBill}
+                onChange={(e) =>
+                  setEnergyData((prev) => ({
+                    ...prev,
+                    propaneBill: Number(e.target.value) || 0,
+                  }))
+                }
+                style={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label>What is your monthly natural gas bill? ($) ⛽</label>
+              <input
+                type="number"
+                min="0"
+                value={energyData.gasBill}
+                onChange={(e) =>
+                  setEnergyData((prev) => ({
+                    ...prev,
+                    gasBill: Number(e.target.value) || 0,
+                  }))
+                }
+                style={inputStyle}
+              />
+            </div>
+
+            <div>
+              <label>How many people live in your home? 👥</label>
+              <input
+                type="number"
+                min="1"
+                value={energyData.peopleInHome}
+                onChange={(e) =>
+                  setEnergyData((prev) => ({
+                    ...prev,
+                    peopleInHome: Number(e.target.value) || 1,
+                  }))
+                }
+                style={inputStyle}
+              />
+            </div>
+          </div>
+
           <div>
             <p style={{ marginBottom: "10px" }}>
-              Do you use the train/metro as a form of transportation? 🚆
+              Do you use a wood stove for heating? 🪵
             </p>
             <div
               style={{
@@ -441,349 +889,250 @@ export const CarbonCalc: React.FC = () => {
             >
               <input
                 type="radio"
-                id="trainYes"
-                checked={transportData.useTrain === "Yes"}
-                onChange={() => handleInputChange("useTrain", "Yes")}
+                id="woodStoveYes"
+                checked={energyData.useWoodStove === "Yes"}
+                onChange={() =>
+                  setEnergyData((prev) => ({
+                    ...prev,
+                    useWoodStove: "Yes",
+                  }))
+                }
                 style={{ marginRight: "8px" }}
               />
-              <label htmlFor="trainYes" style={{ marginRight: "20px" }}>
+              <label htmlFor="woodStoveYes" style={{ marginRight: "20px" }}>
                 Yes
               </label>
 
               <input
                 type="radio"
-                id="trainNo"
-                checked={transportData.useTrain === "No"}
-                onChange={() => {
-                  handleInputChange("useTrain", "No");
-                  handleInputChange("trainFrequency", 0);
-                }}
+                id="woodStoveNo"
+                checked={energyData.useWoodStove === "No"}
+                onChange={() =>
+                  setEnergyData((prev) => ({
+                    ...prev,
+                    useWoodStove: "No",
+                  }))
+                }
                 style={{ marginRight: "8px" }}
               />
-              <label htmlFor="trainNo">No</label>
+              <label htmlFor="woodStoveNo">No</label>
             </div>
-            {transportData.useTrain === "Yes" && (
-              <div>
-                <p style={{ marginBottom: "8px" }}>How many times a week? 📅</p>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Times per week"
-                  value={transportData.trainFrequency}
-                  onChange={(e) =>
-                    handleInputChange("trainFrequency", e.target.value)
-                  }
-                  style={inputStyle}
-                />
-              </div>
-            )}
           </div>
 
-          {/* Bus Section */}
-          <div>
-            <p style={{ marginBottom: "10px" }}>
-              Do you use the bus as a form of transportation? 🚍
-            </p>
+          {/* Status Messages */}
+          {formStatus.error && (
             <div
               style={{
-                display: "flex",
-                alignItems: "center",
-                marginBottom: "10px",
+                color: "red",
+                marginBottom: "20px",
+                padding: "10px",
+                backgroundColor: "#ffebee",
+                borderRadius: "4px",
               }}
             >
-              <input
-                type="radio"
-                id="busYes"
-                checked={transportData.useBus === "Yes"}
-                onChange={() => handleInputChange("useBus", "Yes")}
-                style={{ marginRight: "8px" }}
-              />
-              <label htmlFor="busYes" style={{ marginRight: "20px" }}>
-                Yes
-              </label>
-
-              <input
-                type="radio"
-                id="busNo"
-                checked={transportData.useBus === "No"}
-                onChange={() => {
-                  handleInputChange("useBus", "No");
-                  handleInputChange("busFrequency", 0);
-                }}
-                style={{ marginRight: "8px" }}
-              />
-              <label htmlFor="busNo">No</label>
+              Error: {formStatus.error}
             </div>
-            {transportData.useBus === "Yes" && (
-              <div>
-                <p style={{ marginBottom: "8px" }}>How many times a week? 📅</p>
-                <input
-                  type="number"
-                  min="0"
-                  placeholder="Times per week"
-                  value={transportData.busFrequency}
-                  onChange={(e) =>
-                    handleInputChange("busFrequency", e.target.value)
-                  }
-                  style={inputStyle}
-                />
-              </div>
-            )}
-          </div>
-        </div>
+          )}
 
-        {/* Diet Section */}
-        <div style={sectionStyle}>
-          <h3>Diet 🍽️</h3>
-          <div>
-            <label>What best describes your diet? 🥗</label>
-            <select
-              value={dietData.dietType}
-              onChange={(e) =>
-                setDietData({
-                  dietType: e.target.value as keyof typeof DIET_EMISSIONS,
-                })
-              }
-              style={inputStyle}
+          {formStatus.success && (
+            <div
+              style={{
+                color: "green",
+                marginBottom: "20px",
+                padding: "10px",
+                backgroundColor: "#e8f5e9",
+                borderRadius: "4px",
+              }}
             >
-              {Object.keys(DIET_EMISSIONS).map((type) => (
-                <option key={type} value={type}>
-                  {type}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
+              Data submitted successfully!
+            </div>
+          )}
 
-        {/* Energy Section */}
-        <div style={sectionStyle}>
-          <h3>Energy & Utilities 💡</h3>
-          <div>
-            <label>What is your monthly electric bill? ($) ⚡</label>
-            <input
-              type="number"
-              min="0"
-              value={energyData.electricBill}
-              onChange={(e) =>
-                setEnergyData((prev) => ({
-                  ...prev,
-                  electricBill: Number(e.target.value) || 0,
-                }))
-              }
-              style={inputStyle}
-            />
-          </div>
-
-          <div>
-            <label>What is your monthly water bill? ($) 💧</label>
-            <input
-              type="number"
-              min="0"
-              value={energyData.waterBill}
-              onChange={(e) =>
-                setEnergyData((prev) => ({
-                  ...prev,
-                  waterBill: Number(e.target.value) || 0,
-                }))
-              }
-              style={inputStyle}
-            />
-          </div>
-
-          <div>
-            <label>What is your monthly propane bill? ($) 🔥</label>
-            <input
-              type="number"
-              min="0"
-              value={energyData.propaneBill}
-              onChange={(e) =>
-                setEnergyData((prev) => ({
-                  ...prev,
-                  propaneBill: Number(e.target.value) || 0,
-                }))
-              }
-              style={inputStyle}
-            />
-          </div>
-
-          <div>
-            <label>What is your monthly natural gas bill? ($) ⛽</label>
-            <input
-              type="number"
-              min="0"
-              value={energyData.gasBill}
-              onChange={(e) =>
-                setEnergyData((prev) => ({
-                  ...prev,
-                  gasBill: Number(e.target.value) || 0,
-                }))
-              }
-              style={inputStyle}
-            />
-          </div>
-
-          <div>
-            <label>How many people live in your home? 👥</label>
-            <input
-              type="number"
-              min="1"
-              value={energyData.peopleInHome}
-              onChange={(e) =>
-                setEnergyData((prev) => ({
-                  ...prev,
-                  peopleInHome: Number(e.target.value) || 1,
-                }))
-              }
-              style={inputStyle}
-            />
-          </div>
-        </div>
-
-        <div>
-          <p style={{ marginBottom: "10px" }}>
-            Do you use a wood stove for heating? 🪵
-          </p>
-          <div
+          {/* Submit Button */}
+          <button
+            type="submit"
             style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "10px",
-            }}
-          >
-            <input
-              type="radio"
-              id="woodStoveYes"
-              checked={energyData.useWoodStove === "Yes"}
-              onChange={() =>
-                setEnergyData((prev) => ({
-                  ...prev,
-                  useWoodStove: "Yes",
-                }))
-              }
-              style={{ marginRight: "8px" }}
-            />
-            <label htmlFor="woodStoveYes" style={{ marginRight: "20px" }}>
-              Yes
-            </label>
-
-            <input
-              type="radio"
-              id="woodStoveNo"
-              checked={energyData.useWoodStove === "No"}
-              onChange={() =>
-                setEnergyData((prev) => ({
-                  ...prev,
-                  useWoodStove: "No",
-                }))
-              }
-              style={{ marginRight: "8px" }}
-            />
-            <label htmlFor="woodStoveNo">No</label>
-          </div>
-        </div>
-
-        {/* Total Emissions */}
-        <div
-          style={{
-            backgroundColor: "#f5f5f5",
-            padding: "20px",
-            borderRadius: "8px",
-            marginTop: "30px",
-            marginBottom: "20px",
-          }}
-        >
-          <h3>Total Carbon Footprint</h3>
-          <p style={{ fontWeight: "bold", fontSize: "1.2em" }}>
-            {emissions.totalEmissions.toFixed(2)} tons CO2/year
-          </p>
-
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Flight Emissions: {emissions.flightEmissions.toFixed(2)} tons
-            CO2/year
-          </div>
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Car Emissions: {emissions.carEmissions.toFixed(2)} tons CO2/year
-          </div>
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Public Transport Emissions:{" "}
-            {emissions.publicTransportEmissions.toFixed(2)} tons CO2/year
-          </div>
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Diet Emissions: {emissions.dietEmissions.toFixed(2)} tons CO2/year
-          </div>
-
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Electric Emissions: {emissions.electricEmissions.toFixed(2)} tons
-            CO2/year
-          </div>
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Propane Emissions: {emissions.propaneEmissions.toFixed(2)} tons
-            CO2/year
-          </div>
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Gas Emissions: {emissions.gasEmissions.toFixed(2)} tons CO2/year
-          </div>
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Water Emissions: {emissions.waterEmissions.toFixed(2)} tons CO2/year
-          </div>
-          <div style={{ fontWeight: "bold", marginTop: "10px" }}>
-            Energy/Utilities Emissions: {emissions.energyEmissions.toFixed(2)}{" "}
-            tons CO2/year
-          </div>
-        </div>
-
-        {/* Status Messages */}
-        {formStatus.error && (
-          <div
-            style={{
-              color: "red",
-              marginBottom: "20px",
-              padding: "10px",
-              backgroundColor: "#ffebee",
+              backgroundColor: formStatus.loading ? "#cccccc" : "#217e38",
+              color: "white",
+              padding: "10px 20px",
+              border: "none",
               borderRadius: "4px",
+              cursor: formStatus.loading ? "not-allowed" : "pointer",
+              width: "100%",
+              fontSize: "16px",
             }}
+            disabled={!userName || !userEmail || formStatus.loading}
           >
-            Error: {formStatus.error}
+            {formStatus.loading ? "Submitting..." : "Calculate & Save Results"}
+          </button>
+        </form>
+
+        {showResults && (
+          <div style={styles.resultsSection}>
+            <h2 style={styles.header}>Your Carbon Footprint Results</h2>
+
+            <div style={styles.summaryText}>
+              <strong>Total Emissions:</strong>{" "}
+              {emissions.totalEmissions.toFixed(2)} tons CO₂/year
+              <br />
+              <strong>Monthly Average:</strong>{" "}
+              {(emissions.totalEmissions / 12).toFixed(2)} tons CO₂/month
+            </div>
+
+            <div style={styles.gridContainer}>
+              {/* Update the PieChart */}
+              <div style={styles.chartContainer}>
+                <h3 style={styles.chartTitle}>Emission Breakdown</h3>
+                <div style={styles.pieChartWrapper}>
+                  <PieChart
+                    width={isMobile ? 300 : 400}
+                    height={isMobile ? 250 : 300}
+                  >
+                    <Pie
+                      data={pieData}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      label={({ percent }) => `${(percent * 100).toFixed(0)}%`}
+                      outerRadius={isMobile ? 80 : 100}
+                      dataKey="value"
+                    >
+                      {pieData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
+                  </PieChart>
+                </div>
+              </div>
+
+              {/* US Average Comparison Below Pie Chart */}
+              <div style={styles.chartContainer}>
+                <h3 style={styles.chartTitle}>Compared to US Average</h3>
+                {[
+                  { name: "Your Emissions", value: emissions.totalEmissions },
+                  { name: "US Average", value: US_AVERAGE_EMISSIONS },
+                ].map((item, index) => (
+                  <div key={index} style={styles.comparisonBar}>
+                    <div style={styles.barLabel}>
+                      <span>{item.name}</span>
+                      <span>{item.value.toFixed(2)} tons/year</span>
+                    </div>
+                    <div style={styles.barContainer}>
+                      <div
+                        style={styles.bar(
+                          Math.min((item.value / 20) * 100, 100),
+                          item.name === "Your Emissions"
+                        )}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Detailed Breakdown Table */}
+              <div style={{ overflowX: "auto" }}>
+                <table style={styles.table}>
+                  <thead>
+                    <tr>
+                      <th style={styles.tableHeader}>Emissions Breakdown</th>
+                      <th style={styles.tableHeaderRight}>(tons CO₂/year)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {/* Transportation */}
+                    <tr style={styles.categoryRow}>
+                      <td colSpan={2} style={styles.tableCell}>
+                        Transportation
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.indentedCell}>Flight Emissions</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.flightEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.indentedCell}>Car Emissions</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.carEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.indentedCell}>Public Transport</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.publicTransportEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+
+                    {/* Diet */}
+                    <tr style={styles.categoryRow}>
+                      <td style={styles.tableCell}>Diet</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.dietEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+
+                    {/* Energy */}
+                    <tr style={styles.categoryRow}>
+                      <td colSpan={2} style={styles.tableCell}>
+                        Energy & Utilities
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.indentedCell}>Electric Emissions</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.electricEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.indentedCell}>Water Emissions</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.waterEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.indentedCell}>Propane Emissions</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.propaneEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style={styles.indentedCell}>Gas Emissions</td>
+                      <td style={styles.tableCellRight}>
+                        {emissions.gasEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+
+                    {/* Total */}
+                    <tr>
+                      <td style={{ ...styles.tableCell, ...styles.totalRow }}>
+                        Total Emissions
+                      </td>
+                      <td
+                        style={{ ...styles.tableCellRight, ...styles.totalRow }}
+                      >
+                        {emissions.totalEmissions.toFixed(2)}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style={styles.buttonContainer}>
+                <button
+                  onClick={() => window.print()}
+                  style={styles.button}
+                  className="save-results-button"
+                >
+                  Save Results
+                </button>
+              </div>
+            </div>
           </div>
         )}
-
-        {formStatus.success && (
-          <div
-            style={{
-              color: "green",
-              marginBottom: "20px",
-              padding: "10px",
-              backgroundColor: "#e8f5e9",
-              borderRadius: "4px",
-            }}
-          >
-            Data submitted successfully!
-          </div>
-        )}
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          style={{
-            backgroundColor: formStatus.loading ? "#cccccc" : "#217e38",
-            color: "white",
-            padding: "10px 20px",
-            border: "none",
-            borderRadius: "4px",
-            cursor: formStatus.loading ? "not-allowed" : "pointer",
-            width: "100%",
-            fontSize: "16px",
-          }}
-          disabled={!userName || !userEmail || formStatus.loading} // Added userEmail check
-        >
-          {formStatus.loading ? "Submitting..." : "Calculate & Save Results"}
-        </button>
-      </form>
-      <EmissionResults
-        emissions={emissions}
-        show={showResults}
-        onClose={() => setShowResults(false)}
-      />
+      </div>
     </div>
   );
 };
