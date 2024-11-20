@@ -8,6 +8,7 @@ import Resume from "./pages/Resume";
 import Video from "./pages/Video";
 import Writing from "./pages/Writing";
 import CarbonCalc from "./pages/carboncalc";
+import Wakeup from "./pages/dayLogger";
 import Stocks from "./pages/stocks";
 
 const App: React.FC = () => {
@@ -26,6 +27,7 @@ const App: React.FC = () => {
     { path: "/75hard", label: "75 Hard" },
     { path: "/stocks", label: "Stock Picks" },
     { path: "/carboncalc", label: "CarbonCalc" },
+    { path: "/daylogger", label: "Wakeup Log" },
   ];
 
   const styles: Record<string, React.CSSProperties> = {
@@ -145,6 +147,7 @@ const App: React.FC = () => {
             <Route path="/75hard" element={<Hard />} />
             <Route path="/stocks" element={<Stocks />} />
             <Route path="/carboncalc" element={<CarbonCalc />} />
+            <Route path="/daylogger" element={<Wakeup />} />
           </Routes>
         </main>
       </div>
