@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import Portfolio from "./components/portfolio";
 
 const StockPicks: React.FC = () => {
   const [data, setData] = useState<any[][]>([]);
@@ -161,6 +162,9 @@ const StockPicks: React.FC = () => {
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Stock Picks</h1>
+
+      <Portfolio />
+
       <p style={styles.paragraph}>
         These are stocks that I pulled from bloomberg EQS Screen. They are
         strong businesses with consistent growth and over 1B market cap. I do

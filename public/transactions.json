@@ -1,0 +1,918 @@
+{
+    "FromDate": "12/07/2020",
+    "ToDate": "12/07/2024",
+    "TotalTransactionsAmount": "$7,445.00",
+    "BrokerageTransactions": [
+      {
+        "Date": "11/18/2024 as of 11/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.10"
+      },
+      {
+        "Date": "11/14/2024",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0067",
+        "Price": "$226.2704",
+        "Fees & Comm": "",
+        "Amount": "-$1.52"
+      },
+      {
+        "Date": "11/14/2024",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.52"
+      },
+      {
+        "Date": "10/31/2024",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF @",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$17.46"
+      },
+      {
+        "Date": "10/16/2024 as of 10/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.65"
+      },
+      {
+        "Date": "10/01/2024",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0386",
+        "Price": "$279.74",
+        "Fees & Comm": "",
+        "Amount": "-$10.79"
+      },
+      {
+        "Date": "10/01/2024",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$10.79"
+      },
+      {
+        "Date": "10/01/2024 as of 09/30/2024",
+        "Action": "MoneyLink Transfer",
+        "Symbol": "",
+        "Description": "Tfr UNIVEST BANK AND T, N/A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$7,000.00"
+      },
+      {
+        "Date": "09/26/2024",
+        "Action": "Qualified Dividend",
+        "Symbol": "META",
+        "Description": "META PLATFORMS INC CLASS A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.50"
+      },
+      {
+        "Date": "09/16/2024 as of 09/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.16"
+      },
+      {
+        "Date": "08/16/2024 as of 08/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.16"
+      },
+      {
+        "Date": "08/15/2024",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0068",
+        "Price": "$224.8589",
+        "Fees & Comm": "",
+        "Amount": "-$1.52"
+      },
+      {
+        "Date": "08/15/2024",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.52"
+      },
+      {
+        "Date": "07/31/2024",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$17.59"
+      },
+      {
+        "Date": "07/16/2024 as of 07/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.15"
+      },
+      {
+        "Date": "07/02/2024",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0437",
+        "Price": "$268.58",
+        "Fees & Comm": "",
+        "Amount": "-$11.75"
+      },
+      {
+        "Date": "07/02/2024",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$11.75"
+      },
+      {
+        "Date": "06/26/2024",
+        "Action": "Qualified Dividend",
+        "Symbol": "META",
+        "Description": "META PLATFORMS INC CLASS A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.50"
+      },
+      {
+        "Date": "06/17/2024 as of 06/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.91"
+      },
+      {
+        "Date": "05/28/2024",
+        "Action": "Buy",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "9",
+        "Price": "$527.2134",
+        "Fees & Comm": "",
+        "Amount": "-$4,744.92"
+      },
+      {
+        "Date": "05/16/2024",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0079",
+        "Price": "$190.4415",
+        "Fees & Comm": "",
+        "Amount": "-$1.51"
+      },
+      {
+        "Date": "05/16/2024",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.51"
+      },
+      {
+        "Date": "05/16/2024 as of 05/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.89"
+      },
+      {
+        "Date": "04/30/2024",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.59"
+      },
+      {
+        "Date": "04/16/2024 as of 04/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.96"
+      },
+      {
+        "Date": "03/28/2024",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0431",
+        "Price": "$259.92",
+        "Fees & Comm": "",
+        "Amount": "-$11.20"
+      },
+      {
+        "Date": "03/27/2024",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$11.20"
+      },
+      {
+        "Date": "03/26/2024",
+        "Action": "Qualified Dividend",
+        "Symbol": "META",
+        "Description": "META PLATFORMS INC CLASS A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.50"
+      },
+      {
+        "Date": "03/18/2024 as of 03/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.97"
+      },
+      {
+        "Date": "03/01/2024 as of 02/29/2024",
+        "Action": "MoneyLink Transfer",
+        "Symbol": "",
+        "Description": "Tfr UNIVEST BANK AND T, N/A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$5,000.00"
+      },
+      {
+        "Date": "02/16/2024",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0079",
+        "Price": "$182.4897",
+        "Fees & Comm": "",
+        "Amount": "-$1.45"
+      },
+      {
+        "Date": "02/16/2024 as of 02/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "02/15/2024",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.45"
+      },
+      {
+        "Date": "01/31/2024",
+        "Action": "Pr Yr Cash Div",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.91"
+      },
+      {
+        "Date": "01/16/2024 as of 01/15/2024",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...524 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "12/28/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0514",
+        "Price": "$238.5072",
+        "Fees & Comm": "",
+        "Amount": "-$12.27"
+      },
+      {
+        "Date": "12/27/2023",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$12.27"
+      },
+      {
+        "Date": "12/18/2023 as of 12/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "11/17/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0077",
+        "Price": "$189.2787",
+        "Fees & Comm": "",
+        "Amount": "-$1.45"
+      },
+      {
+        "Date": "11/16/2023",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.45"
+      },
+      {
+        "Date": "11/16/2023 as of 11/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "10/31/2023",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.58"
+      },
+      {
+        "Date": "10/16/2023 as of 10/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "09/27/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.046",
+        "Price": "$211.711",
+        "Fees & Comm": "",
+        "Amount": "-$9.74"
+      },
+      {
+        "Date": "09/26/2023",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$9.74"
+      },
+      {
+        "Date": "09/18/2023 as of 09/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "08/18/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0084",
+        "Price": "$173.5114",
+        "Fees & Comm": "",
+        "Amount": "-$1.45"
+      },
+      {
+        "Date": "08/17/2023",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.45"
+      },
+      {
+        "Date": "08/16/2023 as of 08/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "07/31/2023",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.64"
+      },
+      {
+        "Date": "07/17/2023 as of 07/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "06/29/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0462",
+        "Price": "$217.4026",
+        "Fees & Comm": "",
+        "Amount": "-$10.05"
+      },
+      {
+        "Date": "06/28/2023",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$10.05"
+      },
+      {
+        "Date": "06/16/2023 as of 06/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "05/19/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0082",
+        "Price": "$175.8767",
+        "Fees & Comm": "",
+        "Amount": "-$1.45"
+      },
+      {
+        "Date": "05/18/2023",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.45"
+      },
+      {
+        "Date": "05/16/2023 as of 05/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "04/28/2023",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.51"
+      },
+      {
+        "Date": "04/17/2023 as of 04/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "03/29/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0478",
+        "Price": "$199.1538",
+        "Fees & Comm": "",
+        "Amount": "-$9.52"
+      },
+      {
+        "Date": "03/28/2023",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$9.52"
+      },
+      {
+        "Date": "03/16/2023 as of 03/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "02/17/2023",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0091",
+        "Price": "$152.2374",
+        "Fees & Comm": "",
+        "Amount": "-$1.38"
+      },
+      {
+        "Date": "02/16/2023",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.38"
+      },
+      {
+        "Date": "02/16/2023 as of 02/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "01/31/2023",
+        "Action": "Pr Yr Cash Div",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.78"
+      },
+      {
+        "Date": "01/17/2023 as of 01/15/2023",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...523 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "12/29/2022",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0586",
+        "Price": "$191.3718",
+        "Fees & Comm": "",
+        "Amount": "-$11.22"
+      },
+      {
+        "Date": "12/28/2022",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$11.22"
+      },
+      {
+        "Date": "12/16/2022 as of 12/15/2022",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...522 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.04"
+      },
+      {
+        "Date": "11/16/2022 as of 11/15/2022",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...522 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.04"
+      },
+      {
+        "Date": "11/11/2022",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0093",
+        "Price": "$147.6443",
+        "Fees & Comm": "",
+        "Amount": "-$1.38"
+      },
+      {
+        "Date": "11/10/2022",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.38"
+      },
+      {
+        "Date": "10/31/2022",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.60"
+      },
+      {
+        "Date": "10/17/2022 as of 10/15/2022",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...522 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.04"
+      },
+      {
+        "Date": "09/29/2022",
+        "Action": "Reinvest Shares",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "0.0527",
+        "Price": "$181.1148",
+        "Fees & Comm": "",
+        "Amount": "-$9.55"
+      },
+      {
+        "Date": "09/28/2022",
+        "Action": "Reinvest Dividend",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$9.55"
+      },
+      {
+        "Date": "09/16/2022 as of 09/15/2022",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...522 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.05"
+      },
+      {
+        "Date": "09/01/2022",
+        "Action": "Buy",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "1",
+        "Price": "$156.67",
+        "Fees & Comm": "",
+        "Amount": "-$156.67"
+      },
+      {
+        "Date": "08/16/2022 as of 08/15/2022",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...522 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.41"
+      },
+      {
+        "Date": "08/12/2022",
+        "Action": "Reinvest Shares",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "0.0068",
+        "Price": "$170.3087",
+        "Fees & Comm": "",
+        "Amount": "-$1.15"
+      },
+      {
+        "Date": "08/11/2022",
+        "Action": "Qual Div Reinvest",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.15"
+      },
+      {
+        "Date": "08/10/2022",
+        "Action": "Buy",
+        "Symbol": "VTI",
+        "Description": "VANGUARD TOTAL STOCK MARKET ETF",
+        "Quantity": "12",
+        "Price": "$210.29",
+        "Fees & Comm": "",
+        "Amount": "-$2,523.48"
+      },
+      {
+        "Date": "08/08/2022",
+        "Action": "Buy",
+        "Symbol": "META",
+        "Description": "META PLATFORMS INC CLASS A",
+        "Quantity": "3",
+        "Price": "$169.6589",
+        "Fees & Comm": "",
+        "Amount": "-$508.98"
+      },
+      {
+        "Date": "07/29/2022",
+        "Action": "Cash Dividend",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$1.58"
+      },
+      {
+        "Date": "07/22/2022",
+        "Action": "MoneyLink Transfer",
+        "Symbol": "",
+        "Description": "Tfr UNIVEST BANK AND T, N/A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$2,000.00"
+      },
+      {
+        "Date": "07/21/2022",
+        "Action": "Buy",
+        "Symbol": "AAPL",
+        "Description": "APPLE INC",
+        "Quantity": "5",
+        "Price": "$154.56",
+        "Fees & Comm": "",
+        "Amount": "-$772.80"
+      },
+      {
+        "Date": "07/18/2022 as of 07/15/2022",
+        "Action": "Bank Interest",
+        "Symbol": "",
+        "Description": "BANK INT ...522 SCHWAB BANK",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$0.08"
+      },
+      {
+        "Date": "07/06/2022",
+        "Action": "MoneyLink Transfer",
+        "Symbol": "",
+        "Description": "Tfr UNIVEST BANK AND T, N/A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$2,000.00"
+      },
+      {
+        "Date": "05/02/2022",
+        "Action": "Buy",
+        "Symbol": "SPY",
+        "Description": "SPDR S&P ...500 ETF",
+        "Quantity": "1",
+        "Price": "$412.01",
+        "Fees & Comm": "",
+        "Amount": "-$412.01"
+      },
+      {
+        "Date": "04/21/2022",
+        "Action": "MoneyLink Transfer",
+        "Symbol": "",
+        "Description": "Tfr UNIVEST BANK AND T, N/A",
+        "Quantity": "",
+        "Price": "",
+        "Fees & Comm": "",
+        "Amount": "$501.81"
+      }
+    ]
+  }
+  
