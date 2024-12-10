@@ -17,7 +17,7 @@ const styles = {
     fontSize: "22px",
     marginTop: "25px",
     marginBottom: "15px",
-    fontWeight: "normal",
+    fontWeight: "bold",
     color: "#000",
   },
   paragraph: {
@@ -34,7 +34,7 @@ const styles = {
     fontSize: "16px",
   },
   link: {
-    color: "#000",
+    color: "#0066cc",
     textDecoration: "none",
   },
 };
