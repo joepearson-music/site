@@ -1,0 +1,67 @@
+{
+  "holdings": [
+    {
+      "symbol": "SPY",
+      "shares": 10.0,
+      "cost_per_share": 515.69,
+      "current_price": 607.81,
+      "cost_basis": 5156.93,
+      "current_value": 6078.1,
+      "total_dividends": 0,
+      "gain_loss": 921.17,
+      "total_return": 921.17,
+      "percent_return": 17.86,
+      "purchase_date": "2022-05-02"
+    },
+    {
+      "symbol": "VTI",
+      "shares": 12.4281,
+      "cost_per_share": 210.78,
+      "current_price": 302.45,
+      "cost_basis": 2619.57,
+      "current_value": 3758.88,
+      "total_dividends": 0,
+      "gain_loss": 1139.31,
+      "total_return": 1139.31,
+      "percent_return": 43.49,
+      "purchase_date": "2022-08-10"
+    },
+    {
+      "symbol": "META",
+      "shares": 3.0,
+      "cost_per_share": 169.66,
+      "current_price": 623.77,
+      "cost_basis": 508.98,
+      "current_value": 1871.31,
+      "total_dividends": 0,
+      "gain_loss": 1362.33,
+      "total_return": 1362.33,
+      "percent_return": 267.66,
+      "purchase_date": "2022-08-08"
+    },
+    {
+      "symbol": "AAPL",
+      "shares": 6.0788,
+      "cost_per_share": 155.25,
+      "current_price": 242.84,
+      "cost_basis": 943.73,
+      "current_value": 1476.18,
+      "total_dividends": 0,
+      "gain_loss": 532.45,
+      "total_return": 532.45,
+      "percent_return": 56.42,
+      "purchase_date": "2022-07-21"
+    }
+  ],
+  "daily_values": [],
+  "totals": {
+    "total_cost": 9229.21,
+    "total_value": 13184.46,
+    "total_dividends": 0,
+    "money_invested": 16501.81,
+    "total_gain_loss": 3955.25,
+    "total_return": 3955.25,
+    "total_return_percent": 42.86,
+    "last_updated": "2024-12-07 23:30:24"
+  }
+}
