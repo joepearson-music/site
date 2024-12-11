@@ -1,5 +1,9 @@
 import React from "react";
+import { Images } from "../../images/images"; // Update the import path based on your file location
+import Dropdown from "../components/dropdown";
+import JPIndex from "../components/jpindex";
 import { Layout, styles } from "../components/layout";
+import BuffettNotes from "./appendix/warren";
 
 const customStyles = {
   ...styles,
@@ -145,6 +149,38 @@ const IRA: React.FC = () => (
       to develop your own top 7 list, feel free to download this spreadsheet
       with the piotroski scores of all the screened stocks.
     </p>
+
+    <h2 style={styles.subHeader}>Appendix</h2>
+    <Dropdown
+      title="Warren Buffett and the Interpretation of Financial Statements"
+      icon={
+        <img
+          src={Images.warrenLogo}
+          alt=""
+          style={{ width: "24px", height: "24px" }}
+        />
+      }
+    >
+      <BuffettNotes />
+    </Dropdown>
+
+    <h2 style={styles.subHeader}>Appendix</h2>
+    <Dropdown
+      title="Warren Buffett and the Interpretation of Financial Statements"
+      icon={<img src="warrenlogo" alt="" />}
+    >
+      <BuffettNotes />
+    </Dropdown>
+
+    <Dropdown title="Additional Resources" icon="file">
+      <p style={styles.paragraph}>
+        <a href="/signup" className="link">
+          Sign up for emails from me about this stuff
+        </a>
+      </p>
+    </Dropdown>
+
+    <JPIndex />
   </Layout>
 );
 
