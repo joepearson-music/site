@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Portfolio from "./components/portfolio";
+import Portfolio from "../components/portfolio";
 
 const StockPicks: React.FC = () => {
   const [data, setData] = useState<any[][]>([]);

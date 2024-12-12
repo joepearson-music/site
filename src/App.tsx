@@ -1,15 +1,16 @@
 import React from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
-import Hard from "./pages/75hard";
 import About from "./pages/About";
-import Blogs from "./pages/Blog";
+import Blogs from "./pages/blog/Blog";
 import Home from "./pages/Home";
+import Hard from "./pages/projects/75hard";
+import CarbonCalc from "./pages/projects/carboncalc";
+import Wakeup from "./pages/projects/dayLogger";
 import Resume from "./pages/Resume";
+import IRA from "./pages/stocks/ira";
+import Stocks from "./pages/stocks/stocks";
 import Video from "./pages/Video";
 import Writing from "./pages/Writing";
-import CarbonCalc from "./pages/carboncalc";
-import Wakeup from "./pages/dayLogger";
-import Stocks from "./pages/stocks";
 
 const App: React.FC = () => {
   const [isProjectsOpen, setIsProjectsOpen] = React.useState(false);
@@ -28,6 +29,7 @@ const App: React.FC = () => {
     { path: "/stocks", label: "Stock Picks" },
     { path: "/carboncalc", label: "CarbonCalc" },
     { path: "/daylogger", label: "Wakeup Log" },
+    { path: "/ira", label: "IRA" },
   ];
 
   const styles: Record<string, React.CSSProperties> = {
@@ -148,6 +150,7 @@ const App: React.FC = () => {
             <Route path="/stocks" element={<Stocks />} />
             <Route path="/carboncalc" element={<CarbonCalc />} />
             <Route path="/daylogger" element={<Wakeup />} />
+            <Route path="/ira" element={<IRA />} />
           </Routes>
         </main>
       </div>

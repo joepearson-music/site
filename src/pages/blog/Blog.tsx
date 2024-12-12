@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import PreJackPearsonBlogs from "./blog/pre-jack-pearson-blogs";
+import PreJackPearsonBlogs from "./pre-jack-pearson-blogs";
 
 export interface BlogPostProps {
   title: string;
