@@ -1,131 +1,150 @@
-import React from "react";
 import { Images } from "../../../images/images";
 import { styles } from "../../components/layout";
 
-const BuffettNotes: React.FC = () => (
+const BuffettNotes = () => (
   <div>
     <h3 style={styles.subHeader}>
       Warren Buffett and the Interpretation of Financial Statements
     </h3>
 
-    {/* Image container with styles to prevent compression */}
     <div
       style={{
         display: "flex",
         justifyContent: "center",
         margin: "20px 0",
-        objectFit: "contain", // Prevents distortion
+        objectFit: "contain",
       }}
     >
       <img
         src={Images.warrenLogo}
         alt="Warren Buffett"
         style={{
-          maxWidth: "600px", // Adjust this value as needed
+          maxWidth: "600px",
           width: "auto",
           height: "auto",
           objectFit: "contain",
         }}
       />
     </div>
+
+    <p style={styles.paragraph}>
+      The book is split up into 3 sections, an introduction and then a section
+      on each of the 3 financial statements (Income Statement, Balance Sheet,
+      and Statement of Cash Flows) with each of the important line items defined
+      and related to Buffet's investment strategy.
+    </p>
+
     <h4 style={{ ...styles.subHeader, fontSize: "18px", marginTop: "15px" }}>
-      Introduction to Buffetology
+      Introduction to Value Investing
     </h4>
     <p style={styles.paragraph}>
-      Value investing → Durable Competitive Advantage and time. While some focus
-      on complex computer systems investing, exceptional companies make unique
-      low-cost products or services that occupy a spot in the consumer's mind.
+      Value investing is purchasing durable companies and holding them for a
+      long time. While complex computer systems investing has taken over the
+      market, exceptional companies make unique low-cost products or services
+      that occupy a spot in the consumer's mind.
     </p>
     <ul style={styles.list}>
       <li style={styles.listItem}>
-        Higher durability is less expense which means more cash and less debt
+        Higher durability reflects less expenses which means more cash and less
+        debt
       </li>
-      <li style={styles.listItem}>Good margins, little debt, low R&D</li>
-      <li style={styles.listItem}>Consistent earnings, growth in earnings</li>
+      <li style={styles.listItem}>
+        A good company has good margins, little debt, low R&D
+      </li>
+      <li style={styles.listItem}>
+        Consistent earnings and growth in earnings are key indicators
+      </li>
     </ul>
 
     <h4 style={{ ...styles.subHeader, fontSize: "18px", marginTop: "15px" }}>
-      Income Statement
+      Income Statement Analysis
     </h4>
     <p style={styles.paragraph}>Revenue - Expense = Profit</p>
-    <p style={styles.paragraph}>2 Types of Companies:</p>
+    <p style={styles.paragraph}>Companies fall into two categories:</p>
     <ol style={styles.list}>
-      <li style={styles.listItem}>Long term competitive advantage</li>
-      <li style={styles.listItem}>Mediocre</li>
+      <li style={styles.listItem}>
+        Companies with long term competitive advantage
+      </li>
+      <li style={styles.listItem}>Mediocre companies</li>
     </ol>
     <ul style={styles.list}>
       <li style={styles.listItem}>
         The gross profit margin of a durable company should be about 40%
       </li>
       <li style={styles.listItem}>
-        Gross Profit Margin = Gross Profit / Total Rev
+        Gross Profit Margin = Gross Profit / Total Revenue
       </li>
       <li style={styles.listItem}>
-        SGA should be less than 30% of total expenses
+        SG&A should be less than 30% of total expenses
       </li>
       <li style={styles.listItem}>
-        A company that doesn't need to spend a ton on R&D is in a better more
-        profitable industry for shareholders
+        Lower R&D spending often indicates a more profitable industry for
+        shareholders
       </li>
       <li style={styles.listItem}>
-        Aim for lower interest expense → signals low debt
+        Low interest expense signals low debt dependency
       </li>
       <li style={styles.listItem}>
-        A company that needs debt to operate isn't as competitive as one that
-        generates cash every month
+        Companies that need debt to operate aren't as competitive as those
+        generating regular cash
       </li>
-      <li style={styles.listItem}>Look at pre-tax earnings → Equity theory?</li>
-      <li style={styles.listItem}>Consistent positive net earnings</li>
+      <li style={styles.listItem}>Look for consistent positive net earnings</li>
       <li style={styles.listItem}>
-        Gain or loss on sale of assets is a short term thing
+        Be cautious of gains or losses on asset sales - they're short-term
+        events
       </li>
     </ul>
 
     <h4 style={{ ...styles.subHeader, fontSize: "18px", marginTop: "15px" }}>
-      Balance Sheet
+      Balance Sheet Indicators
     </h4>
-    <p style={styles.paragraph}>A = L + SE</p>
+    <p style={styles.paragraph}>Assets = Liabilities + Shareholders' Equity</p>
     <ul style={styles.list}>
       <li style={styles.listItem}>
-        Check the past 7 years cash numbers - has it gone up?
+        Examine cash position trends over the past 7 years
       </li>
       <li style={styles.listItem}>
-        Increased inventory must also increase revenue
-      </li>
-      <li style={styles.listItem}>Lower % of net receivables to gross sales</li>
-      <li style={styles.listItem}>Lower PPE costs</li>
-      <li style={styles.listItem}>Lower tech is easier to compete in</li>
-      <li style={styles.listItem}>Name or Brand is super important</li>
-      <li style={styles.listItem}>
-        Lower ROA and Higher Assets might have an advantage due to barrier to
-        entry
-      </li>
-      <li style={styles.listItem}>High ROA might be dangerous</li>
-      <li style={styles.listItem}>
-        "Little or no long term debt often means a good long term bet"
+        Inventory increases should correlate with revenue growth
       </li>
       <li style={styles.listItem}>
-        Debt to SE Ratio = Total Liabilities / Shareholders Equity
+        Look for a lower percentage of net receivables to gross sales
       </li>
-      <li style={styles.listItem}>Less than .8</li>
-      <li style={styles.listItem}>ROE = Net Earnings / Shareholders Equity</li>
+      <li style={styles.listItem}>Lower PP&E costs are often preferable</li>
+      <li style={styles.listItem}>
+        Lower-tech industries often have easier competitive landscapes
+      </li>
+      <li style={styles.listItem}>
+        Brand value and name recognition are crucial assets
+      </li>
+      <li style={styles.listItem}>
+        Lower ROA with higher assets might indicate strong entry barriers
+      </li>
+      <li style={styles.listItem}>
+        Very high ROA might signal competitive vulnerability
+      </li>
+      <li style={styles.listItem}>
+        "Little or no long-term debt often means a good long-term bet"
+      </li>
+      <li style={styles.listItem}>
+        Debt to Shareholders' Equity Ratio should be less than 0.8
+      </li>
+      <li style={styles.listItem}>ROE = Net Earnings / Shareholders' Equity</li>
     </ul>
 
     <h4 style={{ ...styles.subHeader, fontSize: "18px", marginTop: "15px" }}>
-      Cash Flow Statement
+      Cash Flow Statement Insights
     </h4>
     <ul style={styles.list}>
-      <li style={styles.listItem}>Operating</li>
-      <li style={styles.listItem}>Investing</li>
-      <li style={styles.listItem}>Capex</li>
-      <li style={styles.listItem}>Financing</li>
+      <li style={styles.listItem}>Focus on operating cash flow strength</li>
+      <li style={styles.listItem}>Evaluate investing activities carefully</li>
       <li style={styles.listItem}>
-        Smaller portion of net earnings on capex is better
+        Capital expenditures should be less than 25% of net earnings
       </li>
-      <li style={styles.listItem}>&lt;25% of net earnings/capex</li>
-      <li style={styles.listItem}>Dividends are taxed</li>
       <li style={styles.listItem}>
-        More stock buybacks increase value per share
+        Consider the tax implications of dividends
+      </li>
+      <li style={styles.listItem}>
+        Stock buybacks can increase per-share value
       </li>
     </ul>
 
@@ -133,9 +152,14 @@ const BuffettNotes: React.FC = () => (
       Durable Competitive Advantage
     </h4>
     <p style={styles.paragraph}>
-      Equity Bond theory: Value the return of the EPS on the purchase price and
-      project a growth rate that the EPS will grow at. Take the original share
-      price divided by projected EPS after growth rate.
+      The Equity Bond theory values the return of the EPS on the purchase price
+      and projects a growth rate for the EPS. The calculation takes the original
+      share price divided by projected EPS after applying the growth rate.
+    </p>
+    <p style={styles.paragraph}>
+      <strong>Example with Coca-Cola:</strong> In the late 1980s, Warren bought
+      shares for $6.50 with pre-tax earnings at $0.71. By 2007, Coke was trading
+      between $45 and $64 with pre-tax earnings at $3.96.
     </p>
   </div>
 );
