@@ -4,7 +4,7 @@ import { styles, Layout } from "../layout/layout"; // Import the Layout componen
 
 const HomePage: React.FC = () => {
   return (
-    <Layout title="NEW MUSIC..."> {/* Wrap content with Layout */}
+    <Layout title="TEST"> {/* Wrap content with Layout */}
       <p style={styles.paragraph}>
         Hi, I'm Joe Pearson, a finance major and aspiring developer. This
         website hosts some of my projects and helps me develop my web
