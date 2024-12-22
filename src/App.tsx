@@ -3,12 +3,7 @@ import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import About from "./pages/About";
 import Blogs from "./pages/blog/Blog";
 import Home from "./pages/Home";
-import Hard from "./pages/projects/75hard";
-import CarbonCalc from "./pages/projects/carboncalc";
-import Wakeup from "./pages/projects/dayLogger";
 import Resume from "./pages/Resume";
-import IRA from "./pages/stocks/ira";
-import Stocks from "./pages/stocks/stocks";
 import Video from "./pages/Video";
 import Writing from "./pages/Writing";
 
@@ -25,11 +20,6 @@ const App: React.FC = () => {
     { path: "/blogs", label: "Blogs" },
     { path: "/video", label: "Video" },
     { path: "/writing", label: "Writing" },
-    { path: "/75hard", label: "75 Hard" },
-    { path: "/stocks", label: "Stock Picks" },
-    { path: "/carboncalc", label: "CarbonCalc" },
-    { path: "/daylogger", label: "Wakeup Log" },
-    { path: "/ira", label: "IRA" },
   ];
 
   const styles: Record<string, React.CSSProperties> = {
@@ -107,7 +97,7 @@ const App: React.FC = () => {
     <Router>
       <div style={styles.mainContainer}>
         <header style={styles.header}>
-          <h1 style={styles.title}>Jack Pearson</h1>
+          <h1 style={styles.title}>Joe Pearson</h1>
           <nav style={styles.nav}>
             {menuItems.map((item) => (
               <Link key={item.path} to={item.path} style={styles.link}>
@@ -146,14 +136,11 @@ const App: React.FC = () => {
             <Route path="/video" element={<Video />} />
             <Route path="/writing/*" element={<Writing />} />
             <Route path="/blog/*" element={<Blogs />} />
-            <Route path="/75hard" element={<Hard />} />
-            <Route path="/stocks" element={<Stocks />} />
-            <Route path="/carboncalc" element={<CarbonCalc />} />
-            <Route path="/daylogger" element={<Wakeup />} />
-            <Route path="/ira" element={<IRA />} />
+  
           </Routes>
         </main>
       </div>
+
     </Router>
   );
 };

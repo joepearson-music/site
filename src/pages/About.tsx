@@ -1,5 +1,5 @@
 import React from "react";
-import { Layout, styles } from "./components/layout";
+import { Layout, styles } from "../layout/layout";
 
 const About: React.FC = () => (
   <Layout title="About Me">
