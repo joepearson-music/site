@@ -5,7 +5,7 @@ const styles = {
     padding: "20px",
     maxWidth: "800px",
     margin: "0 auto",
-    fontFamily: "'EB Garamond', serif", // Updated to EB Garamond
+    fontFamily: '"Grenze Gotisch", serif',
   },
   header: {
     fontSize: "28px",
@@ -38,23 +38,23 @@ const styles = {
     textDecoration: "none",
   },
   title: {
-      fontSize: "32px",
-      fontWeight: "bold" as const,
-      marginBottom: "10px",
-    },
-    subTitle: {
-      fontSize: "24px",
-      fontWeight: "bold" as const,
-      marginTop: "30px",
-      marginBottom: "10px",
-    },
-    note: {
-      backgroundColor: "#f0f0f0",
-      border: "1px solid #ddd",
-      borderRadius: "4px",
-      padding: "10px",
-      marginBottom: "20px",
-    },
+    fontSize: "32px",
+    fontWeight: "bold" as const,
+    marginBottom: "10px",
+  },
+  subTitle: {
+    fontSize: "24px",
+    fontWeight: "bold" as const,
+    marginTop: "30px",
+    marginBottom: "10px",
+  },
+  note: {
+    backgroundColor: "#f0f0f0",
+    border: "1px solid #ddd",
+    borderRadius: "4px",
+    padding: "10px",
+    marginBottom: "20px",
+  },
 };
 
 interface PageLayoutProps {

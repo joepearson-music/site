@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./fonts.css";
 import About from "./pages/About";
 import Blogs from "./pages/blog/Blog";
 import Home from "./pages/Home";
@@ -81,7 +82,7 @@ const App: React.FC = () => {
       minHeight: "100vh",
       display: "flex",
       flexDirection: "column" as const,
-      fontFamily: '"Times New Roman", Times, serif',
+      fontFamily: '"Grenze Gotisch", serif',
     },
     main: {
       flex: 1,
