@@ -1,72 +1,62 @@
 import React from "react";
 
-const styles = {
-  pageContainer: {
-    padding: "20px",
-    maxWidth: "800px",
-    margin: "0 auto",
-    fontFamily: '"Grenze Gotisch", serif',
-  },
-  header: {
-    fontSize: "28px",
-    marginBottom: "25px",
-    fontWeight: "Bold",
-    color: "#000",
-  },
-  subHeader: {
-    fontSize: "22px",
-    marginTop: "25px",
-    marginBottom: "15px",
-    fontWeight: "bold",
-    color: "#000",
-  },
-  paragraph: {
-    fontSize: "16px",
-    lineHeight: "1.6",
-    marginBottom: "20px",
-  },
-  list: {
-    marginLeft: "20px",
-    marginBottom: "20px",
-  },
-  listItem: {
-    marginBottom: "8px",
-    fontSize: "16px",
-  },
-  link: {
-    color: "#0066cc",
-    textDecoration: "none",
-  },
-  title: {
-    fontSize: "32px",
-    fontWeight: "bold" as const,
-    marginBottom: "10px",
-  },
-  subTitle: {
-    fontSize: "24px",
-    fontWeight: "bold" as const,
-    marginTop: "30px",
-    marginBottom: "10px",
-  },
-  note: {
-    backgroundColor: "#f0f0f0",
-    border: "1px solid #ddd",
-    borderRadius: "4px",
-    padding: "10px",
-    marginBottom: "20px",
-  },
-};
-
 interface PageLayoutProps {
   title: string;
   children: React.ReactNode;
 }
 
 const Layout: React.FC<PageLayoutProps> = ({ title, children }) => (
-  <div style={styles.pageContainer}>
-    <h1 style={styles.header}>{title}</h1>
+  <div className="p-4 md:p-6 max-w-4xl mx-auto font-serif">
+    <h1 className="text-2xl md:text-3xl lg:text-4xl mb-6 font-bold text-black">
+      {title}
+    </h1>
     {children}
   </div>
 );
 
-export { Layout, styles };
+// Reusable text components with responsive sizing
+const Title = ({ children }: { children: React.ReactNode }) => (
+  <h2 className="text-xl md:text-2xl lg:text-3xl font-bold mb-3 text-black">
+    {children}
+  </h2>
+);
+
+const SubTitle = ({ children }: { children: React.ReactNode }) => (
+  <h3 className="text-lg md:text-xl lg:text-2xl font-bold mt-6 mb-3 text-black">
+    {children}
+  </h3>
+);
+
+const Paragraph = ({ children }: { children: React.ReactNode }) => (
+  <p className="text-base md:text-lg lg:text-xl leading-relaxed mb-4">
+    {children}
+  </p>
+);
+
+const List = ({ children }: { children: React.ReactNode }) => (
+  <ul className="ml-6 mb-4 list-disc">{children}</ul>
+);
+
+const ListItem = ({ children }: { children: React.ReactNode }) => (
+  <li className="mb-2 text-base md:text-lg lg:text-xl">{children}</li>
+);
+
+const Link = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <a href={href} className="text-blue-600 hover:text-blue-800 no-underline">
+    {children}
+  </a>
+);
+
+const Note = ({ children }: { children: React.ReactNode }) => (
+  <div className="bg-gray-100 border border-gray-300 rounded p-4 mb-4">
+    {children}
+  </div>
+);
+
+export { Layout, Link, List, ListItem, Note, Paragraph, SubTitle, Title };
