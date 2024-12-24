@@ -97,7 +97,7 @@ const App: React.FC = () => {
     <Router>
       <div style={styles.mainContainer}>
         <header style={styles.header}>
-          <h1 style={styles.title}>Joe Pearson</h1>
+          <h1 style={styles.title}>Big Heads</h1>
           <nav style={styles.nav}>
             {menuItems.map((item) => (
               <Link key={item.path} to={item.path} style={styles.link}>
@@ -136,11 +136,9 @@ const App: React.FC = () => {
             <Route path="/video" element={<Video />} />
             <Route path="/writing/*" element={<Writing />} />
             <Route path="/blog/*" element={<Blogs />} />
-  
           </Routes>
         </main>
       </div>
-
     </Router>
   );
 };
