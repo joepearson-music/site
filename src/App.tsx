@@ -2,24 +2,22 @@ import React from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./fonts.css";
 import About from "./pages/About";
-import Episodes from "./pages/Episodes";
 import Home from "./pages/Home";
 
 const App: React.FC = () => {
   const menuItems = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
-    { path: "/episodes", label: "Episodes" },
   ];
 
   const styles: Record<string, React.CSSProperties> = {
     header: {
-      backgroundColor: "white",
+      backgroundColor: "#eee7d7",
       padding: "20px 10px",
       textAlign: "center" as const,
     },
     title: {
-      fontSize: "24px",
+      fontSize: "50px",
       marginBottom: "20px",
     },
     nav: {
@@ -40,6 +38,7 @@ const App: React.FC = () => {
       display: "flex",
       flexDirection: "column" as const,
       fontFamily: '"Grenze Gotisch", serif',
+      backgroundColor: "#eee7d7",
     },
     main: {
       flex: 1,
@@ -47,7 +46,7 @@ const App: React.FC = () => {
       display: "flex",
       justifyContent: "center",
       alignItems: "flex-start",
-      backgroundColor: "white",
+      backgroundColor: "#eee7d7",
     },
   };
 
@@ -69,7 +68,6 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/episodes" element={<Episodes />} />
           </Routes>
         </main>
       </div>
