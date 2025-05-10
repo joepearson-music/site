@@ -21,6 +21,7 @@ import suswhateverone from './bookclub/suswhateveryone.jpg';
 import systems from './bookclub/systems.jpg';
 import thealchemy from './bookclub/thealchemy.jpg';
 import whatthedog from './bookclub/whatthedog.jpg';
+import stephen from './bookclub/stephen.jpg';
  
 export const Images = {
   alchemist,
@@ -44,4 +45,5 @@ export const Images = {
   thealchemy,
   whatthedog,
   richest,
+  stephen,
 } as const;

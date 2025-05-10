@@ -19,6 +19,7 @@ import suswhateverone from "./images/bookclub/suswhateveryone.jpg";
 import systems from "./images/bookclub/systems.jpg";
 import thealchemy from "./images/bookclub/thealchemy.jpg";
 import whatthedog from "./images/bookclub/whatthedog.jpg";
+import stephen from "./images/bookclub/stephen.jpg";
 
 const styles: { [key: string]: CSSProperties } = {
   container: {
@@ -100,6 +101,17 @@ const currentlyReading = {
 };
 
 const bookData = [
+  {
+    title: "A Brief History of Time",
+    author: "Stephen Hawking",
+    rating: "4/5",
+    comments:
+      "Stephen Hawking is brilliant",
+    date: "2025-08",
+    cover: stephen, // Add corresponding book cover image
+    status: "Finished book",
+    type: "book",
+  },
   {
     title: "The Alchemist",
     author: "Paulo Coelho",
