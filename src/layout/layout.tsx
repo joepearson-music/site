@@ -5,7 +5,7 @@ const styles = {
     padding: "20px",
     maxWidth: "800px",
     margin: "0 auto",
-    fontFamily: '"Grenze Gotisch", serif',
+    fontFamily: '"Times New Roman", serif',
   },
   header: {
     fontSize: "28px",

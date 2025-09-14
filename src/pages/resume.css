@@ -1,0 +1,255 @@
+/* General styles */
+.resume-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Times New Roman', serif;
+  line-height: 1.2;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.resume-header h1 {
+  font-size: clamp(18px, 5vw, 24px);
+  margin-bottom: 5px;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  font-size: clamp(10px, 3vw, 14px);
+}
+
+.contact-info > * {
+  margin: 0 5px;
+}
+
+.separator {
+  display: inline-block;
+}
+
+.resume-header a {
+  color: blue;
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .separator {
+    display: none;
+  }
+  
+  .contact-info > * {
+    margin: 2px 5px;
+  }
+}
+/* Section styles */
+.resume-section {
+  margin-bottom: 20px;
+  font-family: 'Times New Roman', serif;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.resume-section h2 {
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.education-item {
+  margin-bottom: 15px;
+}
+/* Education styles */
+.education-section {
+  margin-bottom: 20px;
+}
+
+.education-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.education-main {
+  flex: 1 1 60%;
+  min-width: 200px;
+}
+
+.education-details {
+  flex: 1 1 40%;
+  min-width: 150px;
+  text-align: right;
+}
+
+.university, .college, .degree, .date, .gpa {
+  margin: 0 0 5px 0;
+}
+
+.university {
+  font-weight: bold;
+}
+
+.degree {
+  font-style: italic;
+}
+
+.relevant-coursework {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .education-content {
+    flex-direction: column;
+  }
+  
+  .education-main, .education-details {
+    width: 100%;
+    text-align: left;
+  }
+  
+  .education-details {
+    margin-top: 10px;
+  }
+}
+/* Experience styles */
+.experience-item {
+  margin-bottom: 15px;
+}
+
+.experience-item h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.experience-location {
+  margin: 0;
+}
+
+.experience-position {
+  font-style: italic;
+  margin: 0 0 5px 0;
+}
+
+/* List styles */
+ul {
+  margin: 5px 0 0 20px;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 3px;
+}
+
+.leadership-section {
+  margin-bottom: 20px;
+}
+
+.leadership-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.leadership-main {
+  flex: 1;
+}
+
+.leadership-location {
+  text-align: right;
+  min-width: 200px;
+}
+
+.organization, .position, .leadership-location p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.organization {
+  font-weight: bold;
+}
+
+.project {
+  font-style: italic;
+  font-weight: normal;
+}
+
+.position {
+  font-style: italic;
+}
+
+.leadership-details {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.leadership-details li {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+@media (max-width: 600px) {
+  .leadership-item {
+    flex-direction: column;
+  }
+  
+  .leadership-location {
+    text-align: left;
+    margin-top: 5px;
+  }
+}
+
+/* Certifications and Skills styles */
+.certifications-content, .skills-content {
+  margin-bottom: 15px;
+}
+
+.certifications-content p, .skills-content p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.skills-content p strong {
+  font-weight: bold;
+}
+
+/* New styles for education layout */
+.education-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.education-row span {
+  flex: 1 1 auto;
+  margin-right: 10px;
+}
+
+.education-date {
+  min-width: 200px;
+}
+
+.education-school,
+.education-degree {
+  min-width: 300px;
+}
+
+.education-gpa {
+  min-width: 100px;
+}
+
+.relevant-coursework {
+  width: 100%;
+  margin-top: 10px;
+}
