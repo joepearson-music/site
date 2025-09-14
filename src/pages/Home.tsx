@@ -3,7 +3,7 @@ import { Layout, styles } from "..//layout/layout";
 import CustomSocialBar from "./components/socialbar";
 
 const HomePage: React.FC = () => {
-
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const linkStyle = {
     color: "#0066cc",
     textDecoration: "none",
@@ -11,6 +11,7 @@ const HomePage: React.FC = () => {
     marginBottom: "4px",
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const headerStyle = {
     fontSize: "18px",
     fontWeight: "bold",
@@ -33,10 +34,12 @@ const HomePage: React.FC = () => {
           marginBottom: "20px",
         }}
       >
-        <strong>Note:</strong> This site is still in development and constantly
+        <p style={{ margin: 0 }}>
+        Note: This site is still in development and constantly
         being updated!
+        </p>
+
       </div>
-      
 
       <CustomSocialBar />
     </Layout>
