@@ -21,9 +21,19 @@ const HomePage: React.FC = () => {
   return (
     <Layout title="NEW MUSIC...">
       <p style={styles.paragraph}>
-        Hello World; My name is Joe Pearson, I am a Undergraduate student and this is my personal website. I plan to publish my music solely on this domain.
+        Hello World; My name is Joe Pearson, I am a University of Pittsburgh Frederick Honors College student and this is my personal website. I plan to publish my music solely on this domain.
       </p>
-
+      <div style={{ margin: "20px 0", textAlign: "center" }}>
+  <img
+    src="/selftitledteaser.png"
+    alt="Self-titled project teaser"
+    style={{ width: "100%", maxWidth: "600px", height: "auto", borderRadius: "8px" }}
+    loading="lazy"
+  />
+  <p style={{ marginTop: "8px" }}>
+    My upcoming self-titled project — coming soon.
+  </p>
+</div>
       <h2 style={styles.subHeader}>Site Development 🛠️</h2>
       <div
         style={{

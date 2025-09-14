@@ -100,6 +100,13 @@ damage removal.
     <section className="resume-section">
       <h2>LEADERSHIP AND ACTIVITIES</h2>
       <div className="experience-item">
+        <h3>University of Pittsburgh Symphony Orchestra</h3>
+        <p className="experience-location">Pittsburgh, PA</p>
+        <p className="experience-position">
+          Assistant Conductor | August 2025-Present
+        </p>
+      </div>
+      <div className="experience-item">
         <h3>Pitt Plant2Plate Urban Garden</h3>
         <p className="experience-location">Pittsburgh, PA</p>
         <p className="experience-position">
