@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./fonts.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Resume from "./pages/Resume";
 
-
 const App: React.FC = () => {
+  // 👇 this runs once when the app loads
+  useEffect(() => {
+    document.title = "joepearson.music"; 
+  }, []);
+
   const menuItems = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/resume", label: "Resume" },
-
   ];
 
   const styles: Record<string, React.CSSProperties> = {
@@ -72,9 +75,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-                        <Route path="/resume" element={<Resume />} />
-
-
+            <Route path="/resume" element={<Resume />} />
           </Routes>
         </main>
       </div>

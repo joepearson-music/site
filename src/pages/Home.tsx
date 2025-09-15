@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, styles } from "..//layout/layout";
 import CustomSocialBar from "./components/socialbar";
 
+
 const HomePage: React.FC = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const linkStyle = {
