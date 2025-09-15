@@ -1,49 +1,33 @@
+// src/App.tsx
 import React, { useEffect } from "react";
-import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./fonts.css";
 import About from "./pages/About";
 import Home from "./pages/Home";
 import Resume from "./pages/Resume";
+import NewMusic from "./pages/newmusic";
 
 const App: React.FC = () => {
-  // 👇 this runs once when the app loads
   useEffect(() => {
-    document.title = "joepearson.music"; 
+    document.title = "joepearson.music";
   }, []);
 
   const menuItems = [
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/resume", label: "Resume" },
+    { path: "/newmusic", label: "New Music" },
   ];
 
   const styles: Record<string, React.CSSProperties> = {
-    header: {
-      backgroundColor: "#ffffff",
-      padding: "20px 10px",
-      textAlign: "center" as const,
-    },
-    title: {
-      fontSize: "50px",
-      marginBottom: "20px",
-    },
-    nav: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      flexWrap: "wrap" as const,
-      gap: "15px",
-    },
-    link: {
-      color: "black",
-      textDecoration: "none",
-      fontSize: "16px",
-      padding: "5px",
-    },
+    header: { backgroundColor: "#ffffff", padding: "20px 10px", textAlign: "center" },
+    title: { fontSize: "50px", marginBottom: "20px" },
+    nav: { display: "flex", justifyContent: "center", alignItems: "center", flexWrap: "wrap", gap: "15px" },
+    link: { color: "black", textDecoration: "none", fontSize: "16px", padding: "5px" },
     mainContainer: {
       minHeight: "100vh",
       display: "flex",
-      flexDirection: "column" as const,
+      flexDirection: "column",
       fontFamily: '"Times New Roman", serif',
       backgroundColor: "#ffffff",
     },
@@ -76,6 +60,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/newmusic" element={<NewMusic />} />
           </Routes>
         </main>
       </div>
