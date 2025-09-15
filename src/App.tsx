@@ -16,7 +16,7 @@ const App: React.FC = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/resume", label: "Resume" },
-    { path: "/newmusic", label: "New Music" },
+   // HIDDEN  { path: "/newmusic", label: "New Music" },
   ];
 
   const styles: Record<string, React.CSSProperties> = {
