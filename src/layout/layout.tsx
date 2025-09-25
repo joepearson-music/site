@@ -1,3 +1,4 @@
+// src/layout/layout.tsx
 import React from "react";
 
 const styles = {
@@ -10,7 +11,7 @@ const styles = {
   header: {
     fontSize: "28px",
     marginBottom: "25px",
-    fontWeight: "Bold",
+    fontWeight: "bold",
     color: "#000",
   },
   subHeader: {
@@ -38,9 +39,6 @@ const styles = {
   link: {
     color: "#0066cc",
     textDecoration: "none",
-    "&:hover": {
-      textDecoration: "underline",
-    },
   },
   note: {
     backgroundColor: "#f0f0f0",
@@ -52,7 +50,7 @@ const styles = {
 };
 
 interface PageLayoutProps {
-  title: string;
+  title: string;                // 👈 back to string only
   children: React.ReactNode;
 }
 

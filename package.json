@@ -49,6 +49,7 @@
     ]
   },
   "devDependencies": {
-    "@types/recharts": "^1.8.29"
+    "@types/recharts": "^1.8.29",
+    "netlify-cli": "^23.6.0"
   }
 }
