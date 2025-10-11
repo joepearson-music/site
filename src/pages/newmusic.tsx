@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Layout, styles } from "../layout/layout";
 import asingleMp4 from "../media/asingle.mp4";
 import freewillMp4 from "../media/freewill.mp4";
+import ifsilenceMp4 from "../media/ifsilence.mp4";
 
 const NewMusic: React.FC = () => {
   const [videoError, setVideoError] = useState<{ [key: string]: boolean }>({});
@@ -64,6 +65,11 @@ const NewMusic: React.FC = () => {
     <Layout title="Self Titled">
       {renderVideo(freewillMp4, "My Argument for Free Will", "freewill")}
       {renderVideo(asingleMp4, "A Single Pedal of a Rose", "asingle")}
+      {renderVideo(
+        ifsilenceMp4,
+        "if silence exists then where is it?",
+        "ifsilence"
+      )}
     </Layout>
   );
 };
