@@ -38,6 +38,12 @@ const Home: React.FC = () => {
         <p style={{ margin: 0 }}>
           Note: This site is still in development and constantly being updated!
         </p>
+        <p style={{ margin: 0 }}>
+          -
+        </p>
+        <p style={{ margin: 0 }}>
+          P.S. click the teaser image to hear my debut album before it releases
+        </p>
       </div>
 
       <CustomSocialBar />
