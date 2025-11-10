@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Layout, styles } from "../layout/layout";
+
 import asingleMp4 from "../media/asingle.mp4";
 import freewillMp4 from "../media/freewill.mp4";
 import ifsilenceMp4 from "../media/ifsilence.mp4";
@@ -18,9 +19,7 @@ const NewMusic: React.FC = () => {
 
   const handleDownload = async () => {
     try {
-      const res = await fetch("/.netlify/functions/downloads", {
-        method: "POST",
-      });
+      const res = await fetch("/.netlify/functions/downloads", { method: "POST" });
       const data = await res.json();
       setDownloadCount(data.count);
     } catch (err) {
@@ -28,8 +27,8 @@ const NewMusic: React.FC = () => {
     }
   };
 
-  const renderVideo = (src: string, title: string, key: string) => (
-    <div style={{ textAlign: "center", margin: "20px 0" }}>
+  const renderVideo = (src: string, title: string, keyName: string) => (
+    <div style={{ textAlign: "center", margin: "20px 0" }} key={keyName}>
       <p style={styles.paragraph}>
         <em>{title}</em>
       </p>
@@ -38,7 +37,7 @@ const NewMusic: React.FC = () => {
         controls
         preload="metadata"
         playsInline
-        onError={() => setVideoError({ ...videoError, [key]: true })}
+        onError={() => setVideoError((prev) => ({ ...prev, [keyName]: true }))}
         style={{
           width: "100%",
           maxWidth: 800,
@@ -47,7 +46,7 @@ const NewMusic: React.FC = () => {
           backgroundColor: "#000",
         }}
       />
-      {videoError[key] && (
+      {videoError[keyName] && (
         <p style={{ marginTop: 10, color: "#b00020" }}>
           Could not load the video. Try opening it directly:{" "}
           <a href={src} onClick={handleDownload} download>
@@ -64,12 +63,8 @@ const NewMusic: React.FC = () => {
   return (
     <Layout title="Self Titled">
       {renderVideo(freewillMp4, "My Argument for Free Will", "freewill")}
-      {renderVideo(asingleMp4, "A Single Pedal of a Rose", "asingle")}
-      {renderVideo(
-        ifsilenceMp4,
-        "if silence exists then where is it?",
-        "ifsilence"
-      )}
+      {renderVideo(asingleMp4, "A Single Petal of a Rose", "asingle")}
+      {renderVideo(ifsilenceMp4, "If Silence Exists Then Where Is It?", "ifsilence")}
     </Layout>
   );
 };
