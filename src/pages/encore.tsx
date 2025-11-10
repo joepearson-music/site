@@ -1,12 +1,20 @@
 import React from "react";
 import { Layout, styles } from "../layout/layout";
 import CustomSocialBar from "./components/socialbar";
-import { Link } from "react-router-dom";
 
 const Encore: React.FC = () => {
   return (
     <Layout title="Encore @ 310">
-      <div style={{ color: "#000", background: "#fff", padding: "20px" }}>
+      <div
+        style={{
+          color: "#000",
+          background: "#fff",
+          padding: "20px",
+          maxWidth: 700,
+          margin: "0 auto",
+          lineHeight: 1.6,
+        }}
+      >
         <p style={styles.paragraph}>
           If you are seeing this, it is because you were invited to the performance of my Jazz
           Orchestra composition <em>"Sassafrass"</em>. I am hosting an afterparty in my apartment
@@ -17,7 +25,8 @@ const Encore: React.FC = () => {
           feel welcome to do so.
           <br />
           <br />
-          Thanks,<br />
+          Thanks,
+          <br />
           Joe
         </p>
 
