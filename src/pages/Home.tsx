@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   return (
-    <Layout title="NEW MUSIC...">
+    <Layout title="NEW MUSIC Jan. 2026">
       <p style={styles.paragraph}>
         Hello World; My name is Joe Pearson, I am a University of Pittsburgh Frederick Honors
         College student and this is my personal website. I plan to publish my music solely on
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
       <div style={{ margin: "20px 0", textAlign: "center" }}>
         <Link to="/newmusic" style={{ textDecoration: "none" }}>
           <img
-            src="/selftitledteaser.png"
+            src="/selftitled.png"
             alt="Self-titled project teaser"
             style={{
               width: "100%",

@@ -4,6 +4,8 @@ import { Layout, styles } from "../layout/layout";
 import asingleMp4 from "../media/asingle.mp4";
 import freewillMp4 from "../media/freewill.mp4";
 import ifsilenceMp4 from "../media/ifsilence.mp4";
+import daytripperMp4 from "../media/day_tripper.mp4";
+import movingforwardMp4 from "../media/movingforward.mp4";
 
 const NewMusic: React.FC = () => {
   const [videoError, setVideoError] = useState<{ [key: string]: boolean }>({});
@@ -63,8 +65,10 @@ const NewMusic: React.FC = () => {
   return (
     <Layout title="Self Titled">
       {renderVideo(freewillMp4, "My Argument for Free Will", "freewill")}
-      {renderVideo(asingleMp4, "A Single Petal of a Rose", "asingle")}
+      {renderVideo(asingleMp4, "A Single Petal of a Rose - Duke Ellington", "asingle")}
       {renderVideo(ifsilenceMp4, "If Silence Exists Then Where Is It?", "ifsilence")}
+      {renderVideo(daytripperMp4, "Day Tripper - Lennon & McCartney", "daytipper")}
+      {renderVideo(movingforwardMp4, "Moving Forward", "movingforward")}
     </Layout>
   );
 };
