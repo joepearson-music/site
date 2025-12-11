@@ -16,40 +16,10 @@ const About: React.FC = () => (
 
       <h2 style={styles.subHeader}>Future Performances</h2>
       <ul style={styles.list}>
-        <li style={styles.listItem}>
-          <a
-            href="https://www.jazz.pitt.edu/seminar55"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "#007bff",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
-          >
-            Bellefield Hall / Pitt Jazz Ensemble Kickoff Concert
-          </a>{" "}
-          - 12:00 PM Monday November 3
-        </li>
+        
 
         <li style={styles.listItem}>
-          <a
-            href="https://calendar.pitt.edu/department/department_of_music"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "#007bff",
-              textDecoration: "none",
-              fontWeight: "bold",
-            }}
-          >
-            Bellefield Hall / Pitt Jazz Ensemble Fall Concert
-          </a>{" "}
-          - 8:00 PM Thursday November 20
-        </li>
-
-        <li style={styles.listItem}>
-          Big Idea Center / Saxbys Jazz Hour - 10:30 AM every Friday
+          Big Idea Center / Saxbys Jazz Hour - SPRING SCHEDULE UNCONFIRMED
           <div
             style={{
               display: "flex",
@@ -73,7 +43,16 @@ const About: React.FC = () => (
 
       <h2 style={styles.subHeader}>Past Performances</h2>
       <ul style={styles.list}>
-        <li style={styles.listItem}>University of Pittsburgh Symphony Orchestra – Freedom of Thought and Action</li>
+        <li style={styles.listItem}>
+            Pitt Jazz Ensemble Fall Concert - November 20 2025
+        </li>
+
+        <li style={styles.listItem}>
+            Pitt Jazz Ensemble Kickoff Concert - November 3 2025
+        </li>
+        <li style={styles.listItem}>University of Pittsburgh Symphony Orchestra – Freedom of Thought and Action
+          
+        </li>
         <li style={styles.listItem}>
           Pitt Fall 2025 Music Performance Showcase
           <div
