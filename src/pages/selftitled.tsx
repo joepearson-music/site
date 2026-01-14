@@ -2,14 +2,8 @@
 import React, { useMemo, useState } from "react";
 import { Layout, styles } from "../layout/layout";
 
-// URL-encode helper for Netlify form POSTs
-const encode = (data: Record<string, string>) =>
-  Object.keys(data)
-    .map(
-      (key) =>
-        `${encodeURIComponent(key)}=${encodeURIComponent(data[key] ?? "")}`
-    )
-    .join("&");
+// URL-encode helper for Netlify form POSTs (stable)
+const encode = (data: Record<string, string>) => new URLSearchParams(data).toString();
 
 const SelfTitled: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -19,7 +13,6 @@ const SelfTitled: React.FC = () => {
 
   const formName = "self-titled-interest";
 
-  // Replace/extend these with real CD photos when you have them
   const images = useMemo(
     () => [
       { src: "/selftitled.png", alt: "Self Titled cover" },
@@ -37,11 +30,11 @@ const SelfTitled: React.FC = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // IMPORTANT: include ALL fields Netlify expects, especially "form-name"
     const payload: Record<string, string> = {
       "form-name": formName,
-      source: "selftitled-page",
       email: String(formData.get("email") ?? ""),
-      // Netlify honeypot field (leave blank unless a bot fills it)
+      source: String(formData.get("source") ?? "selftitled-page"),
       "bot-field": String(formData.get("bot-field") ?? ""),
     };
 
@@ -52,14 +45,17 @@ const SelfTitled: React.FC = () => {
         body: encode(payload),
       });
 
-      // Netlify often responds with 200 or 302 on success.
-      if (res.status === 200 || res.status === 302) {
+      // In a CRA SPA + Netlify, success is usually res.ok (200–299) OR a redirect (opaque)
+      // Some environments return 301/302. Treat ANY 2xx/3xx as success.
+      if (res.ok || (res.status >= 300 && res.status < 400)) {
         setStatus("sent");
         form.reset();
-      } else {
-        throw new Error(`Submission failed (${res.status})`);
+        return;
       }
-    } catch {
+
+      throw new Error(`Submission failed (${res.status})`);
+    } catch (err) {
+      console.error("Netlify form submit error:", err);
       setStatus("error");
     }
   };
@@ -71,19 +67,26 @@ const SelfTitled: React.FC = () => {
   return (
     <Layout title="Self Titled">
       <div style={{ maxWidth: 1220, margin: "0 auto", padding: "0 16px" }}>
-        {/* Netlify needs to "see" a static form at build time for SPA forms.
-            This hidden form is the trick that makes submissions show up in Netlify -> Forms. */}
-        <form
-          name={formName}
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          hidden
-        >
-          <input type="hidden" name="form-name" value={formName} />
-          <input type="hidden" name="source" value="selftitled-page" />
-          <input name="bot-field" />
-          <input type="email" name="email" />
-        </form>
+        {/* Top header */}
+        <div style={{ textAlign: "center", marginBottom: 18 }}>
+          <h1 style={{ ...styles.header, marginBottom: 8 }}>Self Titled</h1>
+          <p
+            style={{
+              ...styles.paragraph,
+              fontStyle: "italic",
+              opacity: 0.75,
+              textAlign: "center",
+              margin: 0,
+            }}
+          >
+            a listening experience not found on streaming services
+          </p>
+        </div>
+
+        {/* NOTE:
+           You already added the hidden build-time form to public/index.html.
+           That is the correct place.
+           Remove the hidden form from this component to avoid confusion/duplicate detection. */}
 
         {/* Amazon-style product layout */}
         <div style={ui.productRow} className="selftitled-product-row">
@@ -142,7 +145,7 @@ const SelfTitled: React.FC = () => {
           {/* RIGHT: combined single container */}
           <div style={ui.infoCol}>
             <div style={ui.card}>
-              <div style={ui.kicker}>Own the album...</div>
+              <div style={ui.kicker}>Own the album</div>
               <h2 style={ui.productTitle}>Limited Edition Compact Disc</h2>
 
               <p style={ui.productSub}>
@@ -165,6 +168,7 @@ const SelfTitled: React.FC = () => {
                 onSubmit={handleSubmit}
                 style={{ display: "grid", gap: 12 }}
               >
+                {/* These hidden fields MUST be present */}
                 <input type="hidden" name="form-name" value={formName} />
                 <input type="hidden" name="source" value="selftitled-page" />
 
@@ -211,7 +215,7 @@ const SelfTitled: React.FC = () => {
                       opacity: 0.8,
                     }}
                   >
-                    Submitted. Check Netlify → Forms to confirm it landed.
+                    Submitted. Thank you.
                   </p>
                 )}
                 {status === "error" && (
@@ -225,8 +229,6 @@ const SelfTitled: React.FC = () => {
                     Something failed. Refresh and try again.
                   </p>
                 )}
-
-                <div style={{ height: 6 }} />
               </form>
             </div>
           </div>
