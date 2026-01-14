@@ -50,8 +50,6 @@ const SelfTitled: React.FC = () => {
   return (
     <Layout title="Self Titled">
       <div style={{ maxWidth: 1220, margin: "0 auto", padding: "0 16px" }}>
-        {/* Top header */}
-
         {/* Amazon-style product layout */}
         <div style={ui.productRow} className="selftitled-product-row">
           {/* LEFT: carousel (one image at a time) */}
@@ -101,10 +99,12 @@ const SelfTitled: React.FC = () => {
               </div>
             </div>
 
-            <p style={ui.caption}>Prototype artwork shown. Click the image to advance.</p>
+            <p style={ui.caption}>
+              Prototype artwork shown. Click the image to advance.
+            </p>
           </div>
 
-          {/* RIGHT: combined single container (no Availability box, no Philosophy card) */}
+          {/* RIGHT: combined single container */}
           <div style={ui.infoCol}>
             <div style={ui.card}>
               <div style={ui.kicker}>Own the album...</div>
@@ -112,10 +112,12 @@ const SelfTitled: React.FC = () => {
 
               <p style={ui.productSub}>
                 The album is available as a limited edition CD. Only 10 copies
-                were created. This project is designed to oppose streaming culture.
-
-                If you want to own the album physically, submit your email. I will
-                follow up directly with next steps and details.
+                were created. This project is designed to oppose streaming
+                culture.
+                <br />
+                <br />
+                If you want to own the album physically, submit your email. I
+                will follow up directly with next steps and details.
               </p>
 
               <div style={{ height: 14 }} />
@@ -210,7 +212,9 @@ const SelfTitled: React.FC = () => {
             margin: "0 auto",
           }}
         >
-          Over time, this page will accumulate behind the scenes content, composer notes, and insights into the production of each track on the album.
+          Over time, this page will accumulate behind the scenes content,
+          composer notes, and insights into the production of each track on the
+          album.
         </p>
 
         <div style={{ height: 16 }} />
@@ -243,7 +247,7 @@ const ui: Record<string, React.CSSProperties> = {
   },
   mainImgFrame: {
     width: "100%",
-    maxWidth: 520, // a bit bigger since we removed thumbs
+    maxWidth: 520,
     borderRadius: 14,
     border: "1px solid rgba(0,0,0,0.12)",
     overflow: "hidden",
@@ -351,11 +355,11 @@ const ui: Record<string, React.CSSProperties> = {
   },
 };
 
-// Desktop 2-column layout
-const desktopMediaQuery = (() => {
-  if (typeof document === "undefined") return null;
+// Desktop 2-column layout injected once
+(() => {
+  if (typeof document === "undefined") return;
   const id = "selftitled-desktop-grid";
-  if (document.getElementById(id)) return null;
+  if (document.getElementById(id)) return;
 
   const style = document.createElement("style");
   style.id = id;
@@ -368,7 +372,6 @@ const desktopMediaQuery = (() => {
     }
   `;
   document.head.appendChild(style);
-  return null;
 })();
 
 export default SelfTitled;
