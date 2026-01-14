@@ -68,20 +68,6 @@ const SelfTitled: React.FC = () => {
     <Layout title="Self Titled">
       <div style={{ maxWidth: 1220, margin: "0 auto", padding: "0 16px" }}>
         {/* Top header */}
-        <div style={{ textAlign: "center", marginBottom: 18 }}>
-          <h1 style={{ ...styles.header, marginBottom: 8 }}>Self Titled</h1>
-          <p
-            style={{
-              ...styles.paragraph,
-              fontStyle: "italic",
-              opacity: 0.75,
-              textAlign: "center",
-              margin: 0,
-            }}
-          >
-            a listening experience not found on streaming services
-          </p>
-        </div>
 
         {/* NOTE:
            You already added the hidden build-time form to public/index.html.
