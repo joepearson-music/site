@@ -2,6 +2,15 @@
 import React, { useMemo, useState } from "react";
 import { Layout, styles } from "../layout/layout";
 
+// URL-encode helper for Netlify form POSTs
+const encode = (data: Record<string, string>) =>
+  Object.keys(data)
+    .map(
+      (key) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key] ?? "")}`
+    )
+    .join("&");
+
 const SelfTitled: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
     "idle"
@@ -28,16 +37,28 @@ const SelfTitled: React.FC = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    const payload: Record<string, string> = {
+      "form-name": formName,
+      source: "selftitled-page",
+      email: String(formData.get("email") ?? ""),
+      // Netlify honeypot field (leave blank unless a bot fills it)
+      "bot-field": String(formData.get("bot-field") ?? ""),
+    };
+
     try {
       const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
+        body: encode(payload),
       });
 
-      if (!res.ok) throw new Error("Submission failed");
-      setStatus("sent");
-      form.reset();
+      // Netlify often responds with 200 or 302 on success.
+      if (res.status === 200 || res.status === 302) {
+        setStatus("sent");
+        form.reset();
+      } else {
+        throw new Error(`Submission failed (${res.status})`);
+      }
     } catch {
       setStatus("error");
     }
@@ -50,6 +71,20 @@ const SelfTitled: React.FC = () => {
   return (
     <Layout title="Self Titled">
       <div style={{ maxWidth: 1220, margin: "0 auto", padding: "0 16px" }}>
+        {/* Netlify needs to "see" a static form at build time for SPA forms.
+            This hidden form is the trick that makes submissions show up in Netlify -> Forms. */}
+        <form
+          name={formName}
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          hidden
+        >
+          <input type="hidden" name="form-name" value={formName} />
+          <input type="hidden" name="source" value="selftitled-page" />
+          <input name="bot-field" />
+          <input type="email" name="email" />
+        </form>
+
         {/* Amazon-style product layout */}
         <div style={ui.productRow} className="selftitled-product-row">
           {/* LEFT: carousel (one image at a time) */}
@@ -176,7 +211,7 @@ const SelfTitled: React.FC = () => {
                       opacity: 0.8,
                     }}
                   >
-                    Submitted. I will reach out.
+                    Submitted. Check Netlify → Forms to confirm it landed.
                   </p>
                 )}
                 {status === "error" && (
