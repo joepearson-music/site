@@ -8,7 +8,6 @@ import About from "./pages/About";
 import Home from "./pages/Home";
 import Resume from "./pages/Resume";
 import NewMusic from "./pages/newmusic";
-import Encore from "./pages/encore";
 import SelfTitled from "./pages/selftitled";
 import Pre876876 from "./pages/pre876876";
 
@@ -22,17 +21,14 @@ const App: React.FC = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/resume", label: "Resume" },
-    // ❌ do NOT include /selftitled
-    // ❌ do NOT include /pre876876
   ];
 
   const styles: Record<string, React.CSSProperties> = {
     header: {
       backgroundColor: "#ffffff",
-      padding: "20px 10px",
+      padding: "12px 10px", // reduced since title is gone
       textAlign: "center",
     },
-    title: { fontSize: "50px", marginBottom: "20px" },
     nav: {
       display: "flex",
       justifyContent: "center",
@@ -67,7 +63,6 @@ const App: React.FC = () => {
     <Router>
       <div style={styles.mainContainer}>
         <header style={styles.header}>
-          <h1 style={styles.title}>Joe Pearson</h1>
           <nav style={styles.nav}>
             {menuItems.map((item) => (
               <Link key={item.path} to={item.path} style={styles.link}>
@@ -84,14 +79,10 @@ const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
 
-            {/* Hidden-but-real routes (not in hotbar) */}
+            {/* Hidden-but-real routes */}
             <Route path="/selftitled" element={<SelfTitled />} />
             <Route path="/pre876876" element={<Pre876876 />} />
             <Route path="/newmusic" element={<NewMusic />} />
-            <Route path="/encore" element={<Encore />} />
-
-            {/* Optional fallback */}
-            {/* <Route path="*" element={<Home />} /> */}
           </Routes>
         </main>
       </div>

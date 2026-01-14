@@ -48,21 +48,21 @@ const styles = {
     marginBottom: "20px",
   },
   button: {
-  padding: "0.75rem 1rem",
-  borderRadius: "8px",
-  border: "1px solid #ccc",
-  cursor: "pointer",
-}
+    padding: "0.75rem 1rem",
+    borderRadius: "8px",
+    border: "1px solid #ccc",
+    cursor: "pointer",
+  },
 };
 
 interface PageLayoutProps {
-  title: string;                // 👈 back to string only
+  title?: string; // accept title again, but optional
   children: React.ReactNode;
 }
 
 const Layout: React.FC<PageLayoutProps> = ({ title, children }) => (
   <div style={styles.pageContainer}>
-    <h1 style={styles.header}>{title}</h1>
+    {title ? <h1 style={styles.header}>{title}</h1> : null}
     {children}
   </div>
 );
