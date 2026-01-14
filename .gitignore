@@ -1,4 +1,5 @@
-node_modules
-
-# Local Netlify folder
+node_modules/
+.cache/
+dist/
+build/
 .netlify

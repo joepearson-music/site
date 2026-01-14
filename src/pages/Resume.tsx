@@ -132,7 +132,7 @@ damage removal.
           JavaScript, HTML
         </p>
         <p>
-          <strong>Interests:</strong> Music and Music Theory, Philosphy, Chess,
+          <strong>Interests:</strong> Music and Music Theory, Philosophy, Chess,
           Climate Change
         </p>
       </div>

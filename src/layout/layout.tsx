@@ -47,6 +47,12 @@ const styles = {
     padding: "10px",
     marginBottom: "20px",
   },
+  button: {
+  padding: "0.75rem 1rem",
+  borderRadius: "8px",
+  border: "1px solid #ccc",
+  cursor: "pointer",
+}
 };
 
 interface PageLayoutProps {
