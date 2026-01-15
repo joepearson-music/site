@@ -1,76 +1,40 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Layout, styles } from "../layout/layout";
 
-import asingleMp4 from "../media/asingle.mp4";
-import freewillMp4 from "../media/freewill.mp4";
-import ifsilenceMp4 from "../media/ifsilence.mp4";
-import daytripperMp4 from "../media/day_tripper.mp4";
-import movingforwardMp4 from "../media/movingforward.mp4";
+// optional, but consistent with your other pages
+import Reveal from "./components/Reveal";
 
-const NewMusic: React.FC = () => {
-  const [videoError, setVideoError] = useState<{ [key: string]: boolean }>({});
-  const [downloadCount, setDownloadCount] = useState<number | null>(null);
-
-  // Load count when the page mounts
-  useEffect(() => {
-    fetch("/.netlify/functions/downloads")
-      .then((res) => res.json())
-      .then((data) => setDownloadCount(data.count))
-      .catch(() => setDownloadCount(null));
-  }, []);
-
-  const handleDownload = async () => {
-    try {
-      const res = await fetch("/.netlify/functions/downloads", { method: "POST" });
-      const data = await res.json();
-      setDownloadCount(data.count);
-    } catch (err) {
-      console.error("Error updating count:", err);
-    }
-  };
-
-  const renderVideo = (src: string, title: string, keyName: string) => (
-    <div style={{ textAlign: "center", margin: "20px 0" }} key={keyName}>
-      <p style={styles.paragraph}>
-        <em>{title}</em>
-      </p>
-      <video
-        src={src}
-        controls
-        preload="metadata"
-        playsInline
-        onError={() => setVideoError((prev) => ({ ...prev, [keyName]: true }))}
-        style={{
-          width: "100%",
-          maxWidth: 800,
-          borderRadius: 8,
-          outline: "none",
-          backgroundColor: "#000",
-        }}
-      />
-      {videoError[keyName] && (
-        <p style={{ marginTop: 10, color: "#b00020" }}>
-          Could not load the video. Try opening it directly:{" "}
-          <a href={src} onClick={handleDownload} download>
-            Download Video
-          </a>
+const NewMusic: React.FC = () => (
+  <Layout title="New Music">
+    <div
+      style={{
+        maxWidth: 720,
+        margin: "0 auto",
+        padding: "0 16px",
+        minHeight: "60vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+    >
+      <Reveal>
+        <p
+          style={{
+            ...styles.paragraph,
+            textAlign: "center",
+            lineHeight: 1.7,
+            opacity: 0.85,
+          }}
+        >
+          My debut album is available now.
+          <br />
+          <br />
+          I am working on a few new projects, but nothing is ready to be
+          published.
         </p>
-      )}
-      {downloadCount !== null && (
-        <p style={{ marginTop: 15 }}>Total downloads: {downloadCount}</p>
-      )}
+      </Reveal>
     </div>
-  );
-
-  return (
-    <Layout title="Self Titled">
-      {renderVideo(freewillMp4, "My Argument for Free Will", "freewill")}
-      {renderVideo(asingleMp4, "A Single Petal of a Rose - Duke Ellington", "asingle")}
-      {renderVideo(ifsilenceMp4, "If Silence Exists Then Where Is It?", "ifsilence")}
-      {renderVideo(daytripperMp4, "Day Tripper - Lennon & McCartney", "daytipper")}
-      {renderVideo(movingforwardMp4, "Moving Forward", "movingforward")}
-    </Layout>
-  );
-};
+  </Layout>
+);
 
 export default NewMusic;

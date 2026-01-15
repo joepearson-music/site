@@ -1,9 +1,10 @@
 // src/pages/selftitled.tsx
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Layout, styles } from "../layout/layout";
 
 // URL-encode helper for Netlify form POSTs (stable)
-const encode = (data: Record<string, string>) => new URLSearchParams(data).toString();
+const encode = (data: Record<string, string>) =>
+  new URLSearchParams(data).toString();
 
 const SelfTitled: React.FC = () => {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -11,17 +12,45 @@ const SelfTitled: React.FC = () => {
   );
   const [selected, setSelected] = useState(0);
 
+  // ✅ lightbox state
+  const [isOpen, setIsOpen] = useState(false);
+
   const formName = "self-titled-interest";
+
+  const PUBLIC = process.env.PUBLIC_URL || "";
 
   const images = useMemo(
     () => [
-      { src: "/selftitled.png", alt: "Self Titled cover" },
-      { src: "/selftitled.png", alt: "Self Titled packaging" },
-      { src: "/selftitled.png", alt: "Self Titled disc" },
-      { src: "/selftitled.png", alt: "Self Titled booklet" },
+      { src: `${PUBLIC}/selftitled.png`, alt: "Self Titled cover" },
+      { src: `${PUBLIC}/tracklist.jpg`, alt: "Self Titled tracklist" },
+      { src: `${PUBLIC}/10copies.jpg`, alt: "Self Titled disc" },
+      { src: `${PUBLIC}/boxview.jpg`, alt: "Self Titled in box" },
+      { src: `${PUBLIC}/backside.jpg`, alt: "Self Titled NO AI" },
     ],
-    []
+    [PUBLIC]
   );
+
+  // Close lightbox on Escape and lock scroll while open
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, selected, images.length]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +59,6 @@ const SelfTitled: React.FC = () => {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // IMPORTANT: include ALL fields Netlify expects, especially "form-name"
     const payload: Record<string, string> = {
       "form-name": formName,
       email: String(formData.get("email") ?? ""),
@@ -45,8 +73,6 @@ const SelfTitled: React.FC = () => {
         body: encode(payload),
       });
 
-      // In a CRA SPA + Netlify, success is usually res.ok (200–299) OR a redirect (opaque)
-      // Some environments return 301/302. Treat ANY 2xx/3xx as success.
       if (res.ok || (res.status >= 300 && res.status < 400)) {
         setStatus("sent");
         form.reset();
@@ -64,16 +90,11 @@ const SelfTitled: React.FC = () => {
     setSelected((prev) => (prev - 1 + images.length) % images.length);
   const nextImage = () => setSelected((prev) => (prev + 1) % images.length);
 
+  const closeLightbox = () => setIsOpen(false);
+
   return (
     <Layout title="Self Titled">
       <div style={{ maxWidth: 1220, margin: "0 auto", padding: "0 16px" }}>
-        {/* Top header */}
-
-        {/* NOTE:
-           You already added the hidden build-time form to public/index.html.
-           That is the correct place.
-           Remove the hidden form from this component to avoid confusion/duplicate detection. */}
-
         {/* Amazon-style product layout */}
         <div style={ui.productRow} className="selftitled-product-row">
           {/* LEFT: carousel (one image at a time) */}
@@ -84,7 +105,10 @@ const SelfTitled: React.FC = () => {
                 alt={images[selected]?.alt}
                 style={ui.mainImg}
                 loading="lazy"
-                onClick={nextImage}
+                // ✅ click to expand, not next
+                onClick={() => setIsOpen(true)}
+                role="button"
+                aria-label="Open image"
               />
 
               <div style={ui.navRow}>
@@ -124,7 +148,7 @@ const SelfTitled: React.FC = () => {
             </div>
 
             <p style={ui.caption}>
-              Prototype artwork shown. Click the image to advance.
+              Click the image to expand
             </p>
           </div>
 
@@ -154,11 +178,9 @@ const SelfTitled: React.FC = () => {
                 onSubmit={handleSubmit}
                 style={{ display: "grid", gap: 12 }}
               >
-                {/* These hidden fields MUST be present */}
                 <input type="hidden" name="form-name" value={formName} />
                 <input type="hidden" name="source" value="selftitled-page" />
 
-                {/* honeypot */}
                 <p style={{ display: "none" }}>
                   <label>
                     Do not fill this out: <input name="bot-field" />
@@ -220,7 +242,7 @@ const SelfTitled: React.FC = () => {
           </div>
         </div>
 
-        {/* Future blog area placeholder */}
+        {/* Future blog area */}
         <div style={{ height: 26 }} />
 
         <h2 style={{ ...styles.subHeader, textAlign: "center" }}>
@@ -242,13 +264,133 @@ const SelfTitled: React.FC = () => {
 
         <div style={{ height: 16 }} />
 
-        <div style={ui.placeholder}>
-          <p style={{ ...styles.paragraph, margin: 0, opacity: 0.75 }}>
-            Coming soon.
-          </p>
+        {/* Blog toggles */}
+        <div style={ui.blogWrap}>
+          <details style={ui.blogItem}>
+            <summary style={ui.blogSummary}>Why did I make this album?</summary>
+            <div style={ui.blogBody}>
+              <p style={ui.blogP}>
+                This album is my "Incomplete Theory of Everything". My goal was
+                to use music to give my perspective on physics, chemistry, and
+                ecology. Composition is my way of wrapping my head around the
+                universe i find myself in. Gratitude is also an important part
+                of this project; I am thankful for my faculties, and the
+                properties of the world that give me the chance to create art.
+              </p>
+              <p style={ui.blogP}>
+                The A-section of the album takes the listener through a
+                progression. A progression from nothing to conciousness. From
+                silence to free will. Each piece builds on the last, describing
+                or representing something fundamental to the way things work.
+              </p>
+            </div>
+          </details>
+
+          <details style={ui.blogItem}>
+            <summary style={ui.blogSummary}>Protium</summary>
+            <div style={ui.blogBody}>
+              <p style={ui.blogP}>
+                This of all the pieces was the most complex, personal, and
+                challenging work. I met with a physics professor to discuss the
+                fundamental particles. Wave particle duality is a key concept in
+                quantum mechanics, and i think we can learn a lot from seeing
+                the universe as a set of frequencies. This piece is built
+                around an E drone, tuned to a note that closely resembles the
+                frequency of electromagnetic energy that we call the cosmic
+                background radiation. The synthesizer sounds represent different
+                simple ions and elements. In each bar, the ratio made by the
+                kick, snare, and hihat is the ratio of the 3 quarks that make up
+                protium.
+              </p>
+              <p style={ui.blogP}>
+                This piece is meant to be eerie, unsettling, and a little
+                uncomfortable. Entropy tells us that we should be used to chaos,
+                yet music is all about order. The tension between these two
+                ideas is what drives this piece.
+              </p>
+            </div>
+          </details>
+
+          <details style={ui.blogItem}>
+            <summary style={ui.blogSummary}>Tour-Trolley</summary>
+            <div style={ui.blogBody}>
+              <p style={ui.blogP}>
+                If i could place this album into a genre, it would be
+                "americana". Tour trolley's are a classic american leisure.
+                This simple blues tune is meant to emulate the lightheartedness
+                of exploring a new city by means of trolley.
+              </p>
+              <p style={ui.blogP}>
+                The outro of this album features two seperate recordings of my
+                piece "Tour-Trolley". The first performance is a polished studio
+                recording. The piano is actually a midi keyboard with a tape
+                echo effect. The second recording was made on a baby grand piano
+                many months after the first recording. The dichotomy between
+                these two performances is what gives the outro its character.
+                The studio version is precise, clean, and edited. The live
+                version was created in one take... unedited.
+              </p>
+            </div>
+          </details>
         </div>
 
         <div style={{ height: 22 }} />
+
+        {/* ✅ LIGHTBOX */}
+        {isOpen && (
+          <div
+            style={ui.lightboxOverlay}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Expanded image"
+            onClick={closeLightbox}
+          >
+            <div
+              style={ui.lightboxCard}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={closeLightbox}
+                style={ui.lightboxClose}
+                aria-label="Close"
+              >
+                Close
+              </button>
+
+              <img
+                src={images[selected]?.src}
+                alt={images[selected]?.alt}
+                style={ui.lightboxImg}
+                loading="eager"
+              />
+
+              <div style={ui.lightboxControls}>
+                <button
+                  type="button"
+                  onClick={prevImage}
+                  style={ui.lightboxBtn}
+                >
+                  Prev
+                </button>
+
+                <div style={ui.lightboxMeta}>
+                  {selected + 1} / {images.length}
+                </div>
+
+                <button
+                  type="button"
+                  onClick={nextImage}
+                  style={ui.lightboxBtn}
+                >
+                  Next
+                </button>
+              </div>
+
+              <p style={ui.lightboxCaption}>{images[selected]?.alt}</p>
+            </div>
+          </div>
+        )}
       </div>
     </Layout>
   );
@@ -282,7 +424,7 @@ const ui: Record<string, React.CSSProperties> = {
     objectFit: "contain",
     display: "block",
     background: "#fff",
-    cursor: "pointer",
+    cursor: "zoom-in",
   },
   navRow: {
     display: "flex",
@@ -376,6 +518,101 @@ const ui: Record<string, React.CSSProperties> = {
     textAlign: "center",
     background: "rgba(0,0,0,0.02)",
   },
+
+  // blog toggle styles
+  blogWrap: {
+    maxWidth: 820,
+    margin: "0 auto",
+    display: "grid",
+    gap: 10,
+  },
+  blogItem: {
+    border: "1px solid rgba(0,0,0,0.12)",
+    borderRadius: 14,
+    background: "#fff",
+    overflow: "hidden",
+  },
+  blogSummary: {
+    listStyle: "none",
+    cursor: "pointer",
+    padding: "14px 14px",
+    fontWeight: 800,
+    fontSize: 15,
+    userSelect: "none",
+    outline: "none",
+  },
+  blogBody: {
+    padding: "0 14px 14px",
+    borderTop: "1px solid rgba(0,0,0,0.08)",
+  },
+  blogP: {
+    ...styles.paragraph,
+    margin: "10px 0 0",
+    opacity: 0.85,
+  },
+
+  // ✅ lightbox styles
+  lightboxOverlay: {
+    position: "fixed",
+    inset: 0,
+    background: "rgba(0,0,0,0.72)",
+    display: "grid",
+    placeItems: "center",
+    padding: 18,
+    zIndex: 9999,
+  },
+  lightboxCard: {
+    width: "min(1100px, 95vw)",
+    maxHeight: "90vh",
+    background: "#fff",
+    borderRadius: 16,
+    overflow: "hidden",
+    border: "1px solid rgba(0,0,0,0.18)",
+    display: "grid",
+  },
+  lightboxClose: {
+    justifySelf: "end",
+    border: "none",
+    background: "transparent",
+    padding: "12px 12px 0",
+    cursor: "pointer",
+    fontSize: 14,
+    opacity: 0.75,
+  },
+  lightboxImg: {
+    width: "100%",
+    maxHeight: "72vh",
+    objectFit: "contain",
+    background: "#fff",
+    display: "block",
+  },
+  lightboxControls: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 10,
+    padding: "10px 12px",
+    borderTop: "1px solid rgba(0,0,0,0.08)",
+  },
+  lightboxBtn: {
+    border: "1px solid rgba(0,0,0,0.18)",
+    background: "#fff",
+    borderRadius: 10,
+    padding: "8px 12px",
+    cursor: "pointer",
+    fontSize: 13,
+    whiteSpace: "nowrap",
+  },
+  lightboxMeta: {
+    fontSize: 13,
+    opacity: 0.7,
+  },
+  lightboxCaption: {
+    margin: 0,
+    padding: "0 12px 12px",
+    fontSize: 12,
+    opacity: 0.7,
+  },
 };
 
 // Desktop 2-column layout injected once
@@ -392,6 +629,9 @@ const ui: Record<string, React.CSSProperties> = {
         grid-template-columns: 0.95fr 1.35fr !important;
         align-items: start !important;
       }
+    }
+    .selftitled-product-row details > summary::-webkit-details-marker {
+      display: none;
     }
   `;
   document.head.appendChild(style);

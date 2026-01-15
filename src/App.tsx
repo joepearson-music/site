@@ -19,6 +19,7 @@ const App: React.FC = () => {
   // Pages visible in the header (hotbar)
   const menuItems = [
     { path: "/", label: "Home" },
+    { path: "/selftitled", label: "Self Titled" },
     { path: "/about", label: "About" },
     { path: "/resume", label: "Resume" },
   ];
