@@ -32,10 +32,14 @@ const About: React.FC = () => (
 
       <ul style={styles.list}>
         <Reveal as="li" style={styles.listItem}>
-          Conducting the Pitt Symphony Orchestra - Feb 18th 2026 &amp; March 22
-          2026
+          borelli edwards galleries - Saturday January 24th at 2PM - Solo Guitar
         </Reveal>
-
+        <Reveal as="li" style={styles.listItem}>
+          Beethoven Egmont Overture - Pitt Symphony Orchestra - Feb 18th 2026 in Bellefield Hall - Conducted by Joe Pearson
+        </Reveal>
+        <Reveal as="li" style={styles.listItem}>
+          Holst St. Pauls Suite - Pitt Symphony Orchestra - March 22nd 2026 in Bellefield Hall - Conducted by Joe Pearson
+        </Reveal>
         <Reveal as="li" style={styles.listItem} delayMs={20}>
           Big Idea Center / Saxbys Jazz Hour - Fridays 10:30 AM to 11:30 AM
           <div>
