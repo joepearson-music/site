@@ -16,18 +16,17 @@ const About: React.FC = () => (
             textAlign: "justify",
           }}
         >
-          I am a 20-year-old studying Music Composition & Environmental Science
-          at the University of Pittsburgh. I study multiple instruments, with
+          Hello World! My name is Joe Pearson. I am a University of Pittsburgh Frederick Honors College student and this is my personal website. I publish my music solely on this domain.
+          I am a 21-year-old studying multiple instruments, with
           past live performances as a cellist, bass guitarist, pianist, drummer,
           vocalist, and percussionist. The performance of my piece “Fractal” at
           the 2025 Pitt Jazz Composers Concert was my World Premiere as a
-          composer. I hate streaming, you will be able to find all of my music
-          here on my personal website. Feel free to download it for free!
+          composer.
         </p>
       </Reveal>
 
       <Reveal delayMs={30}>
-        <h2 style={styles.subHeader}>Future Performances</h2>
+        <h2 style={styles.subHeader}>Past Performances</h2>
       </Reveal>
 
       <ul style={styles.list}>
@@ -83,10 +82,6 @@ const About: React.FC = () => (
           </div>
         </Reveal>
       </ul>
-
-      <Reveal delayMs={30}>
-        <h2 style={styles.subHeader}>Past Performances</h2>
-      </Reveal>
 
       <ul style={styles.list}>
         <Reveal as="li" style={styles.listItem}>

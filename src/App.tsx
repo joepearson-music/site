@@ -10,6 +10,7 @@ import Resume from "./pages/Resume";
 import NewMusic from "./pages/newmusic";
 import SelfTitled from "./pages/selftitled";
 import Pre876876 from "./pages/pre876876";
+import Lessons from "./pages/lessons"; // NEW
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -19,7 +20,6 @@ const App: React.FC = () => {
   // Pages visible in the header (hotbar)
   const menuItems = [
     { path: "/", label: "Home" },
-    { path: "/selftitled", label: "Self Titled" },
     { path: "/about", label: "About" },
     { path: "/resume", label: "Resume" },
   ];
@@ -27,7 +27,7 @@ const App: React.FC = () => {
   const styles: Record<string, React.CSSProperties> = {
     header: {
       backgroundColor: "#ffffff",
-      padding: "12px 10px", // reduced since title is gone
+      padding: "12px 10px",
       textAlign: "center",
     },
     nav: {
@@ -84,6 +84,7 @@ const App: React.FC = () => {
             <Route path="/selftitled" element={<SelfTitled />} />
             <Route path="/pre876876" element={<Pre876876 />} />
             <Route path="/newmusic" element={<NewMusic />} />
+            <Route path="/lessons" element={<Lessons />} /> {/* NEW */}
           </Routes>
         </main>
       </div>
