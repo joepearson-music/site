@@ -84,7 +84,12 @@ const Home: React.FC = () => {
     </Reveal>
   );
 
-  const renderYouTubeVideo = (embedUrl: string, title: string) => (
+  const renderYouTubeVideo = (
+    embedUrl: string,
+    iframeTitle: string,
+    displayTitle?: string,
+    subtitle?: string
+  ) => (
     <Reveal>
       <div
         style={{
@@ -93,6 +98,40 @@ const Home: React.FC = () => {
           textAlign: "center",
         }}
       >
+        {(displayTitle || subtitle) && (
+          <div
+            style={{
+              marginBottom: 16,
+            }}
+          >
+            {displayTitle && (
+              <p
+                style={{
+                  fontSize: 20,
+                  marginTop: 0,
+                  marginBottom: subtitle ? 6 : 0,
+                }}
+              >
+                {displayTitle}
+              </p>
+            )}
+
+            {subtitle && (
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: 14,
+                  fontStyle: "italic",
+                  opacity: 0.65,
+                  lineHeight: 1.5,
+                }}
+              >
+                {subtitle}
+              </p>
+            )}
+          </div>
+        )}
+
         <div
           style={{
             width: "100%",
@@ -101,7 +140,7 @@ const Home: React.FC = () => {
         >
           <iframe
             src={embedUrl}
-            title={title}
+            title={iframeTitle}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen
             loading="lazy"
@@ -172,8 +211,7 @@ const Home: React.FC = () => {
                 textAlign: "center",
               }}
             >
-              Could not load the video.{" "}
-              <a href={src}>Open video</a>
+              Could not load the video. <a href={src}>Open video</a>
             </p>
           )}
 
@@ -245,6 +283,31 @@ const Home: React.FC = () => {
         }}
       >
         {/* ========================= */}
+        {/* LUST FOR LIFE */}
+        {/* ========================= */}
+
+        {renderYouTubeVideo(
+          "https://www.youtube.com/embed/Y-aliyiA35g",
+          "Lust for Life",
+          "Lust for Life",
+          "Open Studio — Tahj Jones & Joe Pearson · Awarded Best Original Music at the first-ever University of Pittsburgh 24hr Film Challenge"
+        )}
+
+        {/* ========================= */}
+        {/* CONDUCTING */}
+        {/* ========================= */}
+
+        {renderYouTubeVideo(
+          "https://www.youtube.com/embed/DEywH2kTPhk",
+          "Beethoven conducting performance"
+        )}
+
+        {renderYouTubeVideo(
+          "https://www.youtube.com/embed/nAkN1-S5lvY",
+          "Holst conducting performance"
+        )}
+
+        {/* ========================= */}
         {/* RAP TRACKS */}
         {/* ========================= */}
 
@@ -279,20 +342,6 @@ const Home: React.FC = () => {
             </p>
           </div>
         </Reveal>
-
-        {/* ========================= */}
-        {/* CONDUCTING */}
-        {/* ========================= */}
-
-        {renderYouTubeVideo(
-          "https://www.youtube.com/embed/DEywH2kTPhk",
-          "Beethoven"
-        )}
-
-        {renderYouTubeVideo(
-          "https://www.youtube.com/embed/nAkN1-S5lvY",
-          "Holst"
-        )}
 
         {/* ========================= */}
         {/* PREVIOUS ALBUM TOGGLE */}
