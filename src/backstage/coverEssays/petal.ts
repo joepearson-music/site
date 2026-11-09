@@ -54,6 +54,7 @@ export const petalEssay: CoverEssay = {
     { label: "Smithsonian: Ellington, the Queen and the suite", url: "https://americanhistory.si.edu/explore/stories/our-holiday-playlist-duke-ellingtons-nutcracker-and-special-suite-queen" },
     { label: "Concord: The Ellington Suites liner notes", url: "https://concord.com/concord-albums/the-ellington-suites/" },
     { label: "Smithsonian: The Single Petal of a Rose manuscript parts", url: "https://americanhistory.si.edu/collections/archival-item/sova-nmah-ac-0301-ref45096" },
-    { label: "Smithsonian: Ruth Ellington collection", url: "https://americanhistory.si.edu/collections/archival-item/sova-nmah-ac-0415-ref1889" }
+    { label: "Smithsonian: Ruth Ellington collection", url: "https://americanhistory.si.edu/collections/archival-item/sova-nmah-ac-0415-ref1889" },
+    { label: "University of Leeds: Ellington piano-voicing research", url: "https://etheses.whiterose.ac.uk/id/eprint/15076/12/665986_vol1.pdf" }
   ]
 };
