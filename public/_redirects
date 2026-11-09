@@ -1,1 +1,6 @@
+# Serve the prerendered backstage document, not the empty SPA shell.
+/backstage /backstage/index.html 200
+/backstage/ /backstage/index.html 200
+
+# Other React routes keep their normal client-side fallback.
 /* /index.html 200
