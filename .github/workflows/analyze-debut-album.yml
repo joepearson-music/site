@@ -18,13 +18,18 @@ concurrency:
 jobs:
   inspect-album:
     name: Extract waveforms, spectrograms and video frames
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - name: Check out source MP4s
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+
+      - name: Install FFmpeg and FFprobe
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
 
       - name: Check FFmpeg is available
         run: |
