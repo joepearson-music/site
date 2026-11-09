@@ -1,0 +1,242 @@
+{
+  "album_position": 13,
+  "title": "Like Monk",
+  "category": "original",
+  "source": "src/media/likemonk.mp4",
+  "duration_seconds": 253.183,
+  "sha256": "a5aae78e29f13ba82b30a652a6ade00c5161e2ae07b7efa05cf7631427da8efb",
+  "source_probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 720,
+        "height": 720,
+        "coded_width": 720,
+        "coded_height": 720,
+        "closed_captions": 0,
+        "film_grain": 0,
+        "has_b_frames": 2,
+        "sample_aspect_ratio": "1:1",
+        "display_aspect_ratio": "1:1",
+        "pix_fmt": "yuvj420p",
+        "level": 32,
+        "color_range": "pc",
+        "color_space": "bt470bg",
+        "color_transfer": "iec61966-2-1",
+        "color_primaries": "bt709",
+        "chroma_location": "center",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "60/1",
+        "avg_frame_rate": "60/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 3888896,
+        "duration": "253.183333",
+        "bit_rate": "56120",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "15191",
+        "extradata_size": 50,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]",
+          "encoder": "Lavc61.13.100 libx264"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "44100",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/44100",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 11161578,
+        "duration": "253.097007",
+        "bit_rate": "128293",
+        "nb_frames": "10902",
+        "extradata_size": 2,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/home/runner/work/site/site/src/media/likemonk.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "253.183333",
+      "size": "6252881",
+      "bit_rate": "197576",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf61.5.101"
+      }
+    }
+  },
+  "frames": [
+    {
+      "timestamp_seconds": 6.33,
+      "file": "frames/frame-01.jpg"
+    },
+    {
+      "timestamp_seconds": 18.989,
+      "file": "frames/frame-02.jpg"
+    },
+    {
+      "timestamp_seconds": 31.648,
+      "file": "frames/frame-03.jpg"
+    },
+    {
+      "timestamp_seconds": 44.307,
+      "file": "frames/frame-04.jpg"
+    },
+    {
+      "timestamp_seconds": 56.966,
+      "file": "frames/frame-05.jpg"
+    },
+    {
+      "timestamp_seconds": 69.625,
+      "file": "frames/frame-06.jpg"
+    },
+    {
+      "timestamp_seconds": 82.285,
+      "file": "frames/frame-07.jpg"
+    },
+    {
+      "timestamp_seconds": 94.944,
+      "file": "frames/frame-08.jpg"
+    },
+    {
+      "timestamp_seconds": 107.603,
+      "file": "frames/frame-09.jpg"
+    },
+    {
+      "timestamp_seconds": 120.262,
+      "file": "frames/frame-10.jpg"
+    },
+    {
+      "timestamp_seconds": 132.921,
+      "file": "frames/frame-11.jpg"
+    },
+    {
+      "timestamp_seconds": 145.58,
+      "file": "frames/frame-12.jpg"
+    },
+    {
+      "timestamp_seconds": 158.24,
+      "file": "frames/frame-13.jpg"
+    },
+    {
+      "timestamp_seconds": 170.899,
+      "file": "frames/frame-14.jpg"
+    },
+    {
+      "timestamp_seconds": 183.558,
+      "file": "frames/frame-15.jpg"
+    },
+    {
+      "timestamp_seconds": 196.217,
+      "file": "frames/frame-16.jpg"
+    },
+    {
+      "timestamp_seconds": 208.876,
+      "file": "frames/frame-17.jpg"
+    },
+    {
+      "timestamp_seconds": 221.535,
+      "file": "frames/frame-18.jpg"
+    },
+    {
+      "timestamp_seconds": 234.195,
+      "file": "frames/frame-19.jpg"
+    },
+    {
+      "timestamp_seconds": 246.854,
+      "file": "frames/frame-20.jpg"
+    }
+  ],
+  "audio_status": "ok",
+  "audio_measurements": {
+    "window_seconds": 1,
+    "windows": 254,
+    "mono_sample_rate_hz": 4000,
+    "rms_dbfs_range": [
+      -69.11,
+      -14.81
+    ],
+    "mean_volume_dbfs": -18.3,
+    "max_volume_dbfs": -7.3
+  }
+}

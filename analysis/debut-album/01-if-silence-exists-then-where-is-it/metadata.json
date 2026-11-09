@@ -1,0 +1,239 @@
+{
+  "album_position": 1,
+  "title": "if silence exists then where is it?",
+  "category": "original",
+  "source": "src/media/ifsilence.mp4",
+  "duration_seconds": 149.945,
+  "sha256": "93132a1c0584e5696a7c42d02027ba1c18572858c41c2ca3bf9f4c8e8e8e1db0",
+  "source_probe": {
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_long_name": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10",
+        "profile": "High",
+        "codec_type": "video",
+        "codec_tag_string": "avc1",
+        "codec_tag": "0x31637661",
+        "width": 800,
+        "height": 800,
+        "coded_width": 800,
+        "coded_height": 800,
+        "closed_captions": 0,
+        "film_grain": 0,
+        "has_b_frames": 2,
+        "pix_fmt": "yuv420p",
+        "level": 32,
+        "color_range": "tv",
+        "color_space": "bt709",
+        "color_transfer": "bt709",
+        "color_primaries": "bt709",
+        "chroma_location": "left",
+        "field_order": "progressive",
+        "refs": 1,
+        "is_avc": "true",
+        "nal_length_size": "4",
+        "id": "0x1",
+        "r_frame_rate": "60/1",
+        "avg_frame_rate": "60/1",
+        "time_base": "1/15360",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 2302976,
+        "duration": "149.933333",
+        "bit_rate": "152586",
+        "bits_per_raw_sample": "8",
+        "nb_frames": "8996",
+        "extradata_size": 49,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "VideoHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      },
+      {
+        "index": 1,
+        "codec_name": "aac",
+        "codec_long_name": "AAC (Advanced Audio Coding)",
+        "profile": "LC",
+        "codec_type": "audio",
+        "codec_tag_string": "mp4a",
+        "codec_tag": "0x6134706d",
+        "sample_fmt": "fltp",
+        "sample_rate": "44100",
+        "channels": 2,
+        "channel_layout": "stereo",
+        "bits_per_sample": 0,
+        "initial_padding": 0,
+        "id": "0x2",
+        "r_frame_rate": "0/0",
+        "avg_frame_rate": "0/0",
+        "time_base": "1/44100",
+        "start_pts": 0,
+        "start_time": "0.000000",
+        "duration_ts": 6612575,
+        "duration": "149.945011",
+        "bit_rate": "193459",
+        "nb_frames": "6459",
+        "extradata_size": 5,
+        "disposition": {
+          "default": 1,
+          "dub": 0,
+          "original": 0,
+          "comment": 0,
+          "lyrics": 0,
+          "karaoke": 0,
+          "forced": 0,
+          "hearing_impaired": 0,
+          "visual_impaired": 0,
+          "clean_effects": 0,
+          "attached_pic": 0,
+          "timed_thumbnails": 0,
+          "non_diegetic": 0,
+          "captions": 0,
+          "descriptions": 0,
+          "metadata": 0,
+          "dependent": 0,
+          "still_image": 0
+        },
+        "tags": {
+          "language": "und",
+          "handler_name": "SoundHandler",
+          "vendor_id": "[0][0][0][0]"
+        }
+      }
+    ],
+    "format": {
+      "filename": "/home/runner/work/site/site/src/media/ifsilence.mp4",
+      "nb_streams": 2,
+      "nb_programs": 0,
+      "format_name": "mov,mp4,m4a,3gp,3g2,mj2",
+      "format_long_name": "QuickTime / MOV",
+      "start_time": "0.000000",
+      "duration": "149.945011",
+      "size": "6737113",
+      "bit_rate": "359444",
+      "probe_score": 100,
+      "tags": {
+        "major_brand": "isom",
+        "minor_version": "512",
+        "compatible_brands": "isomiso2avc1mp41",
+        "encoder": "Lavf58.76.100"
+      }
+    }
+  },
+  "frames": [
+    {
+      "timestamp_seconds": 3.749,
+      "file": "frames/frame-01.jpg"
+    },
+    {
+      "timestamp_seconds": 11.246,
+      "file": "frames/frame-02.jpg"
+    },
+    {
+      "timestamp_seconds": 18.743,
+      "file": "frames/frame-03.jpg"
+    },
+    {
+      "timestamp_seconds": 26.24,
+      "file": "frames/frame-04.jpg"
+    },
+    {
+      "timestamp_seconds": 33.738,
+      "file": "frames/frame-05.jpg"
+    },
+    {
+      "timestamp_seconds": 41.235,
+      "file": "frames/frame-06.jpg"
+    },
+    {
+      "timestamp_seconds": 48.732,
+      "file": "frames/frame-07.jpg"
+    },
+    {
+      "timestamp_seconds": 56.229,
+      "file": "frames/frame-08.jpg"
+    },
+    {
+      "timestamp_seconds": 63.727,
+      "file": "frames/frame-09.jpg"
+    },
+    {
+      "timestamp_seconds": 71.224,
+      "file": "frames/frame-10.jpg"
+    },
+    {
+      "timestamp_seconds": 78.721,
+      "file": "frames/frame-11.jpg"
+    },
+    {
+      "timestamp_seconds": 86.218,
+      "file": "frames/frame-12.jpg"
+    },
+    {
+      "timestamp_seconds": 93.716,
+      "file": "frames/frame-13.jpg"
+    },
+    {
+      "timestamp_seconds": 101.213,
+      "file": "frames/frame-14.jpg"
+    },
+    {
+      "timestamp_seconds": 108.71,
+      "file": "frames/frame-15.jpg"
+    },
+    {
+      "timestamp_seconds": 116.207,
+      "file": "frames/frame-16.jpg"
+    },
+    {
+      "timestamp_seconds": 123.705,
+      "file": "frames/frame-17.jpg"
+    },
+    {
+      "timestamp_seconds": 131.202,
+      "file": "frames/frame-18.jpg"
+    },
+    {
+      "timestamp_seconds": 138.699,
+      "file": "frames/frame-19.jpg"
+    },
+    {
+      "timestamp_seconds": 146.196,
+      "file": "frames/frame-20.jpg"
+    }
+  ],
+  "audio_status": "ok",
+  "audio_measurements": {
+    "window_seconds": 1,
+    "windows": 150,
+    "mono_sample_rate_hz": 4000,
+    "rms_dbfs_range": [
+      -29.01,
+      -17.99
+    ],
+    "mean_volume_dbfs": -20.3,
+    "max_volume_dbfs": -4.4
+  }
+}

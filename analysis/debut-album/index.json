@@ -1,0 +1,118 @@
+{
+  "source_repository": "joepearson-music/site",
+  "tracks": [
+    {
+      "slug": "01-if-silence-exists-then-where-is-it",
+      "title": "if silence exists then where is it?",
+      "category": "original",
+      "source": "src/media/ifsilence.mp4",
+      "duration_seconds": 149.945,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "02-protium",
+      "title": "protium",
+      "category": "original",
+      "source": "src/media/protium.mp4",
+      "duration_seconds": 136.65,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "03-are-we-all-water",
+      "title": "are we all water?",
+      "category": "original",
+      "source": "src/media/water.mp4",
+      "duration_seconds": 183.383,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "04-a-single-petal-of-a-rose",
+      "title": "a single petal of a rose — Duke Ellington",
+      "category": "cover",
+      "source": "src/media/asingle.mp4",
+      "duration_seconds": 111.55,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "05-sassafrass",
+      "title": "Sassafrass",
+      "category": "original",
+      "source": "src/media/sassafrass.mp4",
+      "duration_seconds": 295.983,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "06-fractal",
+      "title": "Fractal",
+      "category": "original",
+      "source": "src/media/fractal.mp4",
+      "duration_seconds": 184.191,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "07-my-argument-for-free-will",
+      "title": "my argument for free will",
+      "category": "original",
+      "source": "src/media/freewillfinal.mp4",
+      "duration_seconds": 135.119,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "08-moving-forward",
+      "title": "Moving Forward",
+      "category": "original",
+      "source": "src/media/movingforward.mp4",
+      "duration_seconds": 70.767,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "09-you-dont-know-my-name",
+      "title": "you dont know my name — Alicia Keys",
+      "category": "cover",
+      "source": "src/media/ydkmn.mp4",
+      "duration_seconds": 230.191,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "10-its-a-mans-mans-mans-world",
+      "title": "its a mans mans mans world — James Brown",
+      "category": "cover",
+      "source": "src/media/iammmw.mp4",
+      "duration_seconds": 157.933,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "11-day-tripper",
+      "title": "day tripper — Lennon & McCartney",
+      "category": "cover",
+      "source": "src/media/day_tripper.mp4",
+      "duration_seconds": 154.65,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "12-sarabande-in-g",
+      "title": "Sarabande in G — Johann Sebastian Bach",
+      "category": "cover",
+      "source": "src/media/bachcello.mp4",
+      "duration_seconds": 225.7,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "13-like-monk",
+      "title": "Like Monk",
+      "category": "original",
+      "source": "src/media/likemonk.mp4",
+      "duration_seconds": 253.183,
+      "audio_status": "ok"
+    },
+    {
+      "slug": "14-tour-trolley",
+      "title": "Tour-Trolley",
+      "category": "original",
+      "source": "src/media/TTrolley.mp4",
+      "duration_seconds": 243.6,
+      "audio_status": "ok"
+    }
+  ],
+  "notice": "These are measurements and sampled frames, not finished music descriptions."
+}
