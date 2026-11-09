@@ -2,3 +2,15 @@
   command = "npm run build"
   publish = "build"
   functions = "netlify/functions"
+
+# Keep the publicly accessible backstage staging route out of search results.
+# Header applies to direct requests even when JavaScript is not executed.
+[[headers]]
+  for = "/backstage"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/backstage/"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

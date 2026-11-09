@@ -11,6 +11,7 @@ import NewMusic from "./pages/newmusic";
 import SelfTitled from "./pages/selftitled";
 import Pre876876 from "./pages/pre876876";
 import Lessons from "./pages/lessons"; // NEW
+import Backstage from "./backstage/Backstage";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -85,6 +86,7 @@ const App: React.FC = () => {
             <Route path="/pre876876" element={<Pre876876 />} />
             <Route path="/newmusic" element={<NewMusic />} />
             <Route path="/lessons" element={<Lessons />} /> {/* NEW */}
+            <Route path="/backstage" element={<Backstage />} />
           </Routes>
         </main>
       </div>
