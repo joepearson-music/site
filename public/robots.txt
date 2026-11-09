@@ -1,3 +1,6 @@
-# https://www.robotstxt.org/robotstxt.html
+# Public pages are crawlable, including /backstage.
 User-agent: *
-Disallow:
+Allow: /backstage
+Allow: /
+
+Sitemap: https://joepearson.music/sitemap.xml
