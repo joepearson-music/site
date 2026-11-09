@@ -7,6 +7,17 @@ import { BackstageEntry } from "./types";
  */
 export const backstageEntries: BackstageEntry[] = [
   {
+    id: "2026-11-09-self-titled-cover-essays",
+    title: "Self Titled — the five covers",
+    date: "2026-11-09",
+    summary: [
+      { text: "Five researched essays on the original compositions and artists, presented alongside the album videos and waveform analysis. Each essay has its own expandable heading." }
+    ],
+    blocks: [
+      { type: "custom", componentId: "self-titled-covers" }
+    ]
+  },
+  {
     id: "2026-11-09-sarabande-in-ab-minor",
     title: "Sarabande in A-flat minor",
     date: "2026-11-09",
