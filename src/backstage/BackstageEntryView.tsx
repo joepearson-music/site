@@ -75,6 +75,28 @@ const renderBlock = (block: BackstageBlock, index: number): React.ReactNode => {
           {block.credit && <small>Credit: {block.credit}</small>}
         </div>
       );
+    case "score":
+      return (
+        <figure key={index} className="backstage-media backstage-score">
+          <div className="backstage-media-title">{block.title}</div>
+          {block.description && <p>{block.description}</p>}
+          <iframe src={block.src + "#toolbar=0"} title={block.title + " — PDF score preview"} loading="lazy" />
+          <figcaption className="backstage-media-note">
+            <a href={block.src} target="_blank" rel="noopener noreferrer">Open full score (PDF)</a>
+            {" · "}
+            <a href={block.src} download>Download score</a>
+          </figcaption>
+        </figure>
+      );
+    case "details":
+      return (
+        <details key={index} className="backstage-details">
+          <summary>{block.label}</summary>
+          <div className="backstage-details-body">
+            {block.blocks.map((child, childIndex) => renderBlock(child, childIndex))}
+          </div>
+        </details>
+      );
     case "link":
       return (
         <p key={index} className="backstage-link">

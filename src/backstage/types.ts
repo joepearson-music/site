@@ -14,6 +14,8 @@ export type BackstageBlock =
   | { type: "audio"; src: string; title: string; caption?: string; credit?: string }
   | { type: "video"; src: string; title: string; poster?: string; captionsSrc?: string; caption?: string; credit?: string }
   | { type: "document"; src: string; label: string; description?: string; credit?: string; download?: boolean }
+  | { type: "score"; src: string; title: string; description?: string }
+  | { type: "details"; label: string; blocks: BackstageBlock[] }
   | { type: "link"; href: string; label: string; description?: string }
   | { type: "custom"; componentId: string };
 

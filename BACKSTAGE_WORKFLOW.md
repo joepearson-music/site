@@ -27,7 +27,7 @@ The page is deliberately absent from the homepage/header/footer navigation and s
 ## Publishing a new entry from ChatGPT
 
 1. Read this document, current `src/backstage/entries.ts`, `types.ts`, and relevant component files from the connected GitHub repository before modifying anything. Inspect the live branch to avoid conflicting edits.
-2. Inspect the actual user-supplied material. Decide on blocks (paragraph, heading, list, image, audio, video, document, link, or custom), preserving titles, descriptions, credits, and original files as appropriate.
+2. Inspect the actual user-supplied material. Decide on blocks (paragraph, heading, list, image, audio, video, document, score, details, link, or custom), preserving titles, descriptions, credits, and original files as appropriate.
 3. Describe meaningful imagery with *accurate, specific alt text* based only on visible evidence. Do not invent identities, locations, dates, or visual details. Decorative imagery can have an empty alt attribute. If artwork includes text necessary for understanding, include it in the description or adjacent text.
 4. Check whether metadata (such as GPS EXIF), private details, third-party rights, or oversized files need attention before public publication. Ask only when essential or risk is significant.
 5. Choose a permanent, unique, URL-safe entry `id` (e.g. `2026-11-08-session-photo`) and an ISO `date`. Put files under `public/backstage-media/<entry-id>/` and reference as `/backstage-media/<entry-id>/filename.ext`. Encode spaces in filenames or, preferably, use short hyphenated names. Do not modify or delete other entries or their media.
@@ -77,3 +77,9 @@ Files in `public/backstage-media` are public even though they are not indexed vi
 - [ ] The page works on mobile; media has appropriate controls, alt text, and captions.
 - [ ] Existing entries and public-facing pages unchanged except for an explicitly requested promotion.
 - [ ] GitHub commit verified and build/deployment status truthfully reported.
+
+## Score previews and expandable descriptions
+
+For a PDF score use the `score` block with `src`, `title` and optional `description`. This adds a responsive inline PDF frame, plus links to open or download the original. Mobile PDF rendering varies by browser; the open/download links are the accessible fallback.
+
+For long contextual notes or detailed descriptions that should not be expanded by default, use the `details` block: `{ type: "details", label: "About the piece", blocks: [/* any nested BackstageBlock items */] }`. Browser-native `<details>`/`<summary>` retains keyboard and mobile interaction without JavaScript state. Keep brief, essential attribution/context outside the collapsed section; deeper analysis can go inside. These descriptions are readable text, not image alt attributes. Do not pretend a PDF score is an image: describe its notation, instrumentation and structure accurately in prose.
