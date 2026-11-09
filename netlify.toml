@@ -3,14 +3,14 @@
   publish = "build"
   functions = "netlify/functions"
 
-# Keep the publicly accessible backstage staging route out of search results.
-# Header applies to direct requests even when JavaScript is not executed.
+# Backstage is intentionally public, indexable and served with pre-rendered HTML.
+# The page contains its full text even when a crawler does not run JavaScript.
 [[headers]]
   for = "/backstage"
   [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
+    X-Robots-Tag = "index, follow"
 
 [[headers]]
   for = "/backstage/"
   [headers.values]
-    X-Robots-Tag = "noindex, nofollow"
+    X-Robots-Tag = "index, follow"
