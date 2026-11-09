@@ -1,0 +1,29 @@
+name: Verify backstage build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/backstage/**"
+      - ".github/workflows/verify-backstage.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  production-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install exact locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Production React/TypeScript build
+        env:
+          CI: "false"
+        run: npm run build
