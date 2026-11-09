@@ -1,0 +1,71 @@
+name: Analyze debut album MP4s
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/analyze-debut-album.yml
+      - scripts/analyze_debut_album.py
+
+permissions:
+  contents: write
+
+concurrency:
+  group: debut-album-analysis
+  cancel-in-progress: false
+
+jobs:
+  inspect-album:
+    name: Extract waveforms, spectrograms and video frames
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out source MP4s
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Check FFmpeg is available
+        run: |
+          ffmpeg -version | head -n 1
+          ffprobe -version | head -n 1
+          python3 --version
+
+      - name: Analyze all 14 album videos
+        env:
+          OUTPUT_DIR: ${{ runner.temp }}/debut-album-analysis
+        run: python3 scripts/analyze_debut_album.py --repo . --output "$OUTPUT_DIR"
+
+      - name: Save downloadable analysis artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: debut-album-analysis
+          path: ${{ runner.temp }}/debut-album-analysis/
+          retention-days: 90
+          if-no-files-found: error
+
+      - name: Publish to separate album-analysis branch
+        env:
+          OUTPUT_DIR: ${{ runner.temp }}/debut-album-analysis
+          RESULT_BRANCH: album-analysis
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin "$RESULT_BRANCH" >/dev/null; then
+            git fetch origin "$RESULT_BRANCH:refs/remotes/origin/$RESULT_BRANCH"
+            git checkout -B "$RESULT_BRANCH" "origin/$RESULT_BRANCH"
+          else
+            git checkout -b "$RESULT_BRANCH"
+          fi
+          rm -rf analysis/debut-album
+          mkdir -p analysis
+          cp -R "$OUTPUT_DIR" analysis/debut-album
+          git add analysis/debut-album
+          if git diff --cached --quiet; then
+            echo "Analysis is already up to date."
+          else
+            git commit -m "Generate debut album audiovisual inspection packets"
+            git push origin "$RESULT_BRANCH"
+          fi
