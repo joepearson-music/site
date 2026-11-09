@@ -1,4 +1,5 @@
 import React from "react";
+import DebutCovers from "./components/DebutCovers";
 
 /**
  * Reusable React components for experimental site sections.
@@ -8,4 +9,6 @@ import React from "react";
  * Keep each component in its own file so it can later move to a public page
  * without changing or promoting other backstage entries.
  */
-export const backstageComponents: Record<string, React.ComponentType> = {};
+export const backstageComponents: Record<string, React.ComponentType> = {
+  "self-titled-covers": DebutCovers,
+};
