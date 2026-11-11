@@ -11,8 +11,17 @@ const Backstage: React.FC = () => {
       <header className="backstage-intro">
         <p className="backstage-kicker">joepearson.music / backstage</p>
         <h1>Backstage</h1>
+        {/* Permanent introduction: new content is published in backstageEntries below. */}
         <p className="backstage-description">
-          A place for work in progress and possible additions to the website.
+          Backstage is the working archive behind joepearson.music. I use this
+          space to put ideas on the record before they are finished: sketches,
+          recordings, scores, research, notes, and the stories behind them.
+          Some of what appears here may eventually become part of an album,
+          performance, or another page on this site; some may remain experiments.
+          The point is not to present a polished catalogue, but to preserve the
+          process—what I was making, what I was thinking, and how a piece changed
+          along the way. New material will appear below this introduction, which
+          will remain at the top as the archive grows.
         </p>
       </header>
       {orderedEntries.length > 0 ? (
