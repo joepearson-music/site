@@ -18,3 +18,8 @@ to the Difference,” and “Historical Context.” Do not make the essay depend
 
 Add future projects to the Research index and create a dedicated route for each. Keep
 research page styles inside `Research.css`, without changing `/backstage`.
+
+Both research pages are intentionally unlisted: they are excluded from the main
+navigation and sitemap, and their prerendered HTML plus Netlify headers send
+noindex/nofollow directives. They are **not private**: anyone with a URL can read
+them, and the repository's public source remains accessible.

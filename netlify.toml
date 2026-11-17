@@ -14,3 +14,9 @@
   for = "/backstage/"
   [headers.values]
     X-Robots-Tag = "index, follow"
+
+# Research is unlisted: retain direct-link access, discourage search indexing.
+[[headers]]
+  for = "/research*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

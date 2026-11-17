@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Build static, crawlable HTML for the research index and scholarly essay.
+ * Build static HTML for unlisted research pages and their scholarly essay.
  * Content is server-rendered from the same React components and JSON source
  * used by the interactive SPA; there is no separately maintained prose copy.
  */
@@ -64,7 +64,7 @@ function generate(route, Component, title, description, requiredSentences) {
     '<meta name="description" content="' + description + '"/>'
   );
   const metadata = [
-    '<meta name="robots" content="index, follow"/>',
+    '<meta name="robots" content="noindex, nofollow"/>',
     '<link rel="canonical" href="https://joepearson.music' + route + '"/>',
     '<meta property="og:type" content="article"/>',
     '<meta property="og:title" content="' + title + '"/>',
