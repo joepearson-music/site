@@ -2,5 +2,11 @@
 /backstage /backstage/index.html 200
 /backstage/ /backstage/index.html 200
 
+# Serve complete scholarly HTML for readers and crawlers.
+/research /research/index.html 200
+/research/ /research/index.html 200
+/research/on-temperament-and-tuning /research/on-temperament-and-tuning/index.html 200
+/research/on-temperament-and-tuning/ /research/on-temperament-and-tuning/index.html 200
+
 # Other React routes keep their normal client-side fallback.
 /* /index.html 200

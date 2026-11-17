@@ -1,0 +1,42 @@
+name: Verify research publication
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "src/research/**"
+      - "src/App.tsx"
+      - "scripts/prerender-research.cjs"
+      - "public/_redirects"
+      - "public/sitemap.xml"
+      - "package.json"
+      - ".github/workflows/verify-research.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  production-build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install exact locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Production React/TypeScript build and HTML prerender
+        env:
+          CI: "false"
+        run: npm run build
+      - name: Verify accessible essay in static output
+        run: |
+          test -s build/research/index.html
+          test -s build/research/on-temperament-and-tuning/index.html
+          grep -q "On Temperament and Tuning" build/research/index.html
+          grep -q "The question of which consonances a musical culture should prioritize has a history." build/research/on-temperament-and-tuning/index.html
+          grep -q "Bibliography" build/research/on-temperament-and-tuning/index.html
+          grep -q 'href="/research"' build/research/on-temperament-and-tuning/index.html
