@@ -1,0 +1,335 @@
+{
+  "slug": "on-temperament-and-tuning",
+  "title": "On Temperament and Tuning",
+  "author": "Joe Pearson",
+  "course": "Senior Seminar",
+  "instructor": "Dr. Wang",
+  "institution": "University of Pittsburgh",
+  "revisionDate": "2026-11-12",
+  "status": "Working academic draft",
+  "source": "On Temperament and Tuning.pdf (15 pages, supplied November 17, 2026)",
+  "blocks": [
+    {
+      "id": "temper",
+      "type": "heading",
+      "text": "Temper"
+    },
+    {
+      "id": "p-1",
+      "type": "paragraph",
+      "text": "A fictional dialogue between Gioseffo Zarlino and Vincenzo Galilei, based on their historical disagreement."
+    },
+    {
+      "id": "p-2",
+      "type": "paragraph",
+      "text": "Zarlino: What makes an interval consonant?"
+    },
+    {
+      "id": "p-3",
+      "type": "paragraph",
+      "text": "Galilei: Surely you know my answer. It is what we hear."
+    },
+    {
+      "id": "p-4",
+      "type": "paragraph",
+      "text": "Zarlino: And what is it that we hear? The octave, the fifth, the fourth, the thirds. These intervals are not without reason. Their consonance can be described through the simplest numerical proportions. The octave is two to one, the fifth three to two, and the major third five to four. Do you suggest that these relationships are mere coincidences?"
+    },
+    {
+      "id": "p-5",
+      "type": "paragraph",
+      "text": "Galilei: No. I suggest that knowing the mathematical proportion of an interval is not the same as knowing how music ought to be performed."
+    },
+    {
+      "id": "p-6",
+      "type": "paragraph",
+      "text": "Zarlino: Yet without such proportions, by what principle should we determine the notes?"
+    },
+    {
+      "id": "p-7",
+      "type": "paragraph",
+      "text": "Galilei: By considering the instruments that must produce them. Take the lute. A performer may move the same passage to another pitch without rebuilding the instrument. Should we condemn such flexibility merely because its intervals depart from your ideal proportions?"
+    },
+    {
+      "id": "p-8",
+      "type": "paragraph",
+      "text": "Zarlino: I have never denied that instruments require temperament. But surely you recognize that when an interval departs from its natural proportion, something has been altered."
+    },
+    {
+      "id": "p-9",
+      "type": "paragraph",
+      "text": "Galilei: Altered, certainly. But has the music necessarily become worse?"
+    },
+    {
+      "id": "p-10",
+      "type": "paragraph",
+      "text": "Zarlino: Its consonances have become less exact."
+    },
+    {
+      "id": "p-11",
+      "type": "paragraph",
+      "text": "Galilei: Less exact according to your numbers. Consider instead what singers actually do. Do they preserve every interval according to the syntonic diatonic of Ptolemy? Can they maintain these proportions throughout a composition without making adjustments?"
+    },
+    {
+      "id": "p-12",
+      "type": "paragraph",
+      "text": "Zarlino: The difficulties of performance do not invalidate the principles of consonance."
+    },
+    {
+      "id": "p-13",
+      "type": "paragraph",
+      "text": "Galilei: Nor do the principles of consonance resolve every difficulty of performance. You describe the proportions that ought to govern musical intervals. I ask whether they govern the music we actually make."
+    },
+    {
+      "id": "p-14",
+      "type": "paragraph",
+      "text": "Zarlino: Then perhaps our disagreement concerns what we expect a tuning system to accomplish."
+    },
+    {
+      "id": "p-15",
+      "type": "paragraph",
+      "text": "Galilei: Precisely. You seek the perfection of the interval. I seek the possibilities of the instrument."
+    },
+    {
+      "id": "p-16",
+      "type": "paragraph",
+      "text": "Zarlino: And which should a musician prefer?"
+    },
+    {
+      "id": "p-17",
+      "type": "paragraph",
+      "text": "Galilei: That depends upon the music the musician wishes to make."
+    },
+    {
+      "id": "from-the-top",
+      "type": "heading",
+      "text": "From the Top"
+    },
+    {
+      "id": "p-19",
+      "type": "paragraph",
+      "text": "The imagined exchange between Zarlino and Galilei asks what should count as a successful system of pitch. Their historical positions were more complicated than the characters' speeches, yet the question is worth asking. This paper argues that the adoption of a tuning convention depends on two related but distinct processes: musicians evaluate its compromises according to their aesthetic and instrumental needs, while institutions determine whether those choices can be reproduced and shared. Renaissance debates over pure intervals and fretted instruments demonstrate the first process; nineteenth- and twentieth-century disputes over concert pitch make the second unusually visible. Neither a mathematical ratio nor a government decree, by itself, explains what musicians will actually play. By comparing these cases, I want to explain not merely what historical tuning systems were, but which problems their advocates believed they were solving."
+    },
+    {
+      "id": "p-20",
+      "type": "paragraph",
+      "text": "An important distinction governs the discussion. Temperament concerns the relative distances between notes, whereas concert pitch supplies an absolute reference. Twelve-tone equal temperament (12-TET) assigns the same ratio to each semitone. A=440 Hz specifies the frequency of one note. One can use equal temperament at A=415 or tune an ensemble to A=440 while employing unequal intervals. These conventions often operate together in modern practice, but their histories cannot be treated as a single technological discovery."
+    },
+    {
+      "id": "consonance",
+      "type": "heading",
+      "text": "Consonance"
+    },
+    {
+      "id": "p-22",
+      "type": "paragraph",
+      "text": "The Pythagorean tradition associates consonance with simple ratios: an octave is 2:1, a pure fifth 3:2, and a pure fourth 4:3. On an ideal string with constant tension and density, halving the sounding length doubles its frequency; shortening it to two-thirds produces a fifth. The relationship is physical, not a matter of national taste. But the decision to build an entire scale from pure fifths is something more than a physical observation. It places a particular relationship at the center of music-making, and this preference has consequences elsewhere in the system (Barbour 1951; Nolan 2002). Twelve consecutive pure fifths do not land exactly at the pitch reached by seven octaves. The disagreement is the Pythagorean comma:"
+    },
+    {
+      "id": "pythagorean-comma-equation",
+      "type": "equation",
+      "text": "(3/2)¹² / 2⁷ = 531441 / 524288 ≈ 1.01364.",
+      "description": "The Pythagorean comma: twelve pure fifths compared with seven octaves."
+    },
+    {
+      "id": "p-25",
+      "type": "paragraph",
+      "text": "It is approximately 23.46 cents, where an interval of frequency ratio 𝑥 has size 1200log2(𝑥) cents. The mismatch cannot be eliminated by more accurate tuning: powers of three and powers of two do not coincide. On a conventional keyboard with twelve notes per octave, some fifth must absorb the discrepancy, or the discrepancy must be spread among several fifths. The pure major third introduces another competing ideal. Four pure fifths, reduced by two octaves, give a third of 81:64; a just major third is 5:4. Their ratio, (81/64)/(5/4) = 81/80, is the syntonic comma, approximately 21.51 cents. A tuning that prizes fifths may therefore produce thirds that differ from those favored by musicians seeking pure triads."
+    },
+    {
+      "id": "p-26",
+      "type": "paragraph",
+      "text": "These calculations do not prove that purity is unimportant. They establish why a fixed set of pitches cannot preserve every desired consonance simultaneously. A singer can adjust an interval according to the current harmony, while a conventional keyboard key remains in place when the harmony changes. This creates a choice among musical priorities rather than a contest between correct and incorrect arithmetic. The historical question becomes: whose priorities counted, and how did those priorities change?"
+    },
+    {
+      "id": "zarlino-vs-galilei",
+      "type": "heading",
+      "text": "Zarlino vs Galilei"
+    },
+    {
+      "id": "p-28",
+      "type": "paragraph",
+      "text": "Gioseffo Zarlino's Le istitutioni harmoniche (1558) is an instructive starting point. Zarlino organized consonant intervals around the senario, the numbers one through six. These numbers account for the octave and fifth as well as the pure major third, 5:4, and minor third, 6:5. Frequencies in the relationship 4:5:6 form a just major triad: its two thirds and outer fifth can all be represented by simple ratios. In a polyphonic tradition increasingly interested in consonant thirds, this extension of earlier numerical theory could explain sounds that the older emphasis on octave, fifth, and fourth did not fully accommodate. Jacomien Prins and H. Floris Cohen describe Zarlino's defense of just proportions as an attempt to retain a relationship between mathematical order and sounding music, even as instrument tuning presented practical obstacles (Prins and Cohen 2018). The theory was not just an abstract devotion to numbers; it selected relationships that helped describe an aesthetic of harmonious polyphony. Zarlino was also concerned with the expressive relationship between music and text. In a passage citing Plato, he gave speech priority over the other musical elements. This qualification matters: his numerical system was one part of a larger account of musical purpose, not a belief that calculation alone could compose a satisfactory madrigal. To set him against Galilei as if one cared only about mathematics and the other only about hearing would repeat the simplification that the opening dialogue deliberately invites us to question."
+    },
+    {
+      "id": "p-29",
+      "type": "paragraph",
+      "text": "That aesthetic becomes difficult to implement when the same written pitch must fulfill different harmonic duties. Let C have frequency 1. A reached through a pure major third to E and then a pure fourth has the ratio (5/4)(4/3) = 5/3. A reached through three pure fifths, lowered by an octave, has the ratio (3/2)³/2 = 27/16. The two pitches differ by the syntonic comma. A singer can negotiate the difference as a phrase develops; a lute fret or organ key cannot relocate itself every time A changes function. The point of the calculation is not that the music must choose one A forever. It is that instruments offering different kinds of control make different compromises attractive."
+    },
+    {
+      "id": "p-30",
+      "type": "paragraph",
+      "text": "Vincenzo Galilei brought the practical knowledge of a lutenist to this problem. In his Dialogo della musica antica et della moderna (1581), he drew on Aristoxenus's attention to hearing and divided sounding intervals rather than relying exclusively on the numerical proportions of string lengths. Prins and Cohen quote Galilei's claim that “the quality of sound was what had to be distributed in equal parts” (Prins and Cohen 2018, section 3a, citing Galilei's Dialogo, 127). This is a more revealing historical statement than the fictional opposition between “perfection” and “possibility.” Galilei did not simply reject calculation. He disputed what ought to be measured and whether abstract arithmetic should govern the intervals actually used by musicians. The even spacing of frets is particularly valuable when an instrument must reproduce comparable finger patterns and transpose passages. In the lute, a regular arrangement of pitches solves a physical and musical problem that a list of pure ratios alone does not solve. Nor should Zarlino and Galilei be reduced to philosopher versus performer. Both were concerned with the expressive power of music, and Galilei's interest in ancient Greek musical practice was as much an aesthetic project as an argument about frets. Their dispute reveals two simultaneous demands: music theory should explain consonance, and it should account for what instruments and performers can accomplish. The balance between those demands differs from one practice to another. This is a reason to study an argument between named musicians instead of assuming that a whole Renaissance society possessed one view of tuning. The controversy occurred within a musical culture whose members disagreed about which authority…numerical theory, hearing, or performance, should carry the most weight."
+    },
+    {
+      "id": "meantone-well-temperament-and-equal-temperament",
+      "type": "heading",
+      "text": "Meantone, Well-Temperament, and Equal Temperament"
+    },
+    {
+      "id": "p-33",
+      "type": "paragraph",
+      "text": "Several historical temperaments can be read as practical responses to the same mathematical incompatibilities. Quarter-comma meantone narrows its generating fifths so that four consecutive fifths, reduced by two octaves, produce a pure major third. If the adjusted fifth has ratio 𝑞, then 𝑞⁴/4 = 5/4, and therefore 𝑞 = ⁴√5. This fifth is about 696.58 cents, rather than the pure fifth's 701.96 cents. It offers attractive thirds in many frequently used keys, but on a conventional twelve-note keyboard the remaining accumulated error can create a markedly unusable “wolf” interval. Its compromise makes sense when particular consonances and tonal regions are more important than easy access to every key (Barbour 1951)."
+    },
+    {
+      "id": "p-34",
+      "type": "paragraph",
+      "text": "Circulating well-temperaments make a different bargain. By distributing the adjustments among the fifths, they can avoid an intolerable wolf while retaining unequal sizes for thirds in different keys. A composer may value those distinctions as expressive characteristics. The phrase well-tempered, however, is not synonymous with equal-tempered. That Bach wrote The Well-Tempered Clavier in every major and minor key does not establish that his instrument used the identical semitone ratios of modern 12-TET (Duffin 2007). A keyboard can be usable in every key without every key sounding exactly alike. A musician who wishes to move among keys may prefer well-temperament, while one who values identical transpositions may prefer equal temperament; both are responses to a specific repertorial problem."
+    },
+    {
+      "id": "p-36",
+      "type": "paragraph",
+      "text": "Equal temperament makes uniformity explicit. If each of twelve semitones has ratio 𝑟, and twelve of them must make an octave, then 𝑟¹² = 2, hence 𝑟 = 2¹⁄¹². Starting from a reference frequency 𝑓₀, a pitch 𝑛 semitones away has frequency"
+    },
+    {
+      "id": "equal-temperament-frequency-equation",
+      "type": "equation",
+      "text": "𝑓ₙ = 𝑓₀2ⁿ⁄¹².",
+      "description": "Frequency of a note n semitones from the reference frequency."
+    },
+    {
+      "id": "p-38",
+      "type": "paragraph",
+      "text": "Its fifth measures exactly 700 cents and its major third 400 cents; the just major third is approximately 386.31 cents. Equal temperament therefore loses some purity but gains a property useful to fixed-pitch instruments: transposing a passage leaves the ratios among its notes unchanged. Calling that exchange worthwhile is a musical judgment, not another mathematical discovery. Michael Page demonstrates the importance of such judgments by comparing four historical tunings under different ways of weighting consonant intervals. His study considers both equal weights across intervals and weights based on their duration in selected Bach preludes. Equal temperament performs strongly by several criteria when keys are weighted equally, while the results vary with the repertoire and evaluation method (Page 2004). The conclusion is not that mathematics fails to distinguish the systems. It is that the standards by which we evaluate the systems must first be stated."
+    },
+    {
+      "id": "p-39",
+      "type": "paragraph",
+      "text": "The history is also not confined to Europe. In Ming-dynasty China, Zhu Zaiyu described a precise mathematical division of the octave into twelve equal ratios in 1584. Alexander Rehding warns against treating this as merely a competition over which civilization invented 12-TET first. His analysis of Zhu's use of the qin and the traditional twelve lü pitch-pipes shows how theoretical knowledge was carried by different instruments and cultural practices (Rehding 2022). The same frequency ratio need not lead to the same performance tradition. Mathematical availability, musical attractiveness, and widespread adoption are separate events; the difference between them is central to the history of temperament."
+    },
+    {
+      "id": "helmholtz-and-the-limits-of-acoustic-explanation",
+      "type": "heading",
+      "text": "Helmholtz and the Limits of Acoustic Explanation"
+    },
+    {
+      "id": "p-41",
+      "type": "paragraph",
+      "text": "Hermann von Helmholtz's On the Sensations of Tone provides a bridge between the measurable properties of sound and historically changing taste. His examination of harmonic partials and audible beats helps explain why certain intervals produce different kinds of roughness. These are constraints on hearing, not inventions of a tuning committee. Yet their aesthetic significance is not automatic: roughness might be treated as something to avoid, a tension to resolve, or a sound worth cultivating. Helmholtz states that the system of scales and harmony does not rest “solely upon inalterable natural laws” but also reflects changing aesthetic principles (Helmholtz 1885, 235). He does not mean that musical taste escapes acoustics. Rather, acoustic facts are not sufficient to explain the organization of an entire musical practice."
+    },
+    {
+      "id": "p-42",
+      "type": "paragraph",
+      "text": "This distinction sharpens the earlier comparison. The two A's in the Zarlino/Galilei example really do differ by 81:80; no amount of cultural interpretation eliminates that difference. What culture changes is how performers respond to it. Likewise, the advantages of 12-TET for transposition are demonstrable, but a composer need not regard transposition as more valuable than pure thirds. Helmholtz helps explain why a tuning controversy can remain meaningful after all parties understand the arithmetic. A mathematical measurement can identify the costs of a decision without supplying the values that justify paying them."
+    },
+    {
+      "id": "concert-pitch",
+      "type": "heading",
+      "text": "Concert Pitch"
+    },
+    {
+      "id": "p-44",
+      "type": "paragraph",
+      "text": "The nineteenth-century campaign to establish a concert pitch presents a different but related historical problem. Whereas temperament determines relative intervals, concert pitch asks where those intervals should sit in absolute frequency. Fanny Gribenski argues in Tuning the World that the modern A=440 reference was not the straightforward result of acoustic research but the product of negotiations involving performers, governments, scientists, instrument makers, and engineers (Gribenski 2023). The dispute became urgent when orchestral pitch varied among cities and institutions. Singers had to accommodate instruments built to different references, and makers faced problems when their products were combined. Unlike the comma, this problem did not require sacrificing the purity of one interval to improve another. It required people who might not agree about music to accept the same reference."
+    },
+    {
+      "id": "p-45",
+      "type": "paragraph",
+      "text": "In France, a commission appointed under Napoleon III settled on A=435 in 1859, establishing the diapason normal. The commission sought to counteract rising and inconsistent pitch, especially the burdens that some higher pitches imposed on singers. The decree was a means of coordinating an operatic and industrial musical world; it did not make 435 Hz a property of nature. Gillin and Gribenski's analysis of the commission shows that scientific measurement, vocal physiology, and the interests of manufacturers all entered its deliberations (Gillin and Gribenski 2021). Even a national decree could not ensure immediate uniformity: instruments, temperatures, local habits, and the requirements of performance complicated implementation. Agreement on a number was easier than agreement in practice."
+    },
+    {
+      "id": "p-46",
+      "type": "paragraph",
+      "text": "Britain's Society of Arts admired the prospect of uniform pitch but confronted a different question: who possessed the authority to impose it? France's government could issue a decree; the Society operated within a political culture suspicious of such intervention. Its vice-president Harry Chester proposed what he called a “voluntary law for ourselves,” hoping that professional endorsement and public opinion would bring makers and performers into agreement (quoted in Gillin and Gribenski 2021). This phrase is revealing. Chester wanted the effect of regulation without the coercive machinery associated with the French state. The point was not that British music sounded fundamentally different from French music; it was that a shared technical standard had to be justified through different political institutions."
+    },
+    {
+      "id": "p-47",
+      "type": "paragraph",
+      "text": "The Society's inquiry also exposed disagreements within Britain. Some violinists favored a higher pitch for its increased brilliance, while singers described strain and fatigue from rising orchestral standards. The same physical change could be interpreted as an aesthetic improvement by one group and a practical injury by another. At the same time, the astronomer John Herschel promoted C=512, a mathematically convenient power of two, while the Society's committee recommended C=528 in 1860. The recommended value was a compromise between competing claims, not the inevitable result of calculating more precisely (Gillin and Gribenski 2021). The contrast becomes still clearer in the Society’s own procedure. Its committee canvassed musical institutions and instrument builders about the desirability of uniformity and the pitch they could accept. An appeal to scientific exactness therefore coexisted with an attempt to manufacture agreement among people whose preferences were already divided. Herschel’s elegant number could be calculated without consulting anyone; a useful national reference could not. The disagreement was not simply a dispute between science and music but an argument about whether legitimacy came from measurement, professional consent, or the authority to enforce compliance. The fact that Britain did not subsequently achieve uniformity shows the limits of an agreed recommendation when institutions lacked the power or consensus to make it stick."
+    },
+    {
+      "id": "p-48",
+      "type": "paragraph",
+      "text": "These examples make a clearer historical claim possible than simply observing that societies have different tastes. France and Britain faced much the same acoustic and commercial problem, yet the means used to establish a standard…and the reasons participants gave for accepting one, were shaped by their political arrangements. Even within each country, the ideals of singers, instrumentalists, mathematicians, and instrument makers came into conflict. The distinction resembles the earlier Renaissance debate, but the object of negotiation has changed: Zarlino and Galilei disagreed about useful interval relationships, while the pitch reformers disagreed about the authority and value of a common reference frequency."
+    },
+    {
+      "id": "p-49",
+      "type": "paragraph",
+      "text": "Later negotiations crossed national borders. A=435 was adopted by several European countries at Vienna in 1885, while the United States increasingly favored A=440 as musical manufacturing, broadcasting, and commercial performance expanded. An international conference endorsed A=440 in 1939, and ISO issued a corresponding standard in 1955 (Gribenski 2023). The change from A=435 to A=440 is about 19.79 cents. The numerical difference is small; the historical consequences of obtaining agreement were not. As Gribenski emphasizes, the ability of a standard to travel and persist depended on international influence and material networks, not simply its measurable frequency. Even today, historical-performance ensembles may favor A=415, and modern orchestras do not all use exactly 440. A standard is a shared starting point, not a command that makes every other practice obsolete."
+    },
+    {
+      "id": "digital-audio-and-the-future",
+      "type": "heading",
+      "text": "Digital Audio and the Future"
+    },
+    {
+      "id": "p-51",
+      "type": "paragraph",
+      "text": "In a modern digital audio workstation, the same tension appears in an especially practical form. A MIDI note number is an instruction that a receiving instrument interprets; it is not itself a vibration at a specified frequency. Under the familiar convention, note 69 corresponds to the A above middle C, commonly at 440 Hz, but the instrument can be retuned. Ableton Live 12 uses 12-TET by default while allowing users to load other systems, including Scala tuning files. Its documentation explains that exported MIDI clips do not necessarily preserve the tuning in which the notes were created. A collaborator may open the same note numbers and hear different pitches unless the relevant tuning information is also communicated (Ableton, “Tuning Systems FAQ”). The full Ableton project can retain its tuning, but a standard exported MIDI clip does not necessarily do so. This difference between a project and an exchange format makes interoperability a tangible musical decision rather than a vague claim about the influence of technology. This is not a hypothetical philosophical problem. It is one precise reason a default is useful: it reduces ambiguity between people and devices."
+    },
+    {
+      "id": "p-52",
+      "type": "paragraph",
+      "text": "The digital example also prevents an overly simple conclusion that standardization merely restricts art. Software makes 12-TET convenient, but it also allows pitches that would require unusual frets, additional keyboard keys, or more flexible instruments in acoustic performance. The same technology can reinforce a common convention and lower the cost of departing from it. I suspect that 12-TET will remain dominant in many Western production contexts because instruments, music education, and software exchange already assume it. That is a prediction about established practices, not a proof that the system is best or that microtonal music cannot become more accessible. Looking at MIDI in this way returns the paper to its historical question: a standard persists when people find it useful and when the institutions surrounding them make it easy to share."
+    },
+    {
+      "id": "conclusion",
+      "type": "heading",
+      "text": "Conclusion"
+    },
+    {
+      "id": "p-54",
+      "type": "paragraph",
+      "text": "The history examined here shows two processes working together. First, musicians evaluate tuning systems according to particular artistic and instrumental goals. The Pythagorean and syntonic commas demonstrate why different desirable intervals cannot all remain pure in a fixed twelve-note arrangement. Zarlino's treatment of consonant proportions and Galilei's attention to hearing and fretted instruments show how that constraint became a debate about what musical theory ought to explain. Meantone, circulating well-temperaments, and 12-TET offer different compromises, whose advantages depend on repertoire and performance. Second, standards spread through institutions that can teach, manufacture, regulate, and communicate them. The French and British pitch debates demonstrate that even when musicians recognize the value of a common reference, they may disagree about its level and about who should choose it. The later history of A=440 and the familiar defaults of digital audio illustrate how an agreement can become easier to preserve once many others rely on it."
+    },
+    {
+      "id": "p-55",
+      "type": "paragraph",
+      "text": "The central argument, then, is that the adoption of musical pitch conventions cannot be explained by their acoustic properties alone: it depends on how musicians value particular compromises and how communities make those choices reproducible. This does not make all tunings equivalent, or reduce musical history to personal preference. A pure third and an equal-tempered third sound different; a government decree and a voluntary resolution have different powers. To understand why one system is adopted, we must be able to explain both what it makes musically possible and what enabled its users to agree upon it. The opening question of what makes an interval consonant has an acoustic answer. The question of which consonances a musical culture should prioritize has a history."
+    },
+    {
+      "id": "bibliography",
+      "type": "heading",
+      "text": "Bibliography"
+    },
+    {
+      "id": "p-57",
+      "type": "reference",
+      "text": "Ableton. “Tuning Systems FAQ.” Accessed November 13, 2026. https://help.ableton.com/hc/en-us/articles/11535414344476-Tuning-Systems-FAQ."
+    },
+    {
+      "id": "p-58",
+      "type": "reference",
+      "text": "Barbour, J. Murray. Tuning and Temperament: A Historical Survey. East Lansing: Michigan State College Press, 1951."
+    },
+    {
+      "id": "p-59",
+      "type": "reference",
+      "text": "Duffin, Ross W. How Equal Temperament Ruined Harmony (and Why You Should Care). New York: W. W. Norton, 2007."
+    },
+    {
+      "id": "p-60",
+      "type": "reference",
+      "text": "Gillin, Edward, and Fanny Gribenski. “The Politics of Musical Standardization in Nineteenth-Century France and Britain.” Past & Present 251, no. 1 (2021): 153–87. https://doi.org/10.1093/pastj/gtaa007."
+    },
+    {
+      "id": "p-61",
+      "type": "reference",
+      "text": "Gribenski, Fanny. Tuning the World: The Rise of 440 Hertz in Music, Science, and Politics, 1859–1955. Chicago: University of Chicago Press, 2023."
+    },
+    {
+      "id": "p-62",
+      "type": "reference",
+      "text": "Helmholtz, Hermann von. On the Sensations of Tone as a Physiological Basis for the Theory of Music. Translated by Alexander J. Ellis. 2nd English ed. London: Longmans, Green, 1885."
+    },
+    {
+      "id": "p-63",
+      "type": "reference",
+      "text": "Nolan, Catherine. “Music Theory and Mathematics.” In The Cambridge History of Western Music Theory, edited by Thomas Christensen, 272–304. Cambridge: Cambridge University Press, 2002."
+    },
+    {
+      "id": "p-64",
+      "type": "reference",
+      "text": "Page, Michael F. “Perfect Harmony: A Mathematical Analysis of Four Historical Tunings.” The Journal of the Acoustical Society of America 116, no. 4 (2004): 2416–26. https://doi.org/10.1121/1.1788732."
+    },
+    {
+      "id": "p-65",
+      "type": "reference",
+      "text": "Prins, Jacomien, and H. Floris Cohen. “Knowing Heaven and Earth through Music.” Utrecht University, 2018. Longer prepublication version of “Music, Science, and Philosophy,” in The Cambridge History of Sixteenth-Century Music. https://research-portal.uu.nl/ws/files/268274373/cambridge-music-definitieve-oerversie.pdf."
+    },
+    {
+      "id": "p-66",
+      "type": "reference",
+      "text": "Rehding, Alexander. “Fine-Tuning a Global History of Music Theory: Divergences, Zhu Zaiyu, and Music-Theoretical Instruments.” Music Theory Spectrum 44, no. 2 (2022): 260–75. https://doi.org/10.1093/mts/mtac004."
+    }
+  ]
+}

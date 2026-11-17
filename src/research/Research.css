@@ -1,0 +1,53 @@
+.research-page {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 34px 12px 100px;
+  color: #111;
+  background: #fff;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  overflow-wrap: break-word;
+}
+.research-page *, .research-page *::before, .research-page *::after { box-sizing: border-box; }
+.research-page a { color: #064e94; text-decoration: underline; text-underline-offset: 3px; }
+.research-page a:focus-visible, .research-page summary:focus-visible {
+  outline: 3px solid #111; outline-offset: 3px;
+}
+.research-overline { font-size: .85rem; letter-spacing: .055em; margin: 0 0 14px; color: #555; }
+.research-landing-header { border-bottom: 1px solid #bdbdbd; padding-bottom: 32px; }
+.research-landing-header h1 { font-weight: normal; font-size: clamp(2.5rem, 6vw, 3.5rem); line-height: 1.12; margin: 0 0 17px; }
+.research-landing-header > p:last-child { font-size: 1.2rem; line-height: 1.5; margin: 0; }
+.research-project-list { padding-top: 32px; }
+.research-project-list h2 { font-size: 1.2rem; font-weight: normal; margin: 0 0 27px; }
+.research-project { border-top: 1px solid #ddd; padding: 19px 0 0; }
+.research-project h3 { font-weight: normal; font-size: 1.75rem; margin: 0 0 13px; }
+.research-project p { margin: 9px 0; line-height: 1.5; }
+.research-muted { font-size: .92rem; color: #555; }
+.research-back { font-size: .95rem; margin-bottom: 35px; }
+.research-essay-header { text-align: center; margin: 0 auto 46px; }
+.research-essay-header h1 { font-size: clamp(2.15rem, 5vw, 3.35rem); font-weight: normal; line-height: 1.12; margin: 8px 0 20px; }
+.research-byline { font-size: 1.05rem; line-height: 1.55; margin: 0 0 10px; }
+.research-toc { border-top: 1px solid #bdbdbd; border-bottom: 1px solid #bdbdbd; padding: 22px 2px; margin-bottom: 50px; }
+.research-toc h2 { font-size: 1.1rem; font-weight: normal; margin: 0 0 14px; }
+.research-toc ol { margin: 0; padding-left: 1.45rem; columns: 2; column-gap: 40px; }
+.research-toc li { break-inside: avoid; margin: 0 0 9px; line-height: 1.45; font-size: .96rem; }
+.research-paper-body { max-width: 720px; margin: 0 auto; font-size: 1.14rem; line-height: 1.76; }
+.research-paper-body > p { margin: 0 0 1.38em; }
+.research-section-heading { font-weight: normal; font-size: clamp(1.5rem, 3.7vw, 1.9rem); line-height: 1.25; text-align: center; margin: 2.4em 0 1.15em; scroll-margin-top: 20px; }
+.research-paper-body > .research-dialogue { margin-bottom: .95em; }
+.research-equation { margin: 1.2em 0 1.5em; text-align: center; overflow-x: auto; }
+.research-equation [role="math"] { font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif; font-size: 1.25rem; white-space: nowrap; padding: 5px; }
+.research-paper-body > .research-reference { padding-left: 1.55em; text-indent: -1.55em; font-size: 1.02rem; line-height: 1.6; margin: 0 0 1em; overflow-wrap: anywhere; }
+.research-expansion { border-top: 1px solid #d2d2d2; border-bottom: 1px solid #d2d2d2; margin: 2em 0; }
+.research-expansion summary { cursor: pointer; font-size: 1rem; font-weight: bold; padding: 13px 5px; }
+.research-expansion-body { padding: 0 5px 17px; line-height: 1.65; }
+.research-essay-footer { border-top: 1px solid #bdbdbd; margin-top: 58px; padding-top: 25px; }
+@media (max-width: 680px) {
+  .research-page { padding: 20px 2px 70px; }
+  .research-toc { margin-bottom: 36px; }
+  .research-toc ol { columns: 1; }
+  .research-paper-body { font-size: 1.05rem; line-height: 1.7; }
+  .research-paper-body > .research-reference { font-size: .98rem; }
+}
+@media (prefers-reduced-motion: reduce) { .research-page { scroll-behavior: auto; } }

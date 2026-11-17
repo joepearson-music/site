@@ -12,6 +12,8 @@ import SelfTitled from "./pages/selftitled";
 import Pre876876 from "./pages/pre876876";
 import Lessons from "./pages/lessons"; // NEW
 import Backstage from "./backstage/Backstage";
+import Research from "./research/Research";
+import ResearchPaper from "./research/ResearchPaper";
 
 const App: React.FC = () => {
   useEffect(() => {
@@ -23,6 +25,7 @@ const App: React.FC = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/resume", label: "Resume" },
+    { path: "/research", label: "Research" },
   ];
 
   const styles: Record<string, React.CSSProperties> = {
@@ -80,6 +83,8 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/resume" element={<Resume />} />
+            <Route path="/research" element={<Research />} />
+            <Route path="/research/on-temperament-and-tuning" element={<ResearchPaper />} />
 
             {/* Hidden-but-real routes */}
             <Route path="/selftitled" element={<SelfTitled />} />
