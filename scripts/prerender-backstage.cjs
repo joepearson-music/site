@@ -99,6 +99,7 @@ const essentialText = [
   "Sarabande in G",
   "Sarabande in A-flat minor",
   "Research sources",
+  "Nature is Music (cicadas in the tropical night)",
 ];
 for (const text of essentialText) {
   if (!rendered.includes(text.replace(/'/g, "&#x27;")) && !rendered.includes(text)) {
@@ -124,7 +125,7 @@ html = html.replace(
   "<title>Backstage — Joe Pearson | Music, Research and Recordings</title>"
 );
 const searchMetadata = [
-  '<meta name="robots" content="index, follow"/>',
+  '<meta name="robots" content="noindex, nofollow"/>',
   '<link rel="canonical" href="https://joepearson.music/backstage"/>',
   '<meta property="og:type" content="website"/>',
   '<meta property="og:title" content="Backstage — Joe Pearson"/>',
@@ -140,8 +141,8 @@ html = html.replace(
   "<noscript>Backstage's essays and descriptions are available below without JavaScript.</noscript>"
 );
 
-if (/noindex|nofollow/i.test(html)) {
-  throw new Error("Crawled HTML must not contain noindex/nofollow directives.");
+if (!html.includes('name="robots" content="noindex, nofollow"')) {
+  throw new Error("Backstage prerender must retain noindex, nofollow.");
 }
 const outputDirectory = path.join(buildDir, "backstage");
 fs.mkdirSync(outputDirectory, { recursive: true });
