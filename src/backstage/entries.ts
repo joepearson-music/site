@@ -324,6 +324,229 @@ export const backstageEntries: BackstageEntry[] = [
             "text": "The bird on the Florida road did not know it was being composed. Ellington's achievement lay in recognizing a possibility in that encounter, then making something that could outlast the moment. Nature was not simply a collection of picturesque subjects for him. It was a language of attention: a way to notice fleeting experiences, give them musical form, and invite others to hear relationships they might otherwise pass by."
           }
         ]
+      },
+      {
+        "type": "heading",
+        "text": "Sources and listening references",
+        "level": 3
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "1. Duke Ellington, *Music Is My Mistress* (Doubleday, 1973). Original primary source for the Florida birdcall anecdote; consult a physical or licensed digital copy for exact wording. An excerpt is reproduced and contextualized in Christopher Carroll, "
+          },
+          {
+            "text": "“Secret Music,” *Lapham's Quarterly*",
+            "href": "https://www.laphamsquarterly.org/music/secret-music"
+          },
+          {
+            "text": "."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "2. Christopher Carroll, "
+          },
+          {
+            "text": "“Secret Music: On Duke Ellington's *The Queen's Suite*,” *Lapham's Quarterly*",
+            "href": "https://www.laphamsquarterly.org/music/secret-music"
+          },
+          {
+            "text": ". Historical and interpretive account of the suite."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "3. "
+          },
+          {
+            "text": "Carnegie Hall, “Duke Ellington”",
+            "href": "https://www.carnegiehall.org/About/History/Carnegie-Hall-Icons/Duke-Ellington"
+          },
+          {
+            "text": ". Career overview. The Cotton Club and collaborator history are contextual background rather than the central evidence for the essay."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "4. Jack Kenny, "
+          },
+          {
+            "text": "“Duke Ellington – The Queen's Suite,” *Jazz Views*",
+            "href": "https://jazzviews.net/duke-ellington-the-queens-suite/"
+          },
+          {
+            "text": " (September 14, 2023). Personnel, 1959 sessions, and discussion of the piano/bass performance. See also "
+          },
+          {
+            "text": "“The Long-Playing Duke,” *Village Voice*",
+            "href": "https://www.villagevoice.com/the-long-playing-duke/"
+          },
+          {
+            "text": " for the suite's private release history."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "5. Smithsonian National Museum of American History, [“Sunset and the mockingbird [music],” Duke Ellington Collection](https://www.americanhistory.si.edu/es/collections/archival-item/sova-nmah-ac-0301-ref45750), NMAH.AC.0301_ref45750. Catalog record for surviving parts, not an openly digitized full score."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "6. Smithsonian National Museum of American History, [“Single petal of a rose [music],” Duke Ellington Collection](https://americanhistory.si.edu/collections/archival-item/sova-nmah-ac-0301-ref45096), NMAH.AC.0301_ref45096. Catalog record for piano and bass parts."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "7. Boston Symphony Orchestra, "
+          },
+          {
+            "text": "“Suite from The River”",
+            "href": "https://www.bso.org/works/suite-from-the-river"
+          },
+          {
+            "text": ". Commission, collaboration, scoring, and premiere context."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "8. American Ballet Theatre, "
+          },
+          {
+            "text": "“The River,” Repertory Archive",
+            "href": "https://www.abt.org/ballet/the-river/"
+          },
+          {
+            "text": ". Official premiere date and named ballet scenes."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "9. Los Angeles Philharmonic, "
+          },
+          {
+            "text": "“The River Suite”",
+            "href": "https://www.laphil.com/works/the-river-suite"
+          },
+          {
+            "text": ". Historical program note and discussion of Ellington's cycle-of-water metaphor."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "10. "
+          },
+          {
+            "text": "Charles Mingus Discography, *Money Jungle* session",
+            "href": "https://www.jazzdisco.org/charles-mingus/catalog/"
+          },
+          {
+            "text": ". Personnel and recording date."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "11. Ken Dryden, "
+          },
+          {
+            "text": "*Money Jungle* review, AllMusic",
+            "href": "https://www.allmusic.com/album/money-jungle-mw0000187978"
+          },
+          {
+            "text": ". Trio performance context and recorded release."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "12. Ellington, *Music Is My Mistress* (1973), account of the trio's “Little African Flower” prompt; a secondary reproduction appears in "
+          },
+          {
+            "text": "“Money Jungle (1962) – A Masterpiece of Disharmony”",
+            "href": "https://classicrockreview.wordpress.com/2021/12/24/duke-ellington-charlie-mingus-max-roach-money-jungle-1962-a-masterpiece-of-disharmony/"
+          },
+          {
+            "text": ". Verify exact quotation against the book before quoting it directly."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "13. MacEwan University, Fitt Jazz Collection, "
+          },
+          {
+            "text": "“Transblucency”",
+            "href": "https://fittcollection.macewan.ca/node/55944"
+          },
+          {
+            "text": ". Discographic record: July 9, 1946; Kay Davis among personnel."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "14. Nat Hentoff, reprinted liner notes on "
+          },
+          {
+            "text": "“Duke Ellington and His Orchestra — At His Very Best”",
+            "href": "https://daveratcliffepiano.com/DE-AtHisVeryBest-1940-46.html"
+          },
+          {
+            "text": ". Description of the wordless voice and subtitle."
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "15. John Edward Hasse, "
+          },
+          {
+            "text": "*Beyond Category* recording notes",
+            "href": "https://johnedwardhasse.com/wp-content/uploads/2024/11/John-E-Hasse-Beyond-Category-CD-set-booklet.pdf"
+          },
+          {
+            "text": ", entry on “Mood Indigo.” Discussion of the 1930 recording and unusual instrumental voicing."
+          }
+        ]
       }
     ]
   },
