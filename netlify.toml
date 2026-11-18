@@ -3,17 +3,16 @@
   publish = "build"
   functions = "netlify/functions"
 
-# Backstage is intentionally public, indexable and served with pre-rendered HTML.
-# The page contains its full text even when a crawler does not run JavaScript.
+# Backstage is accessible by direct link but excluded from search indexing.
 [[headers]]
   for = "/backstage"
   [headers.values]
-    X-Robots-Tag = "index, follow"
+    X-Robots-Tag = "noindex, nofollow"
 
 [[headers]]
   for = "/backstage/"
   [headers.values]
-    X-Robots-Tag = "index, follow"
+    X-Robots-Tag = "noindex, nofollow"
 
 # Research is unlisted: retain direct-link access, discourage search indexing.
 [[headers]]
