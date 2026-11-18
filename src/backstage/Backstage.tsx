@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BackstageEntryView } from "./BackstageEntryView";
 import { backstageEntries } from "./entries";
 import "./Backstage.css";
 
 const Backstage: React.FC = () => {
+  useEffect(() => {
+    let meta = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
+    if (!meta) { meta = document.createElement("meta"); meta.name = "robots"; document.head.appendChild(meta); }
+    meta.content = "noindex, nofollow";
+    return () => { if (meta?.content === "noindex, nofollow") meta.remove(); };
+  }, []);
   const orderedEntries = [...backstageEntries].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
