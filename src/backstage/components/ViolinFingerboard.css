@@ -1,0 +1,57 @@
+.fingerboard {
+  width: 100%;
+  color: #171717;
+  font-family: inherit;
+  text-align: center;
+}
+.fingerboard-help, .fingerboard-caption {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #555;
+}
+.fingerboard-matrix {
+  position: relative;
+  width: min(100%, 440px);
+  margin: 14px auto 18px;
+  aspect-ratio: 440 / 854;
+  touch-action: manipulation;
+}
+.fingerboard-lines {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.fingerboard-lines line {
+  stroke: #9a9a9a;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+.fingerboard-note {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  width: clamp(36px, 10vw, 44px);
+  height: clamp(36px, 10vw, 44px);
+  border: 1px solid #666;
+  border-radius: 50%;
+  background: #fff;
+  color: #171717;
+  padding: 0;
+  font: inherit;
+  font-size: clamp(11px, 2.8vw, 13px);
+  line-height: 1;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.fingerboard-note:hover { border-color: #171717; }
+.fingerboard-note:focus-visible { outline: 2px solid #171717; outline-offset: 3px; z-index: 2; }
+.fingerboard-note--active { background: #171717; color: #fff; border-color: #171717; }
+.fingerboard-error { color: #9f2727; font-size: 14px; margin: 10px 0; }
+@media (max-width: 420px) {
+  .fingerboard-help, .fingerboard-caption { font-size: 12px; }
+}

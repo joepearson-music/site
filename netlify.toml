@@ -19,3 +19,9 @@
   for = "/research*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow"
+
+# The standalone violin test route is likewise unlisted.
+[[headers]]
+  for = "/backstage/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"

@@ -12,6 +12,7 @@ import SelfTitled from "./pages/selftitled";
 import Pre876876 from "./pages/pre876876";
 import Lessons from "./pages/lessons"; // NEW
 import Backstage from "./backstage/Backstage";
+import BackstageViolinPage from "./backstage/components/BackstageViolinPage";
 import Research from "./research/Research";
 import ResearchPaper from "./research/ResearchPaper";
 
@@ -93,6 +94,7 @@ const App: React.FC = () => {
             <Route path="/newmusic" element={<NewMusic />} />
             <Route path="/lessons" element={<Lessons />} /> {/* NEW */}
             <Route path="/backstage" element={<Backstage />} />
+            <Route path="/backstage/violin" element={<BackstageViolinPage />} />
           </Routes>
         </main>
       </div>

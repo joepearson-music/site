@@ -27,3 +27,7 @@ jobs:
         env:
           CI: "false"
         run: npm run build
+      - name: Check violin pitch model
+        env:
+          CI: "true"
+        run: npm test -- --watch=false --runInBand --testPathPattern=fingerboardModel

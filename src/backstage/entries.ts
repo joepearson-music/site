@@ -7,6 +7,16 @@ import { BackstageEntry } from "./types";
  */
 export const backstageEntries: BackstageEntry[] = [
   {
+    id: "2026-11-23-violin-fingerboard",
+    title: "Violin fingerboard",
+    date: "2026-11-23",
+    summary: [{ text: "An interactive chromatic pitch grid for violin. Select notes to play pure sine waves." }],
+    blocks: [
+      { type: "custom", componentId: "violin-fingerboard" },
+      { type: "link", href: "/backstage/violin", label: "Open the violin grid on its own page" }
+    ]
+  },
+  {
     "id": "2026-11-17-nature-is-music",
     "title": "Nature is Music (cicadas in the tropical night)",
     "date": "2026-11-17",

@@ -1,5 +1,6 @@
 import React from "react";
 import DebutCovers from "./components/DebutCovers";
+import Fingerboard from "./components/ViolinFingerboard";
 
 /**
  * Reusable React components for experimental site sections.
@@ -11,4 +12,5 @@ import DebutCovers from "./components/DebutCovers";
  */
 export const backstageComponents: Record<string, React.ComponentType> = {
   "self-titled-covers": DebutCovers,
+  "violin-fingerboard": Fingerboard,
 };
